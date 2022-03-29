@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sprint Menu</title>
+    <style>
+        body{
+            background:grey
+        }
+       #navbar{
+            border: 1.5px solid black;
+            text-align: right;
+            height: 35px;
+            background: deeppink ;
+            margin-bottom: 50px;
+        
+        
+        }
+        a{
+            font-size: 30px;
+            padding: 15px;
+            margin: 20px;
+            text-decoration: none;
+            color: deeppink;
+            
+        }
+        #navbar > div{
+            float: right;
+            background-color: blueviolet;
+            margin: 0 20px;
+            border-radius: 50%;
+        }
+        #cont{
+         width: 95%;
+         margin: auto;
+         display: grid;
+         grid-gap: 3%;
+         grid-template-columns: 33% 33% 33%;
+
+     }
+     #cont> div{
+         margin: auto;
+        
+         text-align: center;
+     }
+     #cont> div> img{
+       width: 75%;
+       height: 350px;
+       border-radius: 10px;
+       box-shadow: 0 0 10px black;
+     }
+     button{
+         padding: 15px;
+         font-size: 15px;
+         background:-webkit-linear-gradient(45deg,black,white,black);
+         border-radius: 10px;
+         color: black;
+         margin-bottom: 15px;
+         margin-left: 15px;
+     }
+     h5{
+         color: blue;
+     }
+     p{
+         font-family: fantasy;
+         color: brown;
+     }
+     h3{
+         font-family: cursive;
+         color: rgb(243, 176, 30);
+     }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+       
+        <div>
+          <a href="sprint4signup.html">Signup</a>
+      </div>
+      <div>
+          <a href="sprint4login.html">login</a>
+      </div>
+      <div>
+        <a href="sprint4menu.html">Menu</a>
+    </div>
+     </div>
+      <button onclick="ShowCartItem()">
+           Show Cart Item
+      </button>
+     <div id="cont">
+
+     </div>
+</body>
+</html>
+<script>
+    let arr = [
+        {
+        image:"https://images.pexels.com/photos/2641886/pexels-photo-2641886.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        descr: "Chicken Stick",
+        price: 150,
+        time:10,
+        },
+        {
+        image:"https://images.pexels.com/photos/1824353/pexels-photo-1824353.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        descr: "Omlet Bread",
+        price: 120,
+        time:15,
+        },
+        {
+        image:"https://images.pexels.com/photos/3850838/pexels-photo-3850838.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        descr: "Omlet",
+        price: 130,
+        time:18,
+        },
+        {
+        image:"https://images.pexels.com/photos/6546024/pexels-photo-6546024.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        descr: "sandwich",
+        price: 100,
+        time:5,
+        },
+        {
+        image:"https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        descr: "pizza",
+        price: 150,
+        time:15,
+        },
+        {
+        image:"https://images.pexels.com/photos/827513/pexels-photo-827513.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        descr: "Desert",
+        price: 170,
+        time:17,
+        },
+
+        
+    ];
+
+    localStorage.setItem('foodlist',JSON.stringify(arr))
+    var arr2 = JSON.parse(localStorage.getItem('foodlist'));
+  
+    
+        var cont = document.getElementById('cont');
+        arr2.forEach(el => {
+        var div = document.createElement('div');
+        var img = document.createElement('img');
+        img.setAttribute('src',el.image);
+        
+        var para1 = document.createElement('h3');
+        para1.innerHTML = `${el.descr}`;
+        var para2 = document.createElement('p');
+        para2.innerHTML =  `Price: ${el.price} Rs.`;
+       
+        var rating = document.createElement('h5');
+        rating.innerHTML = `Time: ${el.time} Min`
+       var btn = document.createElement('button')
+        btn.textContent = "Add To Cart"
+        btn.onclick = function(){
+                AddToCart(el);
+            }
+        div.append(img,para1,para2,rating,btn);
+      
+        cont.append(div);
+
+    });
+
+
+    function AddToCart(el){
+    
+    let arr4;
+      arr4 = localStorage.getItem('mycart1');
+      if(arr4==null){
+          arr4 = [];
+      }
+      else{
+          arr3 = JSON.parse(arr4);//Json.parse(localStorage.getItem('location2'));
+        }
+      var exist = false;
+      for(var i=0 ; i<arr4.length ; i++){
+        if(arr4[i].name==el.name){
+            alert('You have Already Added This Item Into Cart ')
+             exist =true;
+             break;
+        }
+    }
+    if(!exist){
+      arr4.push(el)
+      localStorage.setItem('mycart1',JSON.stringify(arr4)); //We are storing the data in different key as Fav; 
+  }
+}
+
+function ShowCartItem(){
+    window.location.href = "sprintcart.html"; 
+
+    }
+    
+</script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Set Attributes</title>
+    <style>
+        .row{
+            padding: 10px;
+            font-size: 16px;
+        }
+        .even_row{
+            color: white;
+            background-color: black;
+        }
+        .odd_row{
+            color: black;
+            background: white;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+    </div>
+    <button onclick="createStudents()">Create</button>
+  </body>
+</html>
+
+<script>
+    var students = ['Ajay','Akshay','Anusha','Chandrashekhara','Haren','Hasaan','Mahesh','Mousumi','Pavan','Rahul','Sumanta','Venkatesh','Vetrival','Vijayendra'];
+     function createStudents(){
+         var cont = document.getElementById('container')
+         for(i=0 ; i<students.length; i++){
+             var ele = document.createElement('div');
+             ele.textContent= students[i];
+             if(i%2==0){
+                 ele.setAttribute('class','row even_row')
+             }
+             else{
+                 ele.setAttribute('class','row odd_row')
+             }
+             cont.appendChild(ele)
+         }
+     }
+</script>

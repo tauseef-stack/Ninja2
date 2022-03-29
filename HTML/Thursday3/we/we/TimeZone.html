@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Zone </title>
+    <style>
+        .outter{
+            width:30%;
+            margin: auto;
+            height: 180px;
+            background:-webkit-linear-gradient(45deg,red,black);
+            color:white;
+            text-align:center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="outter">
+        <h2>Asia/Kolkata</h2>
+        <h1>India</h1>
+        <p class="date">25/05/2020</p>
+        <h2 class="time">10:00:00 pm</h2>
+    </div>
+</body>
+</html>
+<script>
+    let indianwatch = () => {//Arrow Function
+        let country = {timezone: "Asia/Kolkata"};
+        let date = new Date().toLocaleDateString('en-US',country);
+        let time = new Date().toLocaleTimeString('en-US',country);
+        console.log(date,time)
+        document.querySelector('.date').textContent = date;
+        document.querySelector('.time').textContent = time;
+    }
+    setInterval(indianwatch,1000)//Calling function in every second
+</script>

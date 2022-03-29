@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>FRIDAY1you</title>
+    <style>
+     #cont1,#cont2,#cont3{
+         width: 95%;
+         margin: auto;
+     }
+     #cont1 > div:nth-child(1){
+         width: 100%;
+         height: 50px;
+         background: red;
+     }
+     #cont1 > div:nth-child(2){
+         width: 28.5%;
+         height: 450px;
+         background: greenyellow;
+         margin: 1.5% 1.5% 1.5% 0%;
+         float: left;
+     }
+     #cont1 > div:nth-child(3){
+         width: 68.5%;
+         height: 450px;
+         background:teal;
+         margin: 1.5% 0% 1.5% 1.5%;
+         float: left;
+     }
+     .clear{
+         clear: both;
+     }
+     
+     .row{
+         width: 100%;
+         margin: 2.5%;
+         clear: both;
+     }
+     .col-1-5{
+         width: 23%;
+         margin: 1%;
+         height: 210px;
+         background:rgb(78, 11, 141);
+         float: left;
+     }
+     .imgbox{
+         width: 30%;
+         height: 350px;
+         background: lightgrey;
+         margin: auto;
+         text-align: center;
+    }
+    .imgbox > img+h1{
+        color: blue;
+    }
+    .imgbox > img{
+        width: 30%;
+        margin: 2%;
+    }
+    .sal{
+        width: 75%;
+        margin: auto;
+        height: 150px;
+        background: whitesmoke;
+    }
+    .sal > img{
+        width: 10%;
+        margin: 0 2%;
+        height: 100%;
+        float: left;
+    }
+    .sal > h1{
+     color: red;
+    }
+    .c{
+        width: 95%;
+        margin: 40px auto;
+        background: rgb(233, 69, 9);
+        height: 150px;
+       
+    }
+    .c div{
+        float: left;
+        width:49% ;
+    }
+    .c > div:nth-child(2){
+        width: 0.5%;
+        height: 120px;
+        margin: 15px 0px;
+        background: black;
+    }
+    .c > div:nth-child(3){
+        text-align: right;
+    }
+    .c > div:nth-child(1) > h1,p{
+        margin: 15px;
+    }
+    </style>
+    </head>
+    <body>
+     <div id="cont1">
+       <div></div>
+       <div></div>
+       <div></div>
+    </div>
+
+    <div class="clear"></div>
+
+    <div id="cont2">
+         <div class="row">
+             <div class="col-1-5"></div>
+         </div>
+
+         <div class="row">
+            <div class="col-1-5"></div>
+            <div class="col-1-5"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-1-5"></div>
+            <div class="col-1-5"></div>
+            <div class="col-1-5"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-1-5"></div>
+            <div class="col-1-5"></div>
+            <div class="col-1-5"></div>
+            <div class="col-1-5"></div>
+        </div>
+
+    </div>
+
+    <div class="clear"></div>
+
+    <div id="cont3">
+        <div class="imgbox">
+            <img src="https://masai-course.s3.ap-south-1.amazonaws.com/resources/images/linus.jpg" alt="LINUS">
+            <h1>Linus Travalds</h1>
+            <h1>The creator of Linux and GitHub</h1>
+        </div>
+
+        <div class="sal">
+           <img src="https://masai-course.s3.ap-south-1.amazonaws.com/resources/images/khan.jpg" alt="Sal Khan">  
+           <h1>Sal Khan</h1>
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed fuga assumenda natus incidunt architecto eos.</p>
+        </div>
+
+        <div class="clear"></div>
+
+        <div class="c">
+           <div>
+               <h1>Ken Thompson</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, molestias.</p>
+            </div>
+           <div>
+
+           </div>
+           <div>
+               <h1>Dennis Retchie</h1>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, veritatis?</p>
+           </div>
+        </div>
+    </div>
+    </body>
+</html>

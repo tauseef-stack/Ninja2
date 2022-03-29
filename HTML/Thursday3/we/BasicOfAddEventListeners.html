@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Basics Of AddEventListeners</title>
+    </head>
+    <body>
+        <h1>Masai School</h1>
+      <button onclick="clickCall()">Click Call</button>  
+      <button id="listner">Pseudo Call</button>
+    </body>
+</html>
+<script>
+    function clickCall(){
+        alert('By Click Alert')
+    }
+    function PseudoAlert(){
+        alert('I am Pseudo Alert ')
+        document.getElementById('listner').removeEventListener('mouseover',PseudoAlert) 
+    }
+  
+   
+    document.getElementById('listner').addEventListener('mouseover',PseudoAlert)  //no bracess after function only in eventlistner block Understood.
+    document.getElementById('listner').addEventListener('dblclick',PseudoAlert)
+</script>

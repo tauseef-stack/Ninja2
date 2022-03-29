@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance</title>
+</head>
+<body>
+    <h1>Inheritance</h1>
+</body>
+</html>
+<script>
+    //Using Object.Create Method.
+    var grand = {
+        grnadFather : 'Samiullah',
+        grandMother : 'Badrunnissa',
+    }
+    var parents = Object.create(grand);
+    parents.Father = 'Abdul Majeed';
+    parents.Mother = 'Sameena';
+
+    var me = Object.create(parents);
+    me.name = 'Tauseef';
+    console.log(me);
+
+
+    //Using constructor function
+    function son(n){
+        this.name = n;
+    }
+
+ var     parenti =  {
+       Father : 'Abdul Majeed',
+        Mother : 'Sameena',
+    }
+
+ var  granda = {
+        grnadFather: 'Samiullah',
+        grandMother : 'Badrunnissa',
+ }
+ 
+ parenti.prototype = granda;
+son.prototype = parenti;
+var s = new son('Tauseef');
+console.log(s)
+
+
+</script>

@@ -1,0 +1,32 @@
+.main{
+    width:40%;
+    margin-top: 50px;
+    margin:auto;
+    display:grid;
+    grid-template-columns: 45% 45%;
+    grid-gap:20px;
+}
+.one{
+    background: green;
+    color:white;
+    border-radius: 50px;
+    text-align:center;
+}
+.two{
+    background: blue;
+    color:white;
+    border-radius: 50px;
+    text-align:center;
+}
+.three{
+    background: salmon;
+    color:white;
+    border-radius: 50px;
+    text-align:center;
+}
+.four{
+    background: cyan;
+    color:white;
+    border-radius: 50px;
+    text-align:center;
+}

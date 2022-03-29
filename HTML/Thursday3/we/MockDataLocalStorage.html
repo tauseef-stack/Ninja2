@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+    <style>
+        img{
+            width: 15%;
+        }
+        #cont{
+            display: flex;
+            flex-direction: column-reverse;
+        }
+        p{
+            font-size: 100%;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 800;
+            color: aliceblue;
+        }
+        #cont > div{
+            background: -webkit-linear-gradient(45deg,red,black,red);
+        }
+    </style>
+</head>
+<body>
+    <h1>Local Storage</h1>
+    <button onclick="products()">Show Products</button>
+    <div id="cont"></div>
+</body>
+</html>
+<script>
+    var product = [
+        {
+            name:"shoes",
+            price:"2000",
+            img:"https://th.bing.com/th/id/Ra75b7f372845eae54f79978ac9254103?rik=V8NcPRPRAzh2bA&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fsaucony-running-shoes-png-image-1500.png&ehk=CwzNYoteIHG%2f1FpDPVukVKZmLjCTnA9UXh9jNLbrEtM%3d&risl=&pid=ImgRaw"
+        },
+        {
+            name:"T-shirt",
+            price:"15000",
+            img:"https://th.bing.com/th/id/OIP.xsUyZhwcu5dNxZqpPfCiFwHaIf?w=176&h=202&c=7&o=5&pid=1.7"
+        },
+        {
+            name:"jeans",
+            price:"5000",
+            img:"https://th.bing.com/th/id/OIP.I9OamMQAUyQYiH5V1H9ClAHaRO?w=115&h=207&c=7&o=5&pid=1.7"
+        }
+    ]
+    localStorage.setItem('myProduct',JSON.stringify(product));
+    var pro = localStorage.getItem('myProduct');
+    var myproducts = JSON.parse(pro);
+  function products(){
+    myproducts.forEach(el => {
+         var div = document.createElement('div');
+         var name = document.createElement('p');
+         name.innerHTML = `Name: ${el.name}`;
+         var price = document.createElement('p');
+         price.innerHTML = `Price: ${el.price}`;
+         var img = document.createElement('img');
+         img.setAttribute('src',el.img)
+         div.append(name,price,img);
+         var parent = document.getElementById('cont');
+         parent.append(div);     
+    });
+  }
+localStorage.clear();
+</script>

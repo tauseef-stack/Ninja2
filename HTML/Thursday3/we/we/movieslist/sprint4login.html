@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprint 4 login page</title>
+    <style>
+         #cont{
+           width: 25%;
+           margin: auto;
+           border: 1px solid black;
+           height: 250px;
+           text-align: center;
+           background: grey;
+           border-radius: 10px;
+
+
+       }
+       input{
+           width: 80%;
+           margin-bottom: 20px;
+           margin-top:20px;
+           padding: 15px;
+           background: black;
+           border-radius: 10px;
+           font-size: 15px;
+           color: white
+       }
+       button{
+        width: 90%;
+        padding: 15px;
+        border-radius: 10px;
+        background: -webkit-linear-gradient(45deg,black,white,black);
+        font-size: 15px;
+        
+        
+       }
+       h1{
+           text-align: center;
+           font-family: cursive;
+           color: lightgreen;
+       }
+       #navbar{
+            border: 1.5px solid black;
+            text-align: right;
+            height: 35px;
+            background: deeppink ;
+        
+        
+        }
+        a{
+            font-size: 30px;
+            padding: 15px;
+            margin: 20px;
+            text-decoration: none;
+            color: deeppink;
+            
+        }
+        #navbar > div{
+            float: right;
+            background-color: blueviolet;
+            margin: 0 20px;
+            border-radius: 50%;
+        }
+       
+    </style>
+</head>
+<body>
+    <div id="navbar">
+       
+        <div>
+          <a href="sprint4signup.html">Signup</a>
+      </div>
+      <div>
+          <a href="sprint4login.html">login</a>
+      </div>
+      <div>
+        <a href="sprint4menu.html">Menu</a>
+    </div>
+     
+     </div>
+    <h1>Welcome to Login page</h1>
+    <h1>Please Enter Mail And Password</h1>
+    <hr>
+    <div id="cont">
+        <input type="text" id="email" placeholder="Enter Your Email Address">
+        <br>
+        <input type="password" id="pass" placeholder="Enter Your Password">
+        <br>
+        <button onclick="EntryToMenu()">Submit</button>
+    </div>  
+</body>
+</html>
+<script>
+     function EntryToMenu(){
+        const arr2 = JSON.parse(localStorage.getItem('fooduser'));
+        const mail = document.getElementById('email').value;
+        const pass = document.getElementById('pass').value;
+        var istrue = false;
+    for(var i=0 ; i<arr2.length ; i++){
+        if(arr2[i].email==mail && arr2[i].password==pass){
+            window.location.href = "sprint4menu.html";
+            istrue = true;
+            document.getElementById('email').value = null;
+            document.getElementById('pass').value = null;
+            alert('Signin Successfull')
+            window.location.href = "sprint4menu.html";
+            break;
+        }
+      }
+        if(!istrue){
+            alert('Enter Valid Email Or Password')
+            document.getElementById('email').value = null;
+            document.getElementById('pass').value = null;
+        }
+
+           
+    }
+</script>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube</title>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+        }
+        .searchbox{
+            margin:0;
+            padding:0;
+            width:100%;
+            height: 80px;
+            background:black;
+            text-align:center;
+            position:fixed;
+            top:0;
+            z-index: 10;
+        }
+        .searchbox input{
+            width:30%;
+            padding:1%;
+            margin-top: 2.3vh;
+            background:black;
+            outline: none;
+            color: white;
+
+        }
+        .searchbox button{
+            padding:1%;
+            background:rgb(233,233,233)
+        }
+        .inner{
+            position:relative;
+            top:90px;
+            width:90%;
+            margin:0 auto;
+            display:grid;
+            grid-template-columns: 30% 30% 30%;
+            grid-gap:2.5%;
+        }
+    </style>
+</head>
+<body>
+
+       <div class="outter-searchbox">
+        <div class="searchbox">
+            <input type="text" placeholder="type here" class="search">
+            <button onclick="getData()">Search</button>
+            <button onclick="popularData()">Most Popular In India</button>
+           </div>
+       </div>
+      
+   
+    <div class="outter">
+        <div class="inner">
+ 
+        </div>
+ 
+    </div>
+   
+</body>
+</html>
+<script>
+     let head = document.querySelector('.inner');
+   async function getData(){
+       let query = document.querySelector(".search").value;
+
+       let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${query}&key=AIzaSyC2xjplK1AZuCPzPJ7wb_RZC8wLtBWanCA&maxResults=20`) //&maxResults=15;
+       let {items} = await res.json(); //itemns = data.items
+       console.log(items);
+
+       let items1 = items.filter((el)=> {
+           return el.id.videoId!==undefined;
+       })
+
+       appendvideos(items1)
+   }
+
+  function appendvideos(videos){
+    head.innerHTML = null;
+      videos.forEach(({id:{videoId}})=> { // let {id:{videoId}} = el; inplace of el
+          // console.log(videoId) getting video id.
+         
+          let div = document.createElement('div');
+          div.innerHTML = `<iframe width="100%" height="215" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`; //from youtube share embed.copyy
+          head.append(div)
+      })
+      document.querySelector(".search").value = null;
+
+  }
+
+
+  //for popular videos ==>
+
+  async function popularData(){
+       let query = document.querySelector(".search").value;
+
+       let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=mostPopular&India&key=AIzaSyC2xjplK1AZuCPzPJ7wb_RZC8wLtBWanCA&maxResults=20`) //&maxResults=15;
+       let {items} = await res.json(); //itemns = data.items
+       console.log(items);
+
+       let items1 = items.filter((el)=> {
+           return el.id.videoId!==undefined;
+       })
+
+       appendvideos(items1)
+   }
+
+  function appendvideos(videos){
+    head.innerHTML = null;
+      videos.forEach(({id:{videoId}})=> { // let {id:{videoId}} = el; inplace of el
+          // console.log(videoId) getting video id.
+         
+          let div = document.createElement('div');
+          div.innerHTML = `<iframe width="100%" height="215" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`; //from youtube share embed.copyy
+          head.append(div)
+      })
+      document.querySelector(".search").value = null;
+
+  }
+
+
+</script>

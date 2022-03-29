@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rnge Select On Amount Using Dom</title>
+</head>
+<body>
+    <div class="container">
+       <input type="range" id="range" max="500000" min="0" />
+       <h3>&#8377;
+           <span id="num"></span>
+       </h3>
+    </div>
+</body>
+</html>
+<script>
+    let formatNumber = (number) => { //Arrow Functin in js
+        let result =  new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(number);
+        return result; //Number Format in js Mdn;
+    }
+       
+    
+    let amount = document.getElementById('range');
+    let span = document.getElementById('num');
+    amount.addEventListener('input',function(){
+        myAmount = amount.value;
+        span.innerText = formatNumber(myAmount);
+    })
+</script>

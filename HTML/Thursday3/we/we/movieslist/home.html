@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Web Sit 1.html</title>
+    <style>
+        #navbar{
+            border: 1.5px solid black;
+            text-align: right;
+            height: 35px;
+            background:rgb(233, 75, 101) ;
+        
+        
+        }
+        a{
+            font-size: 30px;
+            padding: 15px;
+            margin: 20px;
+            text-decoration: none;
+            color: rgb(233, 75, 101);
+            
+        }
+        #navbar > div{
+            float: right;
+            background-color: blueviolet;
+            margin: 0 20px;
+            border-radius: 50%;
+        }
+     #cont{
+         width: 95%;
+         margin: auto;
+         display: grid;
+         grid-gap: 3%;
+         grid-template-columns: 33% 33% 33%;
+
+     }
+     #cont> div{
+         margin: auto;
+        
+         text-align: center;
+     }
+     #cont> div> img{
+       width: 75%;
+       height: 350px;
+       border-radius: 10px;
+       box-shadow: 0 0 10px black;
+     }
+     button{
+         padding: 20px;
+         font-size: 25px;
+         background:-webkit-linear-gradient(45deg,rgb(233, 75, 101),blueviolet,rgb(233, 75, 101));
+         border-radius: 10px;
+         color: white;
+         margin-bottom: 30px;
+         margin-left: 30px;
+     }
+     h5{
+         color: grey;
+     }
+     p{
+         font-family: fantasy;
+         color: brown;
+     }
+     h3{
+         font-family: cursive;
+         color: rgb(243, 176, 30);
+     }
+     #head{
+           width: 500px;
+           height: 650px;
+           margin: 100px auto;
+           box-shadow: 0 5px 10px;
+           border-radius: 10px;   
+           position: relative;   
+           overflow: hidden;   
+       }
+       #head > img{
+           width: inherit;
+           height: inherit;
+           border-radius: 10px;   
+           position: absolute;
+          
+       }
+       #head > img:nth-child(1){
+           z-index: 5;
+       }
+       #head > img:nth-child(2){
+           z-index: 4;
+       }
+       #head > img:nth-child(3){
+           z-index: 3;
+       }
+       #head > img:nth-child(4){
+           z-index: 2;
+       }
+       #head > img:nth-child(5){
+           z-index: 1;
+       }
+  
+    </style>
+</head>
+<body>
+   
+    <div id="navbar">
+        <div>
+            <a href="signup.html">Signup</a>
+        </div>
+        <div>
+            <a href="login.html">Login</a>
+        </div>
+        <div>
+            <a href="home.html">Home</a>
+        </div>
+    </div>
+
+    <div id="head">
+       <img  id="first" src="https://vignette.wikia.nocookie.net/marvelmovies/images/8/8f/2012_Avengers_Poster.jpg/revision/latest?cb=20140224212535" alt="photo">
+       <img src="https://cdn.flickeringmyth.com/wp-content/uploads/2018/04/Avengers-Infinity-War-posters-56-1.jpg" alt="photo">
+       <img src="https://fanart.tv/fanart/movies/10195/movieposter/thor-5218a8a995085.jpg" alt="photo">
+       <img src="https://th.bing.com/th/id/OIP.P2FNbBVldP6xQdkKsV0aSgHaL2?pid=ImgDet&rs=1" alt="photo">
+       <img src="https://mypostercollection.com/wp-content/uploads/2018/08/Captain-America-Poster-2011-MyPosterCollection.com-1.jpg?x49793" alt="photo">
+    </div>
+    <button id=acsend onclick="Movielist(arr3)">Show Ascending Of Rating</button>
+    <button id=acsend onclick="Movielist(arr4)">Show Descending Of Rating</button>
+    <div id="cont">
+        
+    </div>
+</body>
+</html>
+<script>
+   
+
+    let arr = [
+        {
+            name:"Dhoom1",
+            Rdate:26,
+            image:"https://d2j1wkp1bavyfs.cloudfront.net/image-assets/17478/A7fxXAsuYEohxYNl8YeH3FYkuDv.jpg?d=360x540&q=50",
+            IMDRating: 8.5,
+        },
+        {
+            name:"Dhoom2",
+            Rdate:29,
+            image:"https://th.bing.com/th/id/Rf048112695b3bf48c4bfb3c4255d933f?rik=9w2Tzhpfilm8dQ&riu=http%3a%2f%2f4.bp.blogspot.com%2f-JSKCnfihxl0%2fT8kZSgaNRgI%2fAAAAAAAABpQ%2fwidey89A5XI%2fs1600%2fd2.jpg&ehk=3uiUBDbkP%2b5AYHyymboQ2Qp%2bcufqhZk88XxIa3Ju8Y0%3d&risl=&pid=ImgRaw",
+            IMDRating: 8.9,
+        },
+        {
+            name:"Dhoom3",
+            Rdate:03,
+            image:"https://th.bing.com/th/id/OIP.ICn5vQTTxjBsBKGMA52iEQHaJ4?pid=ImgDet&rs=1",
+            IMDRating: 5.2,
+        },
+        {
+            name:"Avengers1",
+            Rdate:09,
+            image:"https://vignette.wikia.nocookie.net/marvelmovies/images/8/8f/2012_Avengers_Poster.jpg/revision/latest?cb=20140224212535",
+            IMDRating: 9.1,
+        },
+        {
+            name:"Avengers2",
+            Rdate:12,
+            image:"https://cdn.flickeringmyth.com/wp-content/uploads/2018/04/Avengers-Infinity-War-posters-56-1.jpg",
+            IMDRating: 9.3,
+        },
+        {
+            name:"Thor1",
+            Rdate:15,
+            image:"https://fanart.tv/fanart/movies/10195/movieposter/thor-5218a8a995085.jpg",
+            IMDRating: 8.7,
+        },
+        {
+            name:"Thor2",
+            Rdate:18,
+            image:"https://th.bing.com/th/id/OIP.P2FNbBVldP6xQdkKsV0aSgHaL2?pid=ImgDet&rs=1",
+            IMDRating: 9.0,
+        },
+        {
+            name:"Captain of America1",
+            Rdate:21,
+            image:"https://mypostercollection.com/wp-content/uploads/2018/08/Captain-America-Poster-2011-MyPosterCollection.com-1.jpg?x49793",
+            IMDRating: 7.4,
+        },
+        {
+            name:"Captain of America2",
+            Rdate:23,
+            image:"https://th.bing.com/th/id/R1ec29546ddc6b765422029382a7d3873?rik=0oe1FwJbFrra3Q&riu=http%3a%2f%2fscreenrant.com%2fwp-content%2fuploads%2fCaptain-America-2-Steve-Rogers-SHIELD-Poster.jpg&ehk=dWBUMJJlh%2bks%2f%2b%2fpVPV562njWZzZfexlxPyxgdUECe8%3d&risl=&pid=ImgRaw",
+            IMDRating: 7.6,
+        }
+    ];
+
+    localStorage.setItem('movieslist',JSON.stringify(arr))
+    var arr2 = JSON.parse(localStorage.getItem('movieslist')) ;
+    console.log(arr2);
+    arr3 =     JSON.parse(localStorage.getItem('movieslist')).sort(function(a,b){
+       return a.IMDRating-b.IMDRating;
+    })
+    arr4 =     JSON.parse(localStorage.getItem('movieslist')).sort(function(a,b){
+        return b.IMDRating-a.IMDRating;
+    })
+    console.log(arr3)
+    console.log(arr4)
+    //append it onto web page;
+    function Movielist(arr2){
+        var cont = document.getElementById('cont');
+        cont.innerHTML = null;
+        arr2.forEach(movie => {
+        
+        var div = document.createElement('div');
+        var para1 = document.createElement('h3');
+        para1.innerHTML = `Name: ${movie.name}`;
+        var para2 = document.createElement('p');
+        para2.innerHTML =  `Release Date: ${movie.Rdate}`;
+        var img = document.createElement('img');
+        img.setAttribute('src',movie.image);
+        var rating = document.createElement('h5');
+        rating.innerHTML = `IMD Rating: ${movie.IMDRating}`
+        div.append(para1,para2,img,rating);
+      
+        cont.append(div);
+
+    });
+    }
+
+     // var head = document.getElementById('heading');
+    // const arr = ['Evaluation on 7','Construck week on 17 june','Next Unit on react JS'];
+    // const arr2 = ['https://d13ezvd6yrslxm.cloudfront.net/wp/wp-content/images/2018-bestposters-spidermanspiderverse-700x1038.jpg','https://i0.wp.com/creativesfeed.com/wp-content/uploads/2018/07/Harry-Potter-and-the-Sorcerer_s-Stone.jpg?w=8000&ssl=1','https://th.bing.com/th/id/Ra7fb23750894a8adfa0ead5e1f92da82?rik=7F6DsOYob3G%2fSA&riu=http%3a%2f%2fwww.slashfilm.com%2fwp%2fwp-content%2fimages%2f2015bestposter-martian.jpg&ehk=ifAAQQf5ltL%2bSyoqZy15Fi5N%2bYIxQ46qH97LPbd%2fQnA%3d&risl=&pid=ImgRaw']
+    // let i=0;
+    // setInterval(function(){ //powerfull Timer Execution.
+    //     if(i==arr.length){
+    //         i=0;
+    //     }
+    //     head.innerHTML = `<img src="${arr2[i]}"></img>`;
+    //     i++
+    // },3000)
+
+    var head = document.querySelectorAll('img')
+
+let i=-1;
+
+setInterval(function(){
+    if(i==4){
+        i=-1
+    }
+    i++
+    head[i].style.left = '-500px';
+    console.log(i)
+      
+},5000)
+
+setInterval(function(){
+    
+    head[0].style.left = '0px'
+    head[1].style.left = '0px'
+    head[2].style.left = '0px'
+    head[3].style.left = '0px'
+    head[4].style.left = '0px'
+    console.log(5) 
+      
+},25000)
+
+
+    
+
+
+ 
+   
+
+
+    
+   
+
+
+  
+</script>

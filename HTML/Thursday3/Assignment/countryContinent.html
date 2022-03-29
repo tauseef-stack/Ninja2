@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Country Continet.HTML</title>
+    </head>
+    <body>
+      <input type="text" id="country" placeholder="Type Country Name">
+      <br> 
+      <button onclick="continent()">Find Continent</button>
+
+    </body>
+</html>
+
+<script>
+    function continent(){
+        var myInput = document.getElementById('country').value;
+        switch(myInput){
+            case "India" :
+            alert('The Continent is Asia');
+            break;
+            case "United States of America" :
+            alert('The Continent is South America');
+            brak;
+            case "China" :
+            alert('The Continent is Asia');
+            break;
+            case "Nepal" :
+            alert('The Continent is Asia');
+            break;
+            case "Australia" :
+            alert('The Continent is Australia');
+            break;
+            case "France" :
+            alert('The Continent is Europe');
+            break;
+            case "Germany" :
+            alert('The Continent is Europe');
+            break;
+            case "South Africa" :
+            alert('The Continent is Africa');
+            break;
+            case "Nigeria" :
+            alert('The Continent is Africa');
+            break;
+            case "Mexico" :
+            alert('The Continent is North America');
+            break;
+            case "Argentina" :
+            alert('The Continent is South America');
+            break;
+            case "Canada" :
+            alert('The Continent is North America');
+            break;
+            case "Singapore" :
+            alert('The Continent is Asia');
+            break;
+            case "Sweden" :
+            alert('The Continent is Europe');
+            break;
+            default :
+            alert('Please Enter Valid Country')
+            
+        }
+    }
+</script>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leader Board</title>
+    <style>
+        #container{
+            width: 35%;
+            margin: auto;
+            height: 620px;
+            text-align: center;
+            box-shadow: 5px 5px 10px black;
+        
+        }
+        #calculator{
+            margin: auto;
+    
+        }
+        .Button{
+            width: 25%;
+            margin: 2%;
+            height: 50px;
+            font-size: 25px;
+            font-weight:750 ;
+            box-shadow: 0 0  10px black;
+            cursor: pointer;
+            border-radius: 10px;
+            outline: none;
+            border: none;
+
+        }
+        #Min,#Max,#display{
+            font-size: 25px;
+            width: 90%;
+        
+            height: 50px;
+            margin:2% ;
+            box-shadow: 0 0  10px black;
+            font-weight:750 ;
+            border-radius: 10px;
+            outline: none;
+            border: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <form id="calculator" name="calculator">
+          
+            MIN :  <input type="number" id="Min" placeholder="MIN" value="43">
+             <br>
+            MAX : <input type="number" id="Max" placeholder="MAX" value="2019">
+            <br>
+            DIS : <input type="number" id="display" name="Dispaly" placeholder="0" readonly>
+            <br>
+            <input type="button"  class="Button" value="1" onclick="calculator.display.value+='1'">
+            <input type="button"  class="Button" value="2" onclick="calculator.display.value+='2'">
+            <input type="button"  class="Button" value="3" onclick="calculator.display.value+='3'">
+            <br>
+
+            <input type="button"  class="Button" value="4" onclick="calculator.display.value+='4'">
+            <input type="button"  class="Button" value="5" onclick="calculator.display.value+='5'">
+            <input type="button"  class="Button" value="6" onclick="calculator.display.value+='6'">
+            <br>
+
+            <input type="button"  class="Button" value="7" onclick="calculator.display.value+='7'">
+            <input type="button"  class="Button" value="8" onclick="calculator.display.value+='8'">
+            <input type="button"  class="Button" value="9" onclick="calculator.display.value+='9'">
+
+            <br>
+            <input type="button"  class="Button" value="0" onclick="calculator.display.value+='0'">
+            <br>
+            <br>
+            <input type="button"  class="Button" value="Enter" onclick="compare()">
+        </form>
+    </div>
+   
+</body>
+</html>
+<script>
+    
+       
+       
+      
+    function compare(){
+        var max = Number(document.getElementById('Max').value);
+        var min = Number(document.getElementById('Min').value);
+        var dis = Number(document.getElementById('display').value);
+            console.log("max;",max,"min:",min,"dix:",dis)
+        if(  dis>max){
+            
+        document.getElementById('Max').value = dis;
+        }
+        else if( dis<min){
+          
+            document.getElementById('Min').value = dis ;
+        }
+        document.getElementById('display').value=null;
+    }
+</script>

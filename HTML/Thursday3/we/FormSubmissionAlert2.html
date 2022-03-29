@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Prevention in submission of Anchor Tag</title>
+    </head>
+    <body>
+      <a href="http://masaischool.com" id="masailink">Masai School</a> 
+      
+    </body>
+</html>
+ 
+<script>
+    var link = document.getElementById('masailink')
+    function stopAccess(e){
+        e.preventDefault();  // for Denying Access This Commnad Needs to be remember.
+        //we deny access of submission of forms ,Openning any links Etc.
+
+    }
+    link.addEventListener('click',stopAccess)
+</script>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <style>
+    .clear{
+         clear: both;
+     }
+     .linus{
+         width: 400px;
+         height: 280px;
+         background: lightgray;
+         margin: auto;
+         margin-bottom: 40px;
+     }
+     .linusimg{
+         width: 100px;
+         height: 150px;
+         margin: 10px 150px;
+         
+         
+     }
+     .linush2{
+         color: blue;
+         text-align: center;
+     }
+     .clear{
+         clear: both;
+     }
+     .sal{
+        width: 800px;
+        height: 150px;
+        background: whitesmoke;
+        margin: auto;
+        margin-bottom: 40px;
+     }
+     .salimg{
+        width: 100px;
+        height: 150px;
+        float: left;
+        margin-right: 20px;
+     }
+     .salh1{
+         color: orangered;
+         margin-left: 20px; }
+    .container{
+        width: 1300px;
+        height: 150px;
+        background: orangered;
+        margin: auto;
+    }
+    .first{
+        width: 640px;
+        float: left;
+    }
+    .firsth1{
+        padding: 10px;
+        
+    }
+    .firstp{
+        padding: 10px;
+    }
+    .mid{
+        background: black;
+        width: 10px;
+        height: 120px;
+        float: left;
+        margin-top: 15px;
+    }
+    .last{
+        float: right;
+    }
+    .lasth1{
+        padding: 10px;
+        text-align: center;
+    }
+    .lastp{
+        padding: 10px;
+        font-size: 18px;
+    }
+      </style>
+    </head>
+    <body>
+        <button id="btn" onclick="linus()">Create Linus Page</button>
+
+        <div id="linus">
+        </div>
+
+        <div class="clear"></div>
+        
+        <div id="sal"> 
+        </div>
+
+        <div class="clear"></div>
+
+        <div id="container">
+            <div id="first">
+                <h1 id="firsth1"></h1>
+                <p id="firstp"></p>
+            </div>
+            <div id="mid">
+
+            </div>
+            <div id="last">
+                <h1 id="lasth1"></h1>
+                <p id="lastp"></p>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+    function linus(){
+        var div1 = document.getElementById('linus');
+        div1.setAttribute('class','linus');
+        var img1 = document.createElement('img')
+        img1.setAttribute('src' , 'https://masai-course.s3.ap-south-1.amazonaws.com/resources/images/linus.jpg')
+        img1.setAttribute('class','linusimg')
+        div1.appendChild(img1);
+          
+        var h21 = document.createElement('h2');
+        h21.textContent = 'Linus Travolds';
+        h21.setAttribute('class','linush2');
+        div1.appendChild(h21);
+        
+        var h22 = document.createElement('h2');
+        h22.textContent = 'The Creator of Linus and Git';
+        h22.setAttribute('class','linush2');
+        h22.style.color = 'black'
+        div1.appendChild(h22)
+        console.log(div1);
+
+        var div2 = document.getElementById('sal');
+        div2.setAttribute('class','sal');
+        var img2 = document.createElement('img');
+        img2.setAttribute('src','https://masai-course.s3.ap-south-1.amazonaws.com/resources/images/khan.jpg')
+        img2.setAttribute('class','salimg');
+        div2.appendChild(img2);
+        var h1s = document.createElement('h1');
+        h1s.textContent = 'Sal Khan';
+        h1s.setAttribute('class','salh1');
+        div2.appendChild(h1s);
+        var paras = document.createElement('p');
+        paras.textContent ='Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum sit, ducimus ipsum impedit quibusdam nobis? Ratione est tempora aperiam aliquam.';
+        div2.appendChild(paras);
+        console.log(div2)
+
+       /* var div3 = document.querySelector('.container');
+        div3.setAttribute('class','container');
+        var div31 = document.querySelector('#first');
+        div31.setAttribute('class','first');
+        var h11 = document.createElement('h1');
+        h11.textContent = 'Ken Thompson';
+        h11.setAttribute('class','firsth1' );
+        div31.appendChild('h11');
+        var p11 = document.createElement('p');
+        p11.textContent = 'Design and Implemented The Original Unix Graphic System';
+        div31.appendChild('p11'); */ //not appending grand child.
+
+       var div3 = document.getElementById('container');
+       div3.setAttribute('class','container');
+       var div31 = document.getElementById('first');
+       div31.setAttribute('class','first');
+       var fh = document.getElementById('firsth1');
+       fh.textContent='Ken Thompson';
+       fh.setAttribute('class','firsth1');
+       var fp = document.getElementById('firstp');
+       fp.textContent = 'Design and Implemented The Original Unix Graphic System'
+       var div32 = document.getElementById('mid');
+      div32.setAttribute('class','mid')
+       var div33 = document.getElementById('last');
+       div33.setAttribute('class','last');
+     
+       var lh1 = document.getElementById('lasth1');
+       lh1.textContent ='Dennis Ritchie';
+       lh1.setAttribute('class','lasth1');
+       lh1.style.textAlign='right';
+       var lp = document.getElementById('lastp');
+       lp.textContent='Design and Implemented The Original Unix Graphic System';
+      lp.setAttribute('class','lastp');
+
+
+
+
+
+    }
+
+       /*  
+         var div3 = document.getElementsByClassName('first');
+          div3.innerHTML = ` <h1>Ken Thompson</h1>
+                <p>Design and Implemented The Original Unix Graphic System</p>`
+
+        var div4 = document.getElementsByClassName('mid');
+
+        var div5 = document.getElementsByClassName('last');
+        div5.innerHTML = ` <h1>Dennis Ritchie</h1>
+                <p>Design and Implemented The Original Unix Graphic System</p>`  */
+</script>

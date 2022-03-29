@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>@Media,Querry</title>
+      <style>
+          body{
+              background: red;
+              font-size: 40px;
+          }
+          #cont{
+              display: flex;
+          }
+          .box{
+              font-size: 25px;
+              border: 3px solid black;
+              flex-basis: 33%;
+          }
+          .extra{
+              display: none;
+          }
+          /* Extra small devicess  of  600px and below , small phones ,ipods etc*/
+          @media only screen and (max-width:600px){
+          #cont{
+              flex-direction: column;
+          }
+          .box{
+              font-size: 30px;
+          }
+          body{
+              background: slateblue;
+          }
+              
+          }
+          /* landscape mode in tablets*/
+          @media only screen and (min-width:768px){
+              #cont{
+                  flex-direction: row-reverse;
+              }
+              body{
+                  background: blue;
+              }
+          }
+          /*laptops and desktops*/
+          @media only screen and (min-width:992px){
+              #cont{
+                  flex-direction: column-reverse;
+              }
+              .box{
+                  border: 3px solid white;
+                  color: white;
+              }
+              body{
+                  background: black;
+              }
+            
+          }
+          /*Extra large devicess*/
+          @media only screen and (min-width:1200px){
+              .extra{
+                  display:block
+              }
+          } 
+      </style>
+    </head>
+    <body>
+       <div id="cont">
+           <div class="box">1</div>
+           <div class="box">2</div>
+           <div class="box">3</div>
+           <div class="box extra">4</div>
+           <div class="box extra">5</div>
+       </div> 
+    </body>
+</html>

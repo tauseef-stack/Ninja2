@@ -1,0 +1,31 @@
+.mainContainer{
+    display: flex;
+}
+.inputContainer{
+    flex:4;
+   
+  
+}
+.inputBox{
+    width: 130px;
+    padding:7px;
+    margin: 7px;
+}
+.muButton{
+    width: 138px;
+    padding: 7px;
+    margin: 7px;
+}
+.OutputContainer{
+    flex:8;
+    display: grid;
+    grid-gap: 25px;
+    grid-template-columns: 15% 15% 15%;
+}
+.OutputContainer > div{
+    border: 1px solid black;
+    padding: 25px;
+    text-align: center;
+
+
+}

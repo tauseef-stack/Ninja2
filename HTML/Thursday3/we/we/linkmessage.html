@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sucess full message</title>
+    <style>
+      #head{
+          width: 95%;
+          margin: auto;
+          display: grid;
+          grid-gap: 20px;
+          grid-template-columns: 33% 33% 33%;
+      } 
+      p{
+          font-size: 22px;
+          font-weight: 700;
+          font-family: cursive;
+          color: rgb(211, 129, 23);
+      }
+      h1{
+        font-weight: 700;
+          font-family: cursive;
+          color: rgb(211, 129, 23);  
+      }
+    </style>
+</head>
+<body>
+    <h1>You Are Successfully Login </h1>
+    <button onclick="studentsData(arr3)">Show Low To High</button>
+    <button onclick="studentsData(arr4)">Show High to Low</button>
+    <div id="head">
+
+    </div>
+</body>
+</html>
+<script>
+    const student = [
+        {
+            name: "Tauseef",
+            attendence:"95"
+        },
+        {
+            name: "shariq",
+            attendence:"90"
+        },
+        {
+            name: "zeenat",
+            attendence:"85"
+        },
+        {
+            name: "Ariba",
+            attendence:"80"
+        },
+        {
+            name: "Maryam",
+            attendence:"75"
+        },
+        {
+            name: "Yusuf",
+            attendence:"70"
+        },
+        {
+            name: "zaki",
+            attendence:"65"
+        },
+        {
+            name: "zeeshan",
+            attendence:"60"
+        },
+        {
+            name: "phylum",
+            attendence:"55"
+        }
+    ]
+    
+    if(localStorage.getItem('student')==null){
+        localStorage.setItem('student',JSON.stringify(student));
+    }
+
+    var arr2 = JSON.parse(localStorage.getItem('student'));
+
+     arr3 =  arr2.sort(function(a,b){   //How we sort Object in array on its key basis
+        return a.attendence-b.attendence
+    });
+
+    arr4 =  arr2.sort(function(b,a){
+        return b.attendence-a.attendence
+    });
+
+     function studentsData(arr){
+        console.log(arr)
+    for(var i=0 ; i<arr.length ; i++){
+        var div = document.createElement('div');
+    var p1 = document.createElement('p');
+    p1.innerHTML = `Name: ${arr[i].name}.`;
+    var p2 = document.createElement('p');
+    p2.innerHTML = `Attendence: ${arr[i].attendence} %`;
+    div.append(p1,p2)
+    var head = document.getElementById('head');
+    head.append(div)
+    }
+ }
+   
+   
+
+</script>

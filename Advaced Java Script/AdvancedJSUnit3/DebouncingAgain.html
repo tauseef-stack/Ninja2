@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debouncing With Movie Data</title>
+    <style>
+        .maiCont{
+            width: 40%;
+            margin:50px auto;
+           
+        }
+        .DataCont{
+            width: 250px;
+            height: 300px;
+            overflow-y:scroll;
+            scroll-snap-align: 3px;
+            border: 1px solid black;
+        }
+        .DataCont::-webkit-scrollbar-track{
+            background: orange;
+        }
+.DataCont::-webkit-scrollbar {
+  width: 8px;               /* width of the entire scrollbar */
+}
+
+.DataCont::-webkit-scrollbar-track {
+  background: grey;        /* color of the tracking area */
+}
+.DataCont::-webkit-scrollbar-thumb {
+  background-color: rgb(175, 160, 160);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+   /* creates padding around scroll thumb */
+} 
+    </style>
+</head>
+<body>
+    <div class="maiCont">
+        <input type="text" id="serchBox" placeholder="Search for Movies" oninput="throttle(main,200)">
+        <div class="DataCont">
+
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    let timerId; //value is undefined ==>
+    //function for calling Api ==>
+    async function movieData () {
+        let name = document.getElementById('serchBox').value;
+        let data;
+        if(name.lenght<=2){
+            return false;
+        }
+        try{
+           let res = await fetch(`http://www.omdbapi.com/?s=${name}&apikey=bcfcf9f7`);
+            data = await res.json();
+
+        }
+        catch(err){
+            console.log(err);
+        }
+        finally{
+            console.log("Promise is Settled")
+        }
+        return data;
+    }
+
+    function appendMovies(movie){
+        let cont = document.querySelector('.DataCont');
+        cont.innerText = null;
+        movie.forEach(({Title})=>{
+            let para = document.createElement('h4');
+            para.innerText = Title;
+            cont.append(para);
+        }); 
+    }
+
+     async function main() { //since we are calling async function into this ==>
+       let {Search} = await movieData(); //Object 
+       console.log('from main',Search);
+       if(Search){
+           appendMovies(Search);
+       }
+    }
+
+    function throttle(func,delay){
+        console.log('Throttle is fired');
+        if(timerId){
+            return false;
+        }
+        timerId = setTimeout(()=>{
+            func();
+            timerId = undefined;
+        },delay);
+    }
+</script>

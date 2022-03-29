@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title> site template</title>
+      <style>
+        #cont{
+            width: 80%;
+            margin: auto;
+            display: grid;
+            height: 90vh;
+            grid-gap:20px;
+            padding: 20px;
+            grid-template-columns: auto;
+            grid-template-rows: auto;
+            grid-template: "a a a a a a a" auto
+                           
+                           "b b c c c c c" auto
+                           "b b c c c c c" auto
+                           "b b c c c c c" auto
+                           "b b c c c c c" auto
+                           "b b c c c c c" auto
+                           "b b c c c c c" auto;
+        }
+        #scont1{
+            grid-area: a;
+            background: red;
+        }
+        #scont2{
+            grid-area: b;
+            background:lime;
+        }
+        #scont3{
+            grid-area: c;
+            background: rgb(90, 235, 235);
+        }
+      </style>
+    </head>
+    <body>
+      <div id="cont">
+          <div id="scont1"></div>
+          <div id="scont2"></div>
+          <div id="scont3"></div>
+      </div>  
+    </body>
+</html>

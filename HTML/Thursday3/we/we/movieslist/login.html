@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie login.html</title>
+    <style>
+       #cont{
+           width: 40%;
+           margin: auto;
+       }
+       input{
+           width: 90%;
+           margin-bottom: 60px;
+           padding: 20px;
+           background: black;
+           border-radius: 10px;
+           font-size: 25px;
+           color: white
+       }
+       button{
+        width: 90%;
+        padding: 20px;
+        border-radius: 10px;
+        background: -webkit-linear-gradient(45deg,black,white,black);
+        font-size: 25px;
+        
+       }
+       h1{
+           text-align: center;
+           font-family: cursive;
+           color: lightgreen;
+       }
+
+    </style>
+</head>
+<body>
+    <h1>Welcome to Login page</h1>
+    <h1>Please Enter Mail And Password</h1>
+    <hr>
+    <div id="cont">
+        <input type="text" id="email" placeholder="Enter Your Email Address">
+        <br>
+        <input type="password" id="pass" placeholder="Enter Your Password">
+        <br>
+        <button onclick="EntryToHome()">Submit</button>
+    </div>
+</body>
+</html>
+<script>
+    function EntryToHome(){
+        const arr2 = JSON.parse(localStorage.getItem('moviedata'));
+        const mail = document.getElementById('email').value ;
+        const pass = document.getElementById('pass').value;
+        var istrue = false;
+    for(var i=0 ; i<arr2.length ; i++){
+        if(arr2[i].email==mail && arr2[i].password==pass){
+            window.location.href = "home.html";
+            istrue = true;
+            document.getElementById('email').value = null;
+            document.getElementById('pass').value = null;
+            break;
+        }
+      }
+        if(!istrue){
+            alert('Enter Valid Email Or Password')
+            document.getElementById('email').value = null;
+            document.getElementById('pass').value = null;
+        }
+
+    
+    }
+   
+</script>

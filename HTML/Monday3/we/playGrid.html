@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>PlayGrid.HTML</title>
+      <style>
+          .container{
+              width: 80%;
+              margin: auto;
+              display: grid;
+              grid-gap: 20px ;
+              grid-template-columns: repeat(4,auto);
+              grid-template-rows: repeat(6,50px);
+              background: orchid;
+              padding: 20px;
+          }
+          .container div{
+              background: palegreen;
+              font-size: 25px;
+              text-align: center;
+              padding: 10px;
+          }
+          #item-2{
+              grid-area: 1 / 2 / span 1 / span 2; /* Anticlockwise */
+          }
+          #item-4{
+              grid-area: 2 / 1 / 4 / span 4;
+          }
+          #item-5{
+              grid-area: 3/2/5/4;
+              background: chartreuse;
+          }
+      </style>
+    </head>
+    <body>
+        <div class="container">
+            <div id="item-1">1</div>
+            <div id="item-2">2</div>
+            <div id="item-3">3</div>
+            <div id="item-4">4</div>
+            <div id="item-5">5</div>
+            <div id="item-6">6</div>
+            <div id="item-7">7</div>
+            <div id="item-8">8</div>
+            <div id="item-9">9</div>
+            <div id="item-10">10</div>
+            <div id="item-11">11</div>
+            <div id="item-12">12</div>
+            <div id="item-13">13</div>
+            <div id="item-14">14</div>
+            <div id="item-15">15</div>
+            <div id="item-16">16</div>
+        </div>
+    </body>
+</html>

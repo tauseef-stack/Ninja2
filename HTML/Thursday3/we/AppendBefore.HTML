@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Append Before</title>
+    </head>
+    <body>
+        <div>Only One Div</div>
+    <button onclick="changeContent()" id="btn">Change DOM</button>
+    </body>
+</html>
+
+<script>
+    var index = 1;
+    function changeContent(){
+        var para = document.createElement("p");
+        para.textContent="Welcome To Masai School "+index;
+    
+        var button = document.getElementById("btn");
+        var body = document.querySelector("body");
+        //body.insertBefore(para,button)
+        body.appendChild(para)
+        index+=1;
+    }
+</script>

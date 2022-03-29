@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>The Hindu Layout Responssive</title>
+       <style>
+           #cont{
+               width: 80%;
+               margin: auto;
+
+           }
+           #big{
+            
+               height: 450px;
+               margin: 0.5%;
+               border: 1px solid black;
+               background-color: blueviolet;
+               color: white;
+           }
+           #big > img{
+               width: 100%;
+               height: 210px;
+           }
+           .small1{
+               height: 120px;
+               border: 1px solid black;
+    
+           }
+           .small1 > img{
+               width: 20%;
+               height: 120px;
+               float: left;
+           }
+           .small2 {
+               float: left;
+               margin-left: 15px;
+            
+            }
+            .small2 > h5{
+                color: blue;
+            }
+            .small2 >p{
+                font-weight: 700;
+                color: rgb(95, 89, 89);
+            }
+           @media only screen and (max-width:800px){
+               #cont{
+                   display: flex;
+                   flex-direction: column;
+               }
+               #cont > div{
+                   width: 100%;
+               }
+           }
+         @media only screen and (min-width:800px){
+             #big{
+                 width: 100% ;
+             }
+             #smallcont{
+                 display: flex;
+                 flex-direction: row;
+                 flex-wrap: wrap;
+             }
+             #smallcont > div{
+                
+                 width: 46%;
+                 margin: 1%;
+             }
+         }
+         @media only screen and (min-width:1200px){
+             
+             #big{
+                 width: 45%;
+                 margin: 1%;
+                 float: left;
+             }
+             .small1{
+                width: 45%;
+                margin: 1%;
+             }
+         }
+        
+       </style>
+    </head>
+    <body>
+    <div id="cont">
+       <div id="big">
+           <img src="big1.jpg" alt="Rally">
+         <h1>Ahmadabad joint Rally with Trump Will Be Historic, Says Modi</h1>
+         <h5>KALOL BHATARJEE</h5>       
+         <h5>SUSHANI HAIDER</h5>
+         <P>US President To visit sabarmati Ashram Ahead of Namaste Trupm Event</P>       
+        </div>
+
+        <div id="smallcont">
+        <div class="small1">
+           <img src="buisiness1.jpg" alt="buisiness1">
+             <div class="small2">
+           <h5>NATIONAL</h5>
+           <P>Lorem ipsum dolor sit amet consectetur adipisicing elit.</P>
+            </div>
+        </div>
+
+        <div class="small1">
+            <img src="buisiness2.jpg" alt="buisiness2">
+            <div  class="small2">
+            <h5>THE HUDDLE</h5>
+            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit.</P>
+            </div>
+        </div>
+        
+        <div class="small1">
+            <img src="buisiness3.jpg" alt="buisiness3">
+            <div class="small2">
+            <h5>NATIONAL</h5>
+            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit.</P>
+            </div>
+        </div>
+
+        <div class="small1">
+        <img src="buisiness4.jpg" alt="buisiness4">
+        <div class="small2">
+            <h5>THE HUDDLE</h5>
+            <P>Lorem ipsum dolor sit amet consectetur adipisicing elbh</P>
+        </div>
+       </div>
+
+       <div class="small1">
+        <img src="buisiness5.jpg" alt="buisiness5">
+        <div class="small2">
+            <h5>NATIONAL</h5>
+            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit</P>
+        </div>
+       </div>
+    </div>
+    </div>
+    </body>
+</html>

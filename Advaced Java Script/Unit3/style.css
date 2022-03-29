@@ -1,0 +1,15 @@
+body{
+    background:lightgray;
+}
+input{
+    width:80%;
+    margin-left: 50px;
+    outline:none;
+    padding:1.5%;
+    border:none;
+}
+button{
+    background:black;
+    color:white;
+    padding:1.5%;
+}

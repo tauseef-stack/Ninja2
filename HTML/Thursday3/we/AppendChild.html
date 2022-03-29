@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>AppendChild.HTML</title>
+    </head>
+    <body>
+       <div>Only One Div is There</div>
+       <button onclick="bringChange()" id="button">Will Bring Some Change</button>
+       <button onclick="inBetween()" id="btn2">insertion new</button>
+    </body>
+</html>
+
+<script>
+  var index=1;
+  function bringChange(){
+    var para = document.createElement("p")
+    para.textContent = "My Name Is Tauseef"+index;
+    var body = document.querySelector("body")
+    body.appendChild(para);
+    
+    index++;
+  }
+
+  function inBetween(){
+    var div=document.createElement("div");
+    div.textContent="MY Name is Maryam"+index
+    var body = document.querySelector("body");
+    var button = document.getElementById("btn2");
+    body.insertBefore(div,button);
+    index++;
+  }
+</script>

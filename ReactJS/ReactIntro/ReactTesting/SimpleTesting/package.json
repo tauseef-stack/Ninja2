@@ -1,0 +1,17 @@
+{
+  "name": "SimpleTesting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "example.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch":"jest --watchAll",
+    "test:coverage":"jest --coverage --watchAll"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}

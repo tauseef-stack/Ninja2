@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Without JS</title>
+    <style>
+          .container{
+            width: 250px;
+            height: 400px;
+           margin: 80px auto;
+           border-radius: 10px;
+            background: rgb(214,214,214);
+            box-shadow: 5px 5px 10px #b6a9a9, -5px -5px 10px #ffffff;
+        }
+        .calBox{
+            width: 200px;
+            padding: 25px 0;
+            margin:0 auto;
+        }
+        #display{
+            border: none;
+            outline: none;
+            color: black;
+            text-align: right;
+            font-weight: 800;
+            padding: 15px;
+            margin: 30px -13px ;
+            background: transparent;
+            box-shadow: inset 2px 2px 5px #babecc,inset -5px -5px 10px #ffffff;
+        }
+        .button{
+            margin: 15px 0 0 5px;
+            width: 42px;
+            height: 42px;
+            border: none;
+            outline: none;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            background: transparent;
+            box-shadow:inset 5px 5px 10px #b6acac,inset -5x -5px 10px #ffffff;
+            display: inline-block;
+        }
+        .button:active{
+            box-shadow: inset 1px 1px 2px rgb(155, 146, 146),inset -3px -3px 8px white;
+            background: transparent;
+        }
+        .clearButton{
+            background: red;
+            color: #ffffff;
+        }
+        .mathButton{
+            background: black;
+            color: #ffffff;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="calBox">
+            <form class="mainCal" name="calculator">
+                 <input type="text" id="display" readonly name="display" placeholder="0">
+                 <br>
+                 <input type="button" class="button" value="7" onclick="calculator.display.value+='7'">
+                 <input type="button" class="button" value="8" onclick="calculator.display.value+='8'">
+                 <input type="button" class="button" value="9" onclick="calculator.display.value+='9'">
+                 <input type="button" class="button mathButton" value="+" onclick="calculator.display.value+='+'">
+                 <br>
+                 <input type="button" class="button" value="4" onclick="calculator.display.value+='4'">
+                 <input type="button" class="button" value="5" onclick="calculator.display.value+='5'">
+                 <input type="button" class="button" value="6" onclick="calculator.display.value+='6'">
+                 <input type="button" class="button mathButton" value="-" onclick="calculator.display.value+='-'">
+                 <br>
+                 <input type="button" class="button" value="1" onclick="calculator.display.value+='1'">
+                 <input type="button" class="button" value="2" onclick="calculator.display.value+='2'">
+                 <input type="button" class="button" value="3" onclick="calculator.display.value+='3'">
+                 <input type="button" class="button mathButton" value="x" onclick="calculator.display.value+='*'">
+                 <br>
+                 <input type="button" class="button clearButton" value="c" onclick="calculator.display.value=''" />
+                 <input type="button" class="button" value="0" onclick="calculator.display.value+='0'">
+                 <input type="button" class="button" value="=" onclick="calculator.display.value=eval(calculator.display.value)">
+                 <input type="button" class="button" value="/" onclick="calculator.display.value+='/'">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

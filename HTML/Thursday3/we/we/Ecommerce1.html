@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce1.html</title>
+    <style>
+        #big{
+            width: 95%;
+            margin: auto;
+            display: flex;
+            height: 97vh;
+        }
+    #cont1{
+        width: 25%;
+        border: 2px solid black;
+    }
+    #cont2{
+        width: 75%;
+        border: 2px solid black;
+        display: flex;
+    
+    }
+    #cont2 > div{
+        width: 30%;
+        
+        height: 35%;
+        margin: auto;
+    }
+    input,button{
+        margin: 2.5%;
+    }
+    img{
+        width: 65%;
+    }
+
+    </style>
+</head>
+<body>
+        <h1>E-Commerce Website Nike Product List</h1>
+        <hr> 
+        <div id="big">
+            <div id="cont1">
+                <form id="form">
+                    <input type="text"  id="name" placeholder="Enter Product Name">
+                    <br>
+                    <input type="number"  id="price" placeholder="Enter Product Price">
+                    <br>
+                    <input type="text"  id="image" placeholder="Enter Product image">
+                    <br>
+                </form>
+                    <button onclick="AddProduct()">Add Products</button> 
+                    <br>
+                    <button onclick="ShowProduct()">Show Products</button> 
+             </div>
+             <div id="cont2">
+     
+             </div>
+        </div>
+       
+</body>
+</html>
+<script>
+    //localStorage.removeItem('myproduct1');
+    function AddProduct(){
+        var name = form.name.value;
+        var price = form.price.value;
+        var image = form.image.value;
+        var obj1 = {
+            name,
+            price,
+            image
+        }
+       // console.log(obj1)  //made Object
+       var arr;
+        arr = localStorage.getItem('myproduct1');
+       if(arr==null){
+         arr = [];
+       }
+       else{
+           arr = JSON.parse(arr) //JSON.parse(localStorage.getItem('myproduct1'))
+       }
+       arr.push(obj1)
+       localStorage.setItem('myproduct1',JSON.stringify(arr))
+       console.log(arr);
+       form.name.value = null;
+       form.price.value = null;
+       form.image.value = null;
+    }
+
+    function ShowProduct(){
+        let arr = JSON.parse(localStorage.getItem('myproduct1'))
+        arr.forEach(el => {
+            let div = document.createElement('div');
+            let name = document.createElement('p');
+            name.innerHTML = `Product Name: ${el.name}`;
+            let price = document.createElement('p');
+            price.innerHTML = `Product Price: ${el.price}`;
+            let img = document.createElement('img');
+            img.setAttribute('src',el.image)
+            div.append(img,name,price)
+            let head = document.getElementById('cont2');
+            head.append(div);
+        });
+    }
+</script>

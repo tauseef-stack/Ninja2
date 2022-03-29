@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+     <title>Media Query</title>
+     <style>
+         #cont{
+             width: 95%;
+             margin: auto;
+            
+             display: flex;
+         }
+         #nav{
+            width: 95%;
+            margin: auto;
+            height: 70px;
+            background: yellow;
+            font-size: 35px;
+            margin-bottom: 2.5%;
+         }
+         #cont > div{
+             height: 250px;
+             font-size: 35px;
+         }
+         #box1{
+             background: red;
+             
+         }
+         #box2{
+
+             background:lime;
+            
+         }
+         #box3{
+             background: blueviolet;
+            
+         }
+         #box4{
+             background: grey;
+        
+         }
+        
+        
+        @media only screen and (max-width :800px){
+            #cont{
+                flex-direction: column;
+            }
+            #cont > div{
+    
+                height: 150px;
+              
+            }
+        #box2,#box3{
+            margin: 20px 0;
+        } 
+        }
+        @media only screen and (min-width :800px){
+          
+            #cont{
+             flex-direction: row-reverse;
+             flex-wrap: wrap; 
+          }
+          #cont > div{
+              width: 48%;
+              margin: 1% ;
+             
+          }
+         
+          
+        }
+        @media only screen and (min-width:1000px){
+            #cont{
+                flex-direction: row;
+            }
+            #cont > div{
+              width: 22.5%;
+            }
+        #box2,#box3{
+            margin: 2.5%;
+        }
+        }
+       
+     </style>
+    </head>
+    <body>
+        <div id="nav">Nvigation</div>
+       <div id="cont">
+           <div id="box1">Box1</div>
+           <div id="box2">Box2</div>
+           <div id="box3">Box3</div>
+           <div id="box4">Box4</div>
+       </div> 
+    </body>
+</html>

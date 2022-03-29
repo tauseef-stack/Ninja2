@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>getElementByTagName</title>
+       <style>
+        body{
+            width: 500px;
+            font-size: 20px;
+            margin: 20px;
+            padding: 20px;
+        }
+        .class1{
+            border: 1px solid red;
+        }
+        .class2{
+            border: 1px solid green;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="class1">Class 1</div>
+        <div class="class2">Class 2</div>
+        <div class="class2">Class 3</div>
+        <a class="class1"> class 1 </a>
+        <a class="class1 class2"> class 1 class 2 </a>
+          <br>
+        <button onclick="getTags('div')">Delete Div Tag</button>
+        <button onclick="getTags('a')">Delete Anchor Tag</button>
+    </body>
+</html>
+
+<script>
+    function getTags(tag){
+        var res = document.getElementsByTagName(tag) //return collections of array ==>
+        console.log(res)
+      removeTags(res)
+    }
+    function removeTags(input){
+        for(var i=0; i<input.length ; i++){
+            input[i].innerHTML="";
+        }
+    }
+
+</script>

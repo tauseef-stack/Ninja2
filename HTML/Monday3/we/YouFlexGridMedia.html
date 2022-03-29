@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>YouFlexGridMedia.HTML</title>
+      <style>
+         #container div{
+              width: 55%;
+              margin: auto;
+              display: flex;
+          }
+        #container  div  div{
+             width: 150px;
+             height: 150px;
+             background: chartreuse;
+             margin: 1%;
+             font-size: 40px;
+             padding: 2%;
+             text-align: center;
+         }
+         #grid{
+             width: 60%;
+             margin: auto;
+             display: grid;
+             grid-gap:20px;
+             margin: 20px;
+             grid-template-columns: auto;
+             grid-template-rows: auto;
+             grid-template: "a a b b b b b c c"
+                            "d d d d d e e f f"
+                            "g g h h i i i i i";
+             }
+        #grid div{
+            background: rgb(177, 7, 41);
+            height: 150px;
+            margin: 1%;
+        }
+        #item1{
+            grid-area: a;
+        }
+        #item2{
+            grid-area: b;
+        }
+        #item3{
+            grid-area: c;
+        }
+        #item4{
+            grid-area: d;
+        }
+        #item5{
+            grid-area: e;
+        }
+        #item6{
+            grid-area: f;
+        }
+        #item7{
+            grid-area: g;
+        }  
+        #item8{
+            grid-area: h;
+        }
+        #item9{
+            grid-area: i;
+        }
+        #nav{
+            width: 96%;
+            height: 70px;
+            background: yellow;
+            font-size: 40px;
+            margin: auto;
+
+        }
+        #cont2{
+                display: grid;
+                grid-gap:20px;
+                padding: 20px;
+                grid-template-columns: auto;
+                grid-template-rows: auto;
+        }
+       
+           #left{
+            grid-area: a;
+            background: red;
+            font-size: 40px;
+           
+        }
+        #right1{
+            grid-area: b;
+            background: lime;
+            font-size: 40px;
+        }
+        #right2{
+            grid-area: c;
+            background: lime;
+            font-size: 40px;
+        }
+        #right3{
+            grid-area: d;
+            background: lime;
+            font-size: 40px;
+        }
+      
+        @media only screen and (max-width:800px){
+           #cont2{
+                grid-template:"a" 200px
+                              "b" 200px
+                              "c" 200px
+                              "d" 200px;
+            }
+        }
+
+        @media only screen and (min-width:800px){
+           #cont2{
+                grid-template: "a a a"500px
+                               "b c d"150px
+                               "b c d"150px
+                                       ;
+            }
+        }
+        @media only screen and (min-width:1000px){
+            #cont2{
+                grid-template: "a a b" 200px
+                               "a a c" 200px
+                               "a a d" 200px;
+            }
+        }
+        
+       
+       
+            
+      </style>
+    </head>
+    <body>
+        <div id="container">     
+           <div id="item1">
+               <div>1</div>
+           </div>
+
+           <div id="item2">
+               <div>2</div>
+               <div>3</div>
+          </div>
+
+           <div id="item3">
+               <div>4</div>
+               <div>5</div>
+               <div>6</div>
+           </div>
+
+           <div id="item4">
+               <div>7</div>
+               <div>8</div>
+               <div>9</div>
+               <div>10</div>
+           </div>
+     </div>
+
+     <div id="grid">
+         <div id="item1">1</div>
+         <div id="item2">2</div>
+         <div id="item3">3</div>
+         <div id="item4">4</div>
+         <div id="item5">5</div>
+         <div id="item6">6</div>
+         <div id="item7">7</div>
+         <div id="item8">8</div>
+         <div id="item9">9</div>
+        
+     </div>
+
+     <div id="nav">Navigation</div>
+
+    <div id="cont2">
+         
+       <div id="left">Left Box</div>
+           
+    
+          <div id="right1"> Right Box1</div>
+          <div id="right2"> Right Box2</div>
+          <div id="right3"> Right Box2</div>
+        
+
+    </div> 
+
+       
+    
+    </div>
+    </body>
+</html>

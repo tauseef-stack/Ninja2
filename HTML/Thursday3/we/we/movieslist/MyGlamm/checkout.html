@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body{
+            font-family: Montserrat Regular,sans-serif;
+            font-weight: lighter;
+    
+        }
+        #mainDiv{
+            width: 100%;
+            
+            margin: auto;
+            display: flex;
+        }
+        #leftDiv{
+            width:50%;
+        
+            margin-left: 100px;
+        }
+        #imgDiv{
+            width: 90%;
+            height: 80px;
+            text-align: center;
+        
+            margin: auto;
+            cursor: pointer;
+        }
+        #imgDiv>img{
+            width:45%;
+            margin-top: 20px;
+        }
+        #headerDiv{
+            width: 90%;
+            
+            margin: auto;
+            font-size: 10px;
+            color: gray;
+            display: flex;
+        }
+        #headerDiv>p:nth-child(1){
+            margin-left: 80px;
+        }
+        #expressCheckout{
+            width: 90%;
+            height: 80px;
+            border: 1px solid lightgray;
+            margin: auto;
+            text-align: center;
+            margin-top: 20px;
+        }
+        #payPal{
+            width: 250px;
+            margin-top: 20px;
+            cursor: pointer;
+            background-color: rgb(255,196,57);
+            border-radius: 10px;
+        }
+         #payPal>p{
+             background-color: white;
+             float: left;
+             font-weight: bold;
+             margin-top: -30px;
+             margin-left: 65px;
+
+         }
+         #or{
+             float: left;
+             background-color: white;
+             margin-top: -18px;
+             font-size: 13px;
+             color: gray;
+             margin-left: 310px;
+         }
+         form{
+             clear: both; display: grid;
+             width: 90%;
+             margin: auto;
+         }
+         form>div:nth-child(3){
+             display: flex;
+             margin-top: 10px;
+         }
+         #name{
+             display: flex;
+             width: 100%;
+         }
+          #name input{
+               height: 30px;
+               width: 50%;
+          }
+          #countryCode{
+              display: flex;
+              margin-top: 10px;
+          }
+          #countryCode>div{
+              width: 32%;
+              height: 50px;
+              background-color: white;
+        
+          }
+          #rightDiv{
+              
+              width: 45%;
+              height: 55%;
+              background-color: rgb(248,248,248);
+              border-left: 1px solid lightgray;
+              
+          }
+          #rightInnerDiv,#rightInnerDiv2,#rightInnerDiv3{
+              width: 65%;
+              margin-left: 60px;
+              margin-top: 60px;
+              
+          }
+          #rightInnerDiv4{
+              width: 65%;
+              display: flex;
+              margin-left: 60px;
+          }
+          #rightInnerDiv img{
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
+            border: 1px solid lightgray;
+          }
+          .p1{
+              font-size: 13px;
+              color: grey;
+              margin-top: -10px;
+          }
+          .p2{
+              margin-top: -40px;
+              font-weight: bold;
+              margin-left: 120px;
+              float: right;
+          }
+          .span{
+              float: left;
+              margin-top: -69px;
+              background-color:rgb(94,118,155);
+              margin-left: -5px;
+              color: white;
+              font-weight: bold;
+              width: 17px;
+              height: 17px;
+              border-radius: 60%;
+              text-align: center;
+              font-size: 13px;
+          }
+          #rightInnerDiv3 p,#rightInnerDiv4 p{
+              color: black;
+              
+          }
+           #rightInnerDiv3{
+            border-bottom: 1px solid lightgray;
+           }
+           #bottomDiv{
+               display: flex;
+               margin-top: 30px;
+           }
+           #bottomDiv u{
+               font-size: 11px;
+               color: #122841;
+               margin-left: 30px;
+               margin-top: 20px;
+           }
+           #bottomDiv button{
+               width: 320px;
+               height: 50px;
+               background-color: black;
+               color: white;
+               font-weight: bold;
+               margin-left: 170px;
+           }
+      #lastNamep{
+          float: right;
+      }
+
+      /* footer */
+    footer {
+      position: relative;
+      background-color: white;
+      padding: 3rem 0px;
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+      /* z-index: 3; */
+    }
+    #footer {
+      display: flex;
+      padding: 0px 12vw;
+      text-transform: uppercase;
+      font-family: "Gill Sans", "Gill Sans MT", "Calibri", "Trebuchet MS",
+        sans-serif;
+        /* z-index: 1; */
+    }
+    #footer > ul {
+      padding: 0px 30px 0px 0px;
+      list-style-type: none;
+      color: #818181;
+    }
+    #footer h6 {
+      font-size: 1rem;
+    }
+    #footer > ul > li a {
+      text-decoration: none;
+      color: black;
+      text-transform: none;
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+      font-size: 0.87rem;
+    }
+    #footer li {
+      margin-top: 0.37rem;
+      line-height: 1.2;
+    }
+    #footerBottom {
+      display: flex;
+      padding: 0px 12vw;
+      margin-top: 2.3rem;
+      position: relative;
+    }
+    footer button {
+      height: 2.3rem;
+      color: white;
+      background-color: black;
+      border: none;
+      font-size: 0.9rem;
+      margin-left: 0px;
+      width: 10rem;
+      vertical-align: middle;
+    }
+    footer input {
+      height: 2.3rem;
+      width: 19rem;
+      margin-top: 1rem;
+    }
+    /* #sect2 label {
+        position: absolute;
+        right: 12vw;
+      } */
+    #sect2 img {
+      width: 7.5rem;
+      height: 2.5rem;
+      margin-top: 1rem;
+    }
+    #sect2 {
+      position: absolute;
+      right: 12vw;
+    }
+    #img1 {
+        float: left;
+      /* position: absolute; */
+      /* right: -80%; */
+    }
+    #img2 {
+      position: absolute;
+      right: 2px;
+    }
+    #footer > ul > li a:hover {
+      color: #d4a255;
+    }
+    </style>
+</head>
+<body>
+    <div class="a_main">
+        <h1 style="text-align: center; ">CHECKOUT </h1>
+        <div id="mainDiv">
+            <div id="leftDiv" style="margin-top: -30px;">
+                <div id="imgDiv">
+                    <img src="https://files.myglamm.com/site-images/original/MyGlamm-Logo_1.jpg"/>
+                </div>
+                <br>
+                <div id="headerDiv">
+                  
+                   <h1><a href="myGlamm.html">CART</a> / <a href="myGlamm.html">CHECKOUT</a> </h1>
+                    
+                </div>
+                <div class="signIn" style="display: flex; margin-left: 25%; margin-top: 25px;">
+                  <p style="font-weight: 600; margin-right: 50px;">Already have an Account?</p>
+                  <button style="width: 20%; height: 40px;background-color: rgb(253, 252, 252) ;color: rgb(15, 14, 14);cursor: pointer; font-weight: 700;" id="apply">SIGN IN</button>
+                </div>
+                
+  
+                <hr style="border: 1px solid lightgrey; margin-top: 20px;width: 90%; ">
+                
+                <p id="or">OR</p>
+  
+                <form >
+                    
+                   <label style="margin-top: 10px; margin-bottom: 30px; font-size: 20px; color: black; text-align: center;">Checkout Without Sign in</label>
+                   <div id="name">
+                       <input type="text" placeholder="First Name" id="firstName"/>
+                      
+                       <input type="text" style="margin-left: 15px;" placeholder="Last Name" id="lastName"/>
+                       
+                      </div>
+                      <div>
+                          
+                        <div style="color: red; margin-top: 5px; font-size: 15px;" id="firstNamep"></div>
+                        <div style="margin-right: 170px; color: red; margin-top: -15px;font-size: 15px; " id="lastNamep"></div>
+                      </div>
+                      <input style="width: 99%; height: 30px; margin-top: 8px;" for="Email" type="text" placeholder="Email" id="mail"/>                
+                      <input style="width: 99%; height: 30px; margin-top: 8px;" for="Mobile" type="text" placeholder="Mobile" id="mobile"/>                
+                       <div style="color: red; margin-top: 5px;font-size: 15px" id="Emailp"></div>
+                        <input style="margin-top: 10px; width: 99%; height: 30px;" type="text" placeholder="Address" id="Address"/>
+                          <div style="color: red; margin-top: 5px; font-size: 15px;" id="Addressp"></div>
+  
+                   <input style="margin-top: 10px; width: 99%; height: 30px;" type="text" placeholder="Apartment,suit,etc (optional)" id="Apartment"/>
+                      <div style="color: red; margin-top: 5px; font-size: 15px;" id="Apartmentp"></div>
+                   <input style="margin-top: 10px; width: 99%; height: 30px;" type="text" placeholder="City" id="City"/>
+                  <div style="color: red; margin-top: 5px; font-size: 15px;" id="Cityp"></div>
+                   <div id="countryCode">
+                       <div style="display: grid; border: 1px solid black;" id="country">
+                          <label style="margin-top: 5px; font-size: 15px;margin-left: 5px;color: #12284c;">COUNTRY/REGION</label>
+                          <select style="cursor: pointer; border: 1px solid white;" name="country" >
+                              
+                              <option value="INDIA">INDIA</option>
+                              
+                          </select>
+                       </div>
+                       <div style="margin-left: 15px; display: grid;border: 1px solid black;" id="state">
+                          <label style="margin-top: 5px; font-size: 15px;margin-left: 5px;color: #12284c;">STATE</label>
+                          <select style="cursor: pointer; border: 1px solid white;" name="STATE" >
+                              <option  value="Maharashtra">Maharashtra</option>
+                              <option value="Delhi">Delhi</option>
+                              <option value="Jharkhand">Jharkhand</option>
+                              <option value="UP">UP</option>
+                              <option value="West Bengal">West Bengal</option>
+                              <option value="Karnataka">Karnataka</option>
+                          </select>
+                       </div>
+                       <input style="margin-left: 16px;" placeholder="ZIP code"/>
+                   </div>
+                   <div style="display: flex; margin-top: 10px;" id="save">
+                      <input style=" width: 15px;height: 15px;cursor: pointer;" type="checkbox" />
+                      
+                      <label style="margin-left: 10px; font-size: 17px; color: #12284c;">Save this information for next time</label>
+                   </div>
+                  </form>
+                  <p style="font-size: 13px;color: rgb(236, 110, 131);margin-left: 37px ;">To learn more about how we use your information and your rights, see <u style="cursor: pointer;">Privacy Note</u></p>
+           
+                  <div id="bottomDiv">
+                      
+                      <button style="cursor: pointer;" id="shipping">SUBMIT DETAILS</button>
+                  </div>
+                  <hr style="margin-top: 50px;color: lightgray; width: 91%;">
+                  <p style="margin-left: 30px;font-size: 13px;color: rgb(241, 114, 135);margin-top: 10px;">All rights reserved myGlamm</p>
+              </div>
+            <div id="rightDiv" >
+                <!-- <div id="rightInnerDiv">
+  
+                </div> -->
+                <div id="rightInnerDiv2">
+                      <div style="display: flex;">
+                          <input style="width: 60%; height: 45px;border: 2px solid #12284c; "  placeholder="Gift Card/Promocode" id="promo"/>
+                          <button style="width: 40%; height: 50px;background-color: black ;color: white;cursor: pointer;" id="apply">APPLY</button>
+                      </div>
+                </div>
+                <hr style="color: lightgray; margin-top: 20px; width: 65%;margin-right: 140px;">
+                <div  id="rightInnerDiv3">
+                  <div style="display: flex;">
+                    <p>Actual Amount</p>
+                    <p style="margin-left: 270px;" id="totalPrice"></p>
+                    </div>
+                    <div  style="display: flex; margin-top: -20px;">
+                        <p>Shipping Charges</p>
+                        <p style="font-size: 12px;margin-left: 250px;margin-top: 20px;">FREE</p>
+                    </div>
+                </div>
+                <div id="rightInnerDiv4">
+                    <p style="font-weight: bold;margin-top: 25px;font-size: 15px;">Amount to Pay</p>
+                    <p style="margin-left: 270px;font-weight:200;font-size: 18px;" id="totalPrice1">₹ 363</p>
+                </div>
+                <p style="margin-left: 60px; margin-top: -13px; color: rgb(247, 132, 151);">Note: Inclusive of all taxes</p>
+                <br>
+                <center>
+                  <button style="width: 40%; height: 50px;background-color: black ;color: white;cursor: pointer;" id="apply">PROCEED TO PAYMENT</button>
+                </center>
+                
+              </div>
+        </div>
+        <footer>
+            <hr>
+            <br>
+            <br>
+            <div id="footer" style="margin-top: -4%;">
+              <ul>
+                <li><h6>Bath &amp; Body</h6></li>
+                <li>
+                  <a href="/buy/bath-and-body/body/face-washes">Face Washes</a>
+                </li>
+                <li>
+                  <a href="/buy/bath-and-body/body/shower-gels">Shower Gels</a>
+                </li>
+                <li>
+                  <a href="/buy/bath-and-body/body/body-moisturizers"
+                    >Body Moisurizers</a
+                  >
+                </li>
+                <li><a href="/buy/bath-and-body/body/soaps">Soaps</a></li>
+                <li><a href="/buy/bath-and-body/body/hand-care">Hand Care</a></li>
+                <li><a href="/buy/bath-and-body/body/foot-care">Foot Care</a></li>
+                <li>
+                  <a href="/buy/makeup/bath-and-body/sanitizing-kits"
+                    >Sanitizing Kits</a
+                  >
+                </li>
+                <li>
+                  <a href="/buy/bath-and-body/body-care/body-spray-and-mists"
+                    >Body Spray &amp; Mists</a
+                  >
+                </li>
+              </ul>
+              <ul>
+                <li><h6>Sanitizing Care</h6></li>
+                <li>
+                  <a href="/buy/sanitizing-care/sanitizers/sanitizing-wipes"
+                    >Sanitizing Wipes</a
+                  >
+                </li>
+                <li>
+                  <a href="/buy/sanitizing-care/body/face-washes">Face Washes</a>
+                </li>
+                <li>
+                  <a href="/buy/sanitizing-care/body/shower-gels">Shower Gels</a>
+                </li>
+                <li>
+                  <a href="/buy/sanitizing-care/body/body-moisturizers"
+                    >Body Moisturizers</a
+                  >
+                </li>
+                <li><a href="/buy/sanitizing-care/body/soaps">Soaps</a></li>
+                <li><a href="/buy/sanitizing-care/body/hand-care">Hand Care</a></li>
+                <li><a href="/buy/sanitizing-care/body/foot-care">Foot Care</a></li>
+                <li>
+                  <a href="/buy/sanitizing-care/sanitizers/surface-spray"
+                    >Surface Spray</a
+                  >
+                </li>
+                <li>
+                  <a href="/buy/sanitizing-care/kits/sanitizing-kits"
+                    >Sanitizing Kits</a
+                  >
+                </li>
+                <li>
+                  <a href="/buy/sanitizing-care/body-care/body-spray-and-mists"
+                    >Body Spray &amp; Mists</a
+                  >
+                </li>
+                <li>
+                  <a href="/buy/sanitizing-care/sanitizers/sanitizing-spray"
+                    >Sanitizing Spray</a
+                  >
+                </li>
+                <li>
+                  <a href="/buy/sanitizing-care/sanitizers/hand-sanitizer"
+                    >Hand Sanitizer</a
+                  >
+                </li>
+              </ul>
+              <ul>
+                <li><h6>Skincare</h6></li>
+                <li>
+                  <a href="/buy/skincare/cleansers/face-cleanser">Face Cleanser</a>
+                </li>
+                <li><a href="/buy/skincare/cleanser">Cleanser</a></li>
+                <li><a href="/buy/skincare/cleansers/toner">Toner</a></li>
+                <li>
+                  <a href="/buy/skincare/moisturiser/moisturising-cream"
+                    >Moisturising Cream</a
+                  >
+                </li>
+                <li><a href="/buy/skincare/moisturiser">Moisturiser</a></li>
+                <li><a href="/buy/skincare/cleanser/face-wash">Face Wash</a></li>
+                <li>
+                  <a href="/buy/skincare/moisturizer/body-lotion">Body Lotion</a>
+                </li>
+                <li><a href="/buy/skincare/mask/sheet-mask">Sheet Mask</a></li>
+                <li>
+                  <a href="/buy/skincare/lip-treatment/lip-balms-and-treatments"
+                    >Lip Balms &amp; Treatment</a
+                  >
+                </li>
+                <li><a href="/buy/skincare/eye-care/eye-cream">Eye Cream</a></li>
+                <li>
+                  <a href="/buy/skincare/sun-care/face-sunscreen">Face Sunscreen</a>
+                </li>
+                <li>
+                  <a href="/buy/skincare/cleanser/exfoliators-and-scrubs"
+                    >Exfoliators &amp; Scrub</a
+                  >
+                </li>
+                <li><a href="/buy/skincare/masks/face-masks">Face Masks</a></li>
+                <li>
+                  <a href="/buy/skincare/moisturizer/moisturising-gel"
+                    >Moisturising Gel</a
+                  >
+                </li>
+                <li>
+                  <a href="/buy/skincare/moisturiser/night-cream">Night Cream</a>
+                </li>
+                <li><a href="/buy/skincare/treatment/essence">Essence</a></li>
+              </ul>
+              <ul>
+                <li><h6>Face</h6></li>
+                <li><a href="/buy/makeup/face/face-sets">Face Sets</a></li>
+                <li><a href="/buy/makeup/face/fixing-powder">Fixing Powder</a></li>
+                <li><a href="/buy/makeup/face/primer">Primer</a></li>
+                <li><a href="/buy/makeup/face/concealer">Concealer</a></li>
+                <li><a href="/buy/makeup/face/foundation">Foundation</a></li>
+                <li><a href="/buy/makeup/face/compact">Compact</a></li>
+                <li>
+                  <a href="/buy/makeup/face/setting-powder">Setting Powder</a>
+                </li>
+                <li><a href="/buy/makeup/face/banana-powder">Banana Powder</a></li>
+                <li><a href="/buy/makeup/face/highlighter">Highlighter</a></li>
+                <li><a href="/buy/makeup/face/blush">Blush</a></li>
+                <li><a href="/buy/makeup/face/bronzer">Bronzer</a></li>
+                <li><a href="/buy/makeup/face/cheek-stain">Cheek Stain</a></li>
+                <li><a href="/buy/makeup/face/face-chalks">Face Chalks</a></li>
+                <li><a href="/buy/makeup/face/sheet-mask">Sheet Masks</a></li>
+              </ul>
+              <ul>
+                <li><h6>Eyes</h6></li>
+                <li><a href="/buy/makeup/eyes/eyeshadow">Eye Shadow</a></li>
+                <li><a href="/buy/makeup/eyes/eyeliner">Eyeliner</a></li>
+                <li><a href="/buy/makeup/eyes/eyebrow">Eyebrows</a></li>
+                <li><a href="/buy/makeup/eyes/glitter">Eye Sparkle</a></li>
+                <li><a href="/buy/makeup/eyes/chalks">Eye Chalks</a></li>
+                <li><a href="/buy/makeup/eyes/mascara">Mascara</a></li>
+                <li><a href="/buy/makeup/eyes/kajal">Kajal</a></li>
+              </ul>
+              <ul>
+                <li><h6>Lips</h6></li>
+                <li><a href="/buy/makeup/lips/lipstick">Lipstick</a></li>
+                <li>
+                  <a href="/buy/makeup/lips/matte-lipstick">Matte Lipstick</a>
+                </li>
+                <li>
+                  <a href="/buy/makeup/lips/metallic-lipstick">Metallic Lipstick</a>
+                </li>
+                <li>
+                  <a href="/buy/makeup/lips/hi-shine-lipstick">Hi-Shine Lipstick</a>
+                </li>
+                <li>
+                  <a href="/buy/makeup/lips/liquid-lipstick">Liquid Lipstick</a>
+                </li>
+                <li><a href="/buy/makeup/lips/lip-gloss">Lip Gloss</a></li>
+                <li>
+                  <a href="/buy/makeup/lips/hi-shine-lipgloss">Hi-Shine Lipgloss</a>
+                </li>
+                <li><a href="/buy/makeup/lips/lip-liner">Lipliners</a></li>
+                <li><a href="/buy/makeup/lips/lip-balm">Lip Care</a></li>
+                <li><a href="/buy/makeup/lips/glitter">Lip Sparkle</a></li>
+                <li><a href="/buy/makeup/lips/lip-stain">Lip Stain</a></li>
+                <li><a href="/buy/makeup/lips/lip-chalks">Lip Chalks</a></li>
+                <li><a href="/shade-finder">Find Your Lipstick</a></li>
+              </ul>
+              <ul>
+                <li><h6>Nails</h6></li>
+                <li><a href="/buy/makeup/nails/nail-polish">Nail Polish</a></li>
+                <li>
+                  <a href="/buy/makeup/nails/matte-nail-polish">Matte Nail Polish</a>
+                </li>
+                <li>
+                  <a href="/buy/makeup/nails/matte-nail-enamel">Matte Nail Enamel</a>
+                </li>
+                <li>
+                  <a href="/buy/makeup/nails/glossy-nail-enamel"
+                    >Glossy Nail Enamel</a
+                  >
+                </li>
+                <li><a href="/buy/makeup/nails/nail-lacquer">Nail Lacquer</a></li>
+              </ul>
+              <ul>
+                <li><h6>myglammSTUDIO</h6></li>
+                <li><a href="/glammstudio/style/">Style</a></li>
+                <li><a href="/glammstudio/lifestyle/">Lifestyle</a></li>
+                <li><a href="/glammstudio/trends/">Trends </a></li>
+                <li><a href="/glammstudio/tips/">Tips</a></li>
+                <li><a href="/glammstudio/beauty/">Beauty</a></li>
+                <li><a href="/glammstudio/tutorials/">Tutorials</a></li>
+              </ul>
+              <ul>
+                <li><h6>Know More</h6></li>
+                <li><a href="/about-us">About Us</a></li>
+                <li><a href="/offers">Exclusive Offers</a></li>
+                <li><a href="/refer">Refer &amp; Earn</a></li>
+                <li><a href="/online-parties/">myglammPARTIES</a></li>
+                <li><a href="/store-locator">Store Locator</a></li>
+                <li><a href="/press">Press &amp; Media</a></li>
+                <li><a href="/terms-and-conditions">Terms &amp; Conditions</a></li>
+                <li><a href="/policies">Privacy Policy</a></li>
+                <li>
+                  <a href="/shipping-and-delivery-policy"
+                    >Shipping and Delivery policy</a
+                  >
+                </li>
+                <li>
+                  <a href="/returns-and-replacements">Returns and Replacements</a>
+                </li>
+                <li><a href="/about-rewards">MyGlamm Rewards</a></li>
+                <li><a href="/site-map">Sitemap</a></li>
+              </ul>
+            </div>
+            <div id="footerBottom">
+              <div id="sect1">
+                <form action="">
+                  <label for="">SUBSCRIBE FOR MYGLAMM EMAILS</label>
+                  <br />
+                  <input type="text" placeholder="Please enter valid email ID" />
+                  <button>SUBSCRIBE NOW</button>
+                </form>
+              </div>
+              <div id="sect2">
+                <label for="">EXPERIENCE THE MYGLAMM MOBILE APP</label>
+                <br />
+                <a href="">
+                  <img src="https://www.myglamm.com/images/iosStore.png" alt="" id="img1"/>
+                </a>
+                <a href="">
+                  <img
+                    src="https://www.myglamm.com/images/playStore.png"
+                    alt=""
+                    id="img2"
+                  />
+                </a>
+              </div>
+            </div>
+          </footer>
+    </div>
+     
+</body>
+</html>
+<script>
+
+
+</script>

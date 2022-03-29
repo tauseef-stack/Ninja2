@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+     <title>removeAttribuite</title>
+     <style>
+        .class1 {
+   color: red;
+   
+       }
+       .class2{
+           font-size: 32px;
+       }
+
+    #id1 {
+     background-color: blue;
+     color: white;
+     padding: 10px
+         } 
+     </style>
+    </head>
+    <body>
+     <div>First div</div>
+    <div>Second div</div>
+    <p>First para</p>
+    <p>Second para</p>
+    <button onclick="setStyle()">Set Style</button>
+    <button onclick="removeStyle()">Remove Style</button>  
+    </body>
+</html>
+
+<script>
+      var fd = document.querySelector('div');
+      var fp = document.querySelector('p');
+    function setStyle(){
+        let clasess = fd.getAttribute('class');
+   
+        fd.setAttribute('class','class1 class2');
+        console.log(fd)
+      
+        fp.setAttribute('id','id1');
+        }
+
+    function removeStyle(){
+        fd.removeAttribute('class');
+        console.log(fd)
+         fp.removeAttribute('id');
+    }
+</script>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Api Fetch</title>
+    <style>
+         body{
+            background:grey
+        }
+        .container{
+            width:30%;
+            margin: 50px auto;
+            background:white;
+           
+        }
+        .container{
+            box-shadow: 0 0 10px;
+            text-align: center;
+        }
+        img{
+            width:30%;
+            height:150px;
+        }
+        h3{
+            color:rgb(103, 12, 189);
+        }
+        h4{
+            color:rgb(224, 65, 47);
+        }
+        .upper{
+            text-align:center;
+        }
+        input{
+            width: 20%;
+            padding:0.7%;
+            background:rgb(233,233,233);
+            outline: none;
+            color: black;
+            border: none;
+            margin-right: 2%;
+        }
+        button{
+            width:10%;
+            padding:0.5%;
+            background: black;
+            color:white;
+        }
+        h1{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color:darkmagenta;
+        }
+    </style>
+</head>
+<body>
+    <h1>Movie Api Search</h1>
+    <div class="outter">
+    <input type="text" class="search" placeholder="Enter Movie Name">
+    <button onclick="getData()">Search</button>
+    </div>
+    <div class="container">
+
+    </div>
+</body>
+</html>
+<script>
+    async function getData(){
+        let query = document.querySelector('.search').value;
+        let res = await fetch(`http://www.omdbapi.com/?apikey=bcfcf9f7&t=${query}`);
+         let data = await res.json();
+         console.log(data)
+         document.querySelector('.search').value = null;
+           if(data.Error == "Movie not found!"){
+               movieError();
+           }
+           else{
+            appendData(data);
+           }
+       
+    }
+
+function appendData({Released,Poster,imdbRating,Title}) {
+    let img = document.createElement('img');
+    img.src = Poster;
+    let title = document.createElement('h3');
+    title.innerText = Title;
+    let h4 = document.createElement('h4');
+    h4.innerText = `Released : ${Released}`;
+    let h32 = document.createElement('h3');
+
+    if(Number(imdbRating) < 8.5){
+        h32.innerText = `Rating: ${imdbRating}`;
+    }
+    else{
+        h32.innerText = `Rating: ${imdbRating} <span><img src="https://thumbs.dreamstime.com/z/red-recommended-rubber-vector-stamp-illustration-82954443.jpg style"></span>`
+    }
+   let head = document.querySelector('.container');
+   head.innerHTML = null;
+   head.append(img,title,h4,h32)
+}
+
+function movieError(){
+    let head  = document.querySelector('.container');
+    head.innerHTML = null;
+    let img1 = document.createElement('img');
+    img1.src = `https://media1.tenor.com/images/4f3c495e22fac97cfc6f21c841516d8f/tenor.gif?itemid=10936641`;
+    img1.style.height = '300px';
+    img1.style.width = '100%';
+    head.append(img1)
+}
+</script>

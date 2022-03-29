@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Product Form</title>
+        <style>
+            #cont{
+                width: 95%;
+                margin: 20px auto;
+               display: flex;
+            }
+          #cont1{
+              width: 25%;
+              height: 580px;
+              border: 2px solid black;
+          }
+          #cont2{
+              width: 74%;
+              height: 580px;
+              border: 2px solid black;
+          }
+        </style>
+    </head>
+    <body>
+        <div id="cont">
+            <div id="cont1">
+                <form id="form">
+                    <input type="text" id="name" placeholder="Enter Product Name" >
+                    <br>
+                    <br>
+                    <input type="number" id="Price" placeholder="Enter Product Price" >
+                    <br>
+                    <br>
+                    <input type="text" id="desc" placeholder="Enter Product Description" >
+                    <br>
+                    <br>
+                    <input type="number" id="del" placeholder="Estimated Delievery" >
+                    <br>
+                    <br>
+                    <input type="text" id="img" placeholder=" Enter Image Url" >
+                    <br>
+                    <br>
+                    <button id="btn" mouseover="newProduct()">Add Product</button>
+                    
+                </form>
+            </div>
+            <div id="cont2">
+               
+            </div>
+        </div>
+    </body>
+</html>
+<script>
+  
+  
+   var id =1;
+   function newProduct(){
+       var name = document.getElementById('name').value;
+         console.log(name)
+       var price = document.getElementById('price').value;
+       var desc = document.getElementById('desc').value;
+       var del = document.getElementById('del').value;
+      var img = document.getElementById('img').value;
+               console.log(name,price,desc,del) 
+       
+
+       
+       var div = document.createElement('div'); 
+       id+=1;
+       div.style.background='lightgrey';
+     div.style.width = '500px';
+     div.style.height='200px'; 
+     
+       console.log(div)
+       div.innerHTML = ` <p id=${id}> Name: ${name}</p>
+                         <p id=${id}> Price: ${price}</p>
+                         <p id=${id}> Description: ${desc}</p>
+                         <p id=${id}>Delievery: ${del}</p>
+                        <img src=${img}>
+                         <button  onclick="Remove(${id})">Remove</button>
+                         <button  onclick="Update(${id})">Update</button>`
+                         console.log(div); 
+    var div2 = document.getElementById('cont2');
+    div2.appendChild(div); 
+   }
+</script>

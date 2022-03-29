@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<!--<input type="text" id="input" placeholder="WriteNotes">
+    <button onclick="Append()">Add Notes</button>
+    <div class="data">
+
+    </div>  -->
+<body>
+    
+</body>
+</html>
+
+<script type="module" >
+    import {search} from "../script/core.js"
+    const mydata = search();
+    document.body.innerHTML = mydata;
+
+   // import {Append} from "./append.js"
+    // let data2 = Append();
+    // console.log(data2)
+    
+    // function Append(){
+    //     let head = document.querySelector('.data')
+    //     let p = document.createElement('p');
+    //     let note = document.querySelector("#input").value;
+    //     p.innerText = `${note}`;
+    //     head.append(p);
+    //     document.querySelector("#input").value = null;
+   // }
+</script>
+<script src="append.js"></script>

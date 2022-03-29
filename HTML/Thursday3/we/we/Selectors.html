@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Creators.HTML</title>
+    </head>
+    <body>
+      <h1>First H1</h1>
+      <h1>Second H1</h1>
+      <h3>First H3</h3>
+      <h3>Second H3</h3>
+      <h5>First H5</h5>
+      <h5>Second H5</h5>
+      <h5>Third H5</h5>
+
+      <div class="green">First Div</div>
+      <div class="red">Second Div</div>
+      <div class="blue">Third Div</div>
+      
+      <p class="green">First p</p>
+      <p class="red">Second p</p>
+      <p class="blue">Third p</p>
+      <hr/>
+      <button onclick="onlyFirstH1()">Change H1</button>
+      <button onclick="allH3()">Change H3</button>
+      <button onclick="allH5()">Change H5</button>
+      <button onclick="greenClass()">Change Green</button>
+      <button onclick="redClass()">Change Red</button>
+      <button onclick="blueClass()">Change blue</button>
+    </body>
+</html>
+
+<script>
+   function onlyFirstH1(){
+     var h1 = document.querySelector('h1')
+     h1.style.color="red";
+   }
+   function allH3(){
+     var h3 = document.querySelectorAll("h3")
+      for(var i=0 ; i<h3.length ; i++){
+        var h31 = h3[i];
+        h31.style.color="green"
+      }
+   }
+   function allH5(){
+     var h5 = document.querySelectorAll("h5")
+     for(var i=0 ; i<h5.length ; i++){
+       var h51 = h5[i];
+       h51.style.color="blue";
+     }
+   }
+function greenClass(){
+  var gre = document.getElementsByClassName('green')
+    for(var i=0 ; i<gre.length ; i++){
+      var gree = gre[i];
+      gree.style.color='green';
+    }
+}
+
+function blueClass(){
+  var gre = document.getElementsByClassName('blue')
+    for(var i=0 ; i<gre.length ; i++){
+      var gree = gre[i];
+      gree.style.color='blue';
+    }
+}
+
+function redClass(){
+  var gre = document.getElementsByClassName('red')
+    for(var i=0 ; i<gre.length ; i++){
+      var gree = gre[i];
+      gree.style.color='red';
+    }
+}
+</script>

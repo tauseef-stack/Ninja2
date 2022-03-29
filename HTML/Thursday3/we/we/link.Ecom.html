@@ -1,0 +1,81 @@
+     <!DOCTYPE html>
+     <html lang="en">
+     <head>
+         <meta charset="UTF-8">
+         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>LInk With Ecommerce .html</title>
+         <style>
+   img{
+        width: 35%;
+        
+    }
+    h1{
+        color: blueviolet;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        text-align: right;
+    }
+    #cont{
+        display: flex;
+        
+    
+    }
+    #cont > div{
+        background:rgb(107, 99, 99);
+        border: 1px solid rgb(128, 111, 111);
+        width: 30%;
+        margin: auto;
+        text-align: center;
+    }
+    p{
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 1000;
+        font-size: 35px;
+        color: aliceblue;
+
+    }
+    #sum{
+        text-align: right;
+    }
+
+         </style>
+     </head>
+     <body>
+         <h1>Cart Items Summery</h1>
+         <div id="sum">
+
+         </div>
+         <hr>
+         <div id="cont">
+
+         </div>
+     </body>
+     </html>
+     <script>
+          var arr2 = JSON.parse(localStorage.getItem('mycart'));
+        console.log(arr2)
+          var sum = 0;
+           arr2.forEach(el => { //we need to loop through each item present in the array
+               var div = document.createElement('div');
+               var name = document.createElement('p');
+               name.innerHTML = `Product Name: ${el.name}`
+               var price = document.createElement('p');
+               price.innerHTML = `Product Price: ${el.price}`
+               var image = document.createElement('img');
+               image.setAttribute('src',el.image)
+               div.append(image,name,price);
+               var head = document.getElementById('cont');
+               head.append(div);
+             sum+=Number((el.price));
+
+           });
+           var h1 = document.createElement('h1');
+               h1.innerHTML = `Total Added Products = ${arr2.length}`;
+               var h2 = document.createElement('h1');
+               h2.innerHTML = `Total Price = ${sum} Rs.`;
+               var sum = document.getElementById('sum');
+               sum.append(h1,h2);
+
+   
+       
+     </script>

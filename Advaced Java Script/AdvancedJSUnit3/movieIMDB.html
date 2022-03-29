@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies List</title>
+    <style>
+        body{
+            background:grey
+        }
+        .innercontainer{
+            width:30%;
+            margin: 50px auto;
+            background:white;
+           
+        }
+        .innercontainer div{
+            box-shadow: 0 0 10px;
+            text-align: center;
+        }
+        img{
+            width:30%;
+            height:150px;
+        }
+        h3{
+            color:rgb(103, 12, 189);
+        }
+        h4{
+            color:rgb(224, 65, 47);
+        }
+        .upper{
+            text-align:center;
+        }
+        input{
+            width: 20%;
+            padding:0.7%;
+            background:rgb(233,233,233);
+            outline: none;
+            color: black;
+            border: none;
+            margin-right: 2%;
+        }
+        button{
+            width:10%;
+            padding:0.5%;
+            background: black;
+            color:white;
+        }
+        h1{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color:darkmagenta;
+        }
+    </style>
+</head>
+<body>
+    <div class="upper">
+        <h1>Movies Info</h1>
+    <input type="text" class="name" placeholder="Enter Movie Name">
+    <button onclick="getMovieData()">Get Movie</button>
+    </div>
+    
+    <div class="outtercontainer">
+       <div class="innercontainer">
+
+       </div>
+    </div>
+   
+</body>
+</html>
+<script src="movieIMDB.js"></script>

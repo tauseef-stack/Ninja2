@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>HTML Styles</title>
+  </head>
+  <body>
+    <div>First div</div>
+    <div>Second div</div>
+    <p>First para</p>
+    <p>Second para</p>
+    <button onclick="setDiv()">Set DIV</button>
+    <button onclick="setPara()">Set Para</button>
+  </body>
+</html>
+
+<script>
+   function setDiv() {
+  var firstDiv = document.querySelector('div');
+  firstDiv.style.backgroundColor = 'red';
+  firstDiv.style.color = 'white';
+  firstDiv.style.padding = '10px';
+}
+
+function setPara() {
+  var firstDiv = document.querySelector('p');
+  firstDiv.style.border = '1px solid black';
+  firstDiv.style.marginBottom = '50px';
+  firstDiv.style.fontSize = '40px';
+} 
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance</title>
+</head>
+<body>
+   <h1>Inheritance</h1> 
+</body>
+</html>
+<script>
+    //Using Object.create Method ==>
+    var grand={
+        gFa:"Sami",
+        gMa:"Bad"
+    }
+    var par = Object.create(grand);
+    par.mo="Same";
+    par.fa="Abdul";
+
+    var me = Object.create(par);
+    me.name = "Tauseef";
+    console.log(me.gMa);
+
+    //Using Constructor function ==>
+    grandP = {
+        gFa:"Sami",
+        gMa:"Bad"
+    }
+    parents={
+        ma:"Samee",
+        fa:"Abdul"
+    }
+    function MyName(n){
+        this.name = n;
+    }
+    parents.prototype = grandP;
+    MyName.prototype = parents;
+    var son = new MyName("tauseef");
+    console.log(son.fa);
+
+</script>

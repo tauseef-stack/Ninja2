@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SearchBox</title>
+    <style>
+        .container{
+            width:300px;
+            height:200px;
+            overflow:scroll;
+        }
+    </style>
+</head>
+<body>
+    <h1>Search Box Functionality</h1>
+    <input type="text" id="searchBox" placeholder="Type Movie Name" oninput='throttlefunction(main,2000)'>
+    <div class="container">
+
+    </div>
+</body>
+</html>
+
+<script>
+    
+     
+     async function movieSearch(){
+         console.log('i am movie search')
+         let name = document.querySelector('#searchBox').value;
+         if(name.length<=2){
+             return false;
+         }
+         let res = await fetch(`http://www.omdbapi.com/?s=${name}&apikey=bcfcf9f7`);
+         let data = await res.json();
+         console.log(data);
+         return data;
+     }
+
+     function appendMovies(d){
+         let head = document.querySelector('.container')
+         head.innerHTML = null;
+         d.forEach(({Title})=> {
+            let p = document.createElement('p');
+            p.innerText = Title;
+            head.append(p)   
+         })
+        
+
+     }
+
+     async function main(){
+         let {Search} = await movieSearch() //even though fetch data thrown into the data form but alse whenever we will catch again we need to async await.
+         console.log(Search)
+         appendMovies(Search)
+     }
+      var timerid;
+     function throttlefunction(func,delay){
+         if(timerid){
+             clearTimeout(timerid)
+         }
+        timerid = setTimeout(function(){
+            func();
+        },delay);
+    }
+</script>

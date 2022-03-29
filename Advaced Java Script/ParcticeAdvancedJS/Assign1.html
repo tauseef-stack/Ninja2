@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor function</title>
+</head>
+<body>
+    <form id="myForm">
+        Task Name : <input type="text" id="task" placeholder="Enter Task Name">
+        <br/>
+        <br/>
+        Creation Date: <input type="date" id="date" placeholder="Enter Creation Date">
+        <br>
+        <br>
+        Task Status: <input type="text" id="done" value="false">
+        <br>
+        <br>
+        <input type="submit" name="" id="submit">
+    </form>
+    <div id='cont'>
+
+    </div>
+</body>
+</html>
+<script>
+    var btn = document.getElementById('submit');
+    btn.addEventListener('click',prevent)
+    function prevent(e){
+        e.preventDefault();
+        Records();
+    }
+      var id = 0;
+    function Records(){
+        var div = document.createElement('div');
+        var name = document.getElementById('task').value;
+        var date = document.getElementById('date').value;
+        var status = document.getElementById('done').value;
+        console.log(name,date,status);
+    
+        function construct(a,b,c){
+              this.TaskName = a;
+              this.Date = b;
+              this.Status = c;
+        }
+          id+=1;
+        var _id = new construct(name,date,status);
+        console.log(_id);
+        var head = document.getElementById('cont');
+        div.innerHTML = `<ol> <li>Task Name:  ${_id.TaskName}</li><li>Date:  ${_id.Date}</li><li>status: ${_id.Status}</li> </ol>`
+        head.appendChild(div);
+
+        
+    
+
+        // var para = document.createElement('p');
+        // para.textContent ='Task Name: '+ name;
+        // div.appendChild(para);
+        // var para1 = document.createElement('p');
+        // para1.textContent = "task Date: "+ date;
+        // div.appendChild(para1);
+        // var para2 = document.createElement('p');
+        // para2.textContent = "Task Status: "+ date;
+        // div.appendChild(para2);
+        // var head = document.querySelector('body');
+        // head.appendChild(div);
+        document.getElementById('task').value = "";
+        document.getElementById('date').value = "";
+        document.getElementById('done').value="false";
+
+
+        
+    }
+</script>

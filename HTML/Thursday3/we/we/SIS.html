@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            margin-bottom: 2%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login to SIS</h1>
+     <div id="parent">
+        <form id="login">
+            <input type="text" id="username" placeholder="Type User Name">
+            <br>
+            <input type="text" id="pass" placeholder="Type password">
+            <br>
+            <button onclick="check(event)">Submit</button>
+        </form>
+     </div>
+   
+   
+</body>
+</html>
+<script>
+    const user = [
+        {
+            name: "tauseef" ,
+            password:"tauseef@1234"
+        },
+        {
+            name: "shariq" ,
+            password:"shariq@1234"
+        },
+        {
+            name: "zeenat" ,
+            password:"zeenat@1234"
+        }
+
+    ];
+    if(localStorage.getItem('user')==null){
+        localStorage.setItem('userdata',JSON.stringify(user));
+    }
+
+    function check(e){
+        e.preventDefault();
+        const form = document.getElementById('login')
+        const username = form.username.value;
+        const password = form.pass.value
+        console.log(username,password)
+
+        //check this data Exist in our data base or not.
+        var arr = JSON.parse(localStorage.getItem('userdata'));
+        var iscorrect = false;
+        for(let i=0 ; i<arr.length ; i++){
+            if(username==arr[i].name && password==arr[i].password){
+                console.log(user[i]);
+                window.location.href = "linkmessage.html"; //imp
+                form.username.value = null;
+                form.pass.value = null;
+                iscorrect = true;
+                break;
+            }
+        }
+         if(!iscorrect){
+                alert('Check Email Id Or Password');
+                form.username.value = null;
+                form.pass.value = null;
+            }
+
+    }
+   
+</script>

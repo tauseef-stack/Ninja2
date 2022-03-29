@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <title>createElement.HTML</title>
+    </head>
+    <body>
+      <div>Only One Div</div> 
+      <button onclick="changeContent()">Change Dom</button> 
+    </body>
+</html>
+
+<script>
+    function changeContent(){
+        var para= document.createElement('p');
+        para.textContent = "Welcome To Masai School";
+        var division = document.createElement('div');
+        division.innerHTML = <ul><li>1</li><li>2</li></ul>;
+        var head = document.querySelector('body')
+        head.appendChild(division);
+        head.appendChild(para);
+    }
+</script>

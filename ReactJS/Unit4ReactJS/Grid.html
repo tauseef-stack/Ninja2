@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        body{
+            margin:0px;padding:0px;
+        }
+        .outter{
+            display:grid;
+            grid-template-columns: repeat(20, 1fr);
+            grid-template-rows: 60px 60px 60px 60px 60px 60px 60px 60px;
+            grid-template-areas: 
+    "a a a a a a a a a a b b b b b b e e e e"
+    "a a a a a a a a a a b b b b b b e e e e" 
+    "a a a a a a a a a a b b b b b b e e e e" 
+    "a a a a a a a a a a b b b b b b e e e e" 
+    "a a a a a a a a a a b b b b b b f f f f" 
+    "a a a a a a a a a a c c c d d d f f f f" 
+    "a a a a a a a a a a c c c d d d f f f f"
+    "a a a a a a a a a a c c c d d d f f f f"  
+            ;
+        }
+        .item1{
+            background: blue;
+            grid-area: a;
+        }
+        .item2{
+            background: green;
+            grid-area: b;
+        } .item3{
+            background: pink;
+            grid-area: c;
+        } .item4{
+            background: aqua;
+            grid-area: d;
+        } .item5{
+            background: purple;
+            grid-area: e;
+        } .item6{
+            background: salmon;
+            grid-area:f;
+
+        }
+        .outter > div > img{
+            width: 100%;
+            height:100%;
+            display:block;
+        }
+    </style>
+</head>
+<body>
+    <div class="outter">
+        <div class="item1"><img src="https://d2xf5gjipzd8cd.cloudfront.net/available/464507279/464507279_960x576.jpg" alt=""></div>
+        <div class="item2"><img src="https://d2xf5gjipzd8cd.cloudfront.net/available/443227701/443227701_960x576.jpg" alt=""/></div>
+        <div class="item3"><img src="https://d2xf5gjipzd8cd.cloudfront.net/available/443227701/443227701_960x576.jpg" alt=""/></div>
+        <div class="item4"><img src="https://d2xf5gjipzd8cd.cloudfront.net/available/443227701/443227701_960x576.jpg" alt=""/></div>
+        <div class="item5"><img src="https://d2xf5gjipzd8cd.cloudfront.net/available/443227701/443227701_960x576.jpg" alt=""/></div>
+        <div class="item6"><img src="https://d2xf5gjipzd8cd.cloudfront.net/available/443227701/443227701_960x576.jpg" alt=""/></div>
+    </div>
+</body>
+</html>

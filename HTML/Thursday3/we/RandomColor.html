@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Random Color</title>
+    </head>
+    <body>
+      <h1 id="changeMe">Change My Color As Many Times As You Want</h1> 
+      <button id="btn">Click To Change Color</button>
+    </body>
+</html>
+
+<script>
+    var btn = document.getElementById('btn');
+
+    function random(number){    //1)random
+        return Math.floor(Math.random()*number);  //2)random
+    }
+    function setRandomColor(){
+        var col = 'rgb('+ random(255) + ','+random(255) +','+random(255)+')'; //3)random ,3Times Random will be used.
+      var head = document.getElementById('changeMe');
+      head.style.color = col;
+      btn.style.background = col;
+    }
+    btn.addEventListener('click',setRandomColor)
+</script>

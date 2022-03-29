@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paly Around ES6 ShortCuts</title>
+</head>
+<body>
+   <h1>ES6 ShortCuts</h1>
+
+</body>
+</html>
+<script>
+    //ARRow function
+
+    function test(){  //self declaration.
+        console.log("i am function")
+    }
+    test();
+
+    let test1 = function(){ //declare into variable.
+        console.log("i am function")
+    }
+    test1();
+
+    let test2 = () => { //no need to write function word key it replaced by arroww symbol, after arrow space must be there
+        console.log("i am arrow function")
+    }
+    test2()
+
+    //ForEach Using Arrow function word
+
+    // const arr = [1,2,3,4,5,6];
+    // arr.forEach(function(el){
+    //     console.log(el)
+    // })
+
+    // arr.forEach((el) => {
+    //    console.log(el)
+    // });
+
+    //inside object function replaced by arrow function points to the window Object.
+    var myObj = {
+        i:10,
+        c:function(){ //key as function name value as function,
+            console.log(this.i) //10
+        }
+    }
+    myObj.c();
+
+   // when i replace that call back function into arrow then.
+   var myObj1 = {
+        i:10,
+        c:()=> 
+            console.log(this), //This points to global Object not parent object if defined with arrow function.
+       
+    }
+    myObj1.c();
+
+    //For Of loop for Arr And Str.
+    let arr1 = [1,4,8,9,6,3,4];
+    for(let y of arr1){
+        console.log(y) //unlike for loop y doesn't give index it gives element of arr
+    }
+    let arr2 = "masai";
+    for(let y of arr2){
+        console.log(y)
+    }
+
+   // DESTRUCTURING OF EXISTING OBJETS AND ARRAY
+
+   var obj = {
+       name:"shariq",
+       age:24,
+       city:"bhiwandi",
+   }
+
+   let {name:myfriendName,age,city} = obj //we must declare key treated as variable. //order is not important ,key name is important.
+   console.log(myfriendName,age,city) //let myfriendName = obj.name instead.
+
+   //nested Object in js.
+   //Remeber 1)Mimic behaviour 2)Order is important.
+   let nestobj = {
+       name1:{surname:"Ansari",
+           firtsname:"tauseef"}
+   }
+//    let {name1:{firtsname}} = nestobj; //left side whole indicate one variable cant be 2.
+//    let {name1:{surname}} = nestobj; //remember mimicing colon.
+//    let{name1} = nestobj; //will give name object. after every comma there is a single varaible.
+  let{name1,name1:{firtsname},name1:{surname}} = nestobj;
+   console.log(firtsname,surname,name1) //above all 3 can be write in a single line.
+
+  
+
+   fetch('https://reqres.in/api/users/2') //for .then without variable.
+   .then(function(res) {
+        res.json().then(function(res) { //we need to use 2 times .then 1)gives promise 2).then gives data of promise
+             console.log(res)
+             let data = res.data
+             console.log(data)
+             let name = data.first_name
+             console.log(name)
+             let email = data.email;
+             console.log(email)
+       });
+   });
+
+   fetch("https://reqres.in/api/users/2") //function ==arrow ,.notation == mimic object;
+   .then((res)=> {
+       res.json().then((res)=>{
+           let {first_name,email,last_name} = res.data //{keys} = object(parent)
+           console.log(first_name,email,last_name)
+           
+       });
+   });
+
+   //Object in arguments 
+   obj3 = {
+       name:"yusuf",
+       div:12,
+       city:"mumbai",
+   }
+
+   function print(u){
+       console.log(u.name,u.div,u.city)
+   }
+   print(obj3)
+
+   function print1({name:myname,div,city}){ //.notation instead. //can also be alocate to different variable.
+       console.log(city,div,myname)
+   }
+   print1(obj3)
+    //SPREAD OPERATOR. == speards length(...); //increase length.
+   //1)merging array 
+
+   let ar1 = ['red','green','blue'];
+   let ar2 = ['pink','orange','skyblue',...ar1]
+   let ar3 = [...ar1,...ar2,...arr1] //... == spread operator.
+   console.log(ar3,ar2)
+
+  //2)MERGING oBJECTS
+
+  const ob1 = {
+      name:"yusuf"
+  }
+  const ob2 = {
+      city:"bhiwandi"
+  }
+  const merge = {...ob1,...ob2} //two objects merged in 1 using spred operator.
+  console.log(merge);
+
+//3)merging strings
+const str1 = "masai";
+const str2 = "school";
+console.log("".concat(str1," ",str2));
+
+//USING REST KEYWORD can split object. //alaways come right or after something.
+let myobj1 = {
+    name:"maryam",
+    class:12,
+    age:28,
+    first:"never"
+}
+let {name,...x} = myobj1;
+console.log(x) //except name all will come.
+
+//using rest passing arguments converting into array automatically without [];
+function printArray(...a){
+    console.log(a) //a being converted into array;
+    let sum = 0;
+    for(let num of a){ //reuning for of loop to the array
+       sum+=num;        //num is each element of array a.
+    }
+    console.log(sum)
+}
+printArray(1,2,3,4,56,7,89);
+
+let array = ['raj','kiku','tauseef','maryam','yusuf'];
+let[,a,...e] = array; //connects dots whtever array needed.//order is important.
+console.log(a,e)
+
+//!importat CLOSURE == Dependency of child function on parent function Taking Care of variable for Child function...
+
+function greet(){
+ let name = "raj";
+    return  function (){
+        console.log(name)
+    }
+}
+console.log(greet()) //gives whole function as output.
+let x1 = greet();
+console.log(x1)
+x1()  // surprisingly gives raj because of CLOSURE(DEPENDENCY) child to parent.
+      // since greet() already executed but name is not destroyed anyhow for child.
+greet()(); //Currying calling ananymous function ==>
+
+//UNDERSTANING OF CLOSURE STRONGLY ==>
+function outter () {
+   
+    function middle(){
+      return   function inner(){
+           console.log(name)
+        }
+    }
+    let name = "Yusuf";
+    middle()();
+}
+outter();
+
+function outtest () {
+    var c=20;
+    function middle(b){
+       function inner(){
+           console.log(a,b,c)
+       } 
+       let a=10;
+       return inner;
+    }
+    return middle;
+}
+outtest()('tauseef')();
+
+function counter() {
+    var count =0;
+     return  function increment () {
+       count++;
+       console.log(count);
+    }
+}
+let incCount = counter();
+incCount();
+incCount();
+incCount();
+incCount();
+
+let incCount2 = counter(); //New counter inItSelf ==> //Limitation is we can only return  function out of It ==>
+incCount2();
+incCount2();
+incCount2();
+
+//If we want both increment counter or decrement counter than we can use Constructor function ==>
+function constructor () {
+    var count = 0;
+    this.incCounter = function (){
+        count++;
+        console.log(count)
+    }
+    this.decCounter = function (){
+        count--;
+        console.log(count);
+    }
+};
+
+const inc = new constructor();
+console.log(inc)
+inc.incCounter();
+inc.incCounter();
+inc.decCounter();
+inc.decCounter();
+inc.decCounter();
+inc.decCounter();
+inc.decCounter();
+
+</script>

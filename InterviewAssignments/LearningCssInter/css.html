@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model</title>
+    <style>
+        .box-model{
+            width: 100px;
+            height: 100px;
+            padding: 100px;
+            border: 20px solid violet;
+            margin: 15px;
+            background-color:blue;
+            box-sizing: border-box;
+        }
+        .box-model{
+           display: none; 
+        }
+        .tri{
+            width: 0px;
+            height: 0px;
+            border-top: 100px solid transparent ;
+            border-left: 100px solid transparent;
+            border-bottom: 100px solid transparent;
+            border-right: 100px solid violet;
+
+        }
+        p:hover::after{
+            content:" Injected from pseudo element"
+        }
+    
+     
+
+    </style>
+</head>
+<body>
+    <div class="box-model"></div>
+    <div class="cont">others</div>
+    <div class="tri"></div>
+    <p class="pseudo">HII</p>
+    <p class="pseudo">HII</p>
+    <p class="pseudo">HII</p>
+    <p class="pseudo">HII</p>
+</body>
+</html>

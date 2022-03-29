@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>getElementById</title>
+    </head>
+    <body>
+      <h1 id="demo">JavaScript</h1>
+      <button onclick="changeText()">Change to Masai</button>
+      <button onclick="changeOriginal()">Change to JavaSacript</button>
+    </body>
+</html>
+
+<script type="text/JavaScript">
+    function changeText(){
+        document.getElementById("demo").innerHTML="Masai School";
+    }
+
+    function changeOriginal(){
+        document.getElementById("demo").innerHTML="Again JavaScript";
+    }
+</script>

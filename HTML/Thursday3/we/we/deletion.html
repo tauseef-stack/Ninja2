@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Deletion.html</title>
+    </head>
+    <body>
+        <h1>First H1</h1>
+        <h1>Second H1</h1>
+        <h3>First H3</h3>
+        <h3>Second H3</h3>
+        <div id="headings">
+            <h5>First H5</h5>
+            <h5>Second H5</h5>
+            <h5>Third H5</h5>
+        </div>
+        <div id="cont">
+            <div  class="green" >First DIV</div>
+            <div class="red" >Second DIV</div>
+            <div class="blue" >Third DIV</div>
+            <p class="green">First P</p>
+            <p class="red">Second P</p>
+            <p class="blue">Third P</p>
+        </div>
+        <hr/>
+        <button onclick="removeH1()">Remove H1</button>
+        <button onclick="removeAllH3()">Remove H3</button>
+        <button onclick="removeAllH5()">Remove H5</button>
+        <button onclick="removeRed()">Remove Red</button>
+        <button onclick="allDivs()">Remove DIVS</button>
+    </body>
+</html>
+
+<script>
+  function removeH1(){
+    var h1 = document.querySelector('h1');
+    var head = document.querySelector('body')
+        head.removeChild(h1)
+     }
+function removeAllH3(){
+    var h3 = document.querySelectorAll('h3');
+    var head = document.querySelector('body');
+    for(var i=0 ; i<h3.length ; i++){
+        var h3n = h3[i];
+        head.removeChild(h3n);
+    }
+}
+function removeAllH5(){
+    var h5 = document.querySelectorAll('h5');
+    var head = document.getElementById('headings');
+      for(var i=0 ; i<h5.length ; i++){
+          var h5n = h5[i];
+          head.removeChild(h5n)
+      }
+}
+function removeRed(){
+    var red = document.querySelectorAll('.red');
+    var head = document.getElementById('cont');
+    for(var i=0 ; i<red.length ;  i++){
+        var redn = red[i];
+        head.removeChild(redn);
+    }
+}
+function allDivs(){
+    var div = document.getElementsByName('div')
+    var head = document.getElementById('cont');
+    for(var i=0 ; i<div.length ; i++){
+        var divn = div[i];
+        head.removeChild(divn);
+    }
+}
+</script>

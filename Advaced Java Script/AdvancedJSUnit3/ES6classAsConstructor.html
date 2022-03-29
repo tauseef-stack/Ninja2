@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 class As Constructor function </title>
+</head>
+<body>
+  <h1>Stack Implementation</h1>  
+</body>
+</html>
+<script>
+    class Stack {
+
+       constructor(){
+
+           this.length = 0;
+           this.stack = [];
+
+       }
+
+       push(...v){//rest  //sice ...v is array so each singlr time new array will be pushed to array. use for loop
+        //what do we need.
+        //where do we need.
+
+        // v.forEach((el)=> {
+        //     this.stack.push(el)
+
+        //     this.length++; //we need to increse length of array for java people.
+        // })
+       
+          this.stack = [...this.stack,...v] //instead for each //spread.
+
+          this.length = this.length + v.length;
+       }
+       remove(){
+         this.stack.pop();
+         this.length--;
+
+       }
+
+    }
+
+  let stack = new Stack()
+  console.log(stack)
+
+  stack.push('hello world','goodbye World','chao world','hola world')
+
+  stack.remove()
+  stack.remove();
+  stack.push('i am inserted')
+</script>

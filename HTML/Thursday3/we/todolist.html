@@ -1,0 +1,60 @@
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Todo List</title>
+      <style>
+          .strikeOut{
+              text-decoration: line-through;
+              color: aquamarine;
+          }
+      </style>
+    </head>
+    <body>
+       <input type="text" id="myTask">
+       <button id="submit-btn">Submit</button>
+       <div id="taskCont"></div>
+       
+    </body>
+</html>
+
+<script>
+    var submit_btn = document.getElementById('submit-btn');
+    submit_btn.addEventListener('click',getInput);
+       
+    var id =0
+    function getInput(){
+        var myTask = document.getElementById('myTask').value;
+        console.log(myTask)
+    
+       var div = document.createElement('div')
+    //    div.style.background='lime';
+    //  div.style.width = '300px';
+    //  div.style.height='200px';
+    
+
+          id=id+1;
+
+       div.innerHTML = `<p id=${id}>${myTask}</p> <button onclick=Done(${id})>Done</button><button onclick=Remove(${id})>Remove</button>`;
+         
+       var head = document.getElementById('taskCont');
+       head.appendChild(div)
+       console.log(head)
+    }
+    
+    function Done(id){
+        var para = document.getElementById(id)
+      
+        para.setAttribute('class','strikeOut');
+        console.log(para);
+    }
+    function Remove(id){
+        var p = document.getElementById(id)
+        var parent = p.parentElement
+        console.log(parent)
+        parent.remove()
+    }
+
+</script>

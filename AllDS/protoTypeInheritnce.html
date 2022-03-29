@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Event</title>
+
+   
+
+</head>
+<body>
+   <h1>Proto Tpye Inheritance</h1>
+
+</body>
+</html>
+<script>
+//     let arr = ['Tauseef' , 'Ansari'];
+//     let obj = {
+//         name:"Tauseef",
+//         sur:"Ansari",
+//         getIntro:function (){
+//             console.log(this.sur+" , "+this.name);
+//         }
+//     }
+ 
+//  let obj2 = {
+//      name:"Yusuf",
+//  }
+//  obj2.__proto__ = obj; //obj2 will inherit property from obj
+
+//  Function.prototype.mybind = function () {
+//      console.log("This Method Will Be Available on All Function Declaration in this file")
+//  }
+
+// function func1 () {
+
+//  }
+// function func2 () {
+
+//  }
+ //Prototype Inheritance ==>
+//1)Using Object.Create Method ==>
+let grand = {
+    grandFa : "Sami",
+    grandMa:"Badar",
+}
+
+
+let parent = Object.create(grand);
+parent.fa="maj";
+parent.ma="sam";
+
+let me = Object.create(parent);
+me.cfa="tau";
+me.cma="mar";
+
+let son = Object.create(me);
+  son.name="Yusuf";
+  console.log(son);
+
+  //Using Constructor Function ==>
+  function sons(n){
+      this.name = n
+  }
+
+  var grandP = {
+      grandFa:"sami",
+      gradMa:"BadarAppa",
+  }
+  var par = {
+      myFa:"maj",
+      myMa:"Sam",
+  }
+  var cpar = {
+      cfa:"tau",
+      cMa:"mar",
+  }
+
+  var mes = new sons("Yusuf");
+
+  mes.__proto__ = cpar;
+  cpar.__proto__ = par;
+  par.__proto__ = grandP;
+  console.log(mes)
+
+</script>

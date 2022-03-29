@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor function</title>
+    <style>
+        .strikeOut{
+           text-decoration: line-through;
+           color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="myForm">
+        Task Name : <input type="text" id="task" placeholder="Enter Task Name">
+        <br />
+        <br />
+        Creation Date: <input type="date" id="date" placeholder="Enter Creation Date">
+        <br>
+        <br>
+        Task Status: <select id="done">
+            <option value="false" id="false">False</option>
+            <option value="true" id="true">True</option>
+        </select>
+        <br>
+        <br>
+        <input type="submit" name="" id="submit">
+    </form>
+    <button id="toggle">Toggle Status</button>
+    <div id='cont'>
+
+    </div>
+</body>
+
+</html>
+<script>
+    var btn = document.getElementById('submit');
+    btn.addEventListener('click', prevent)
+
+    function prevent(e) {
+        e.preventDefault();
+        Records();
+    }
+    var id = 0;
+
+    function Records() {
+        var div = document.createElement('div');
+        var name = document.getElementById('task').value;
+        var date = document.getElementById('date').value;
+        var status = document.getElementById('done').value;
+        console.log(name, date, status);
+
+        function construct(a, b, c) {
+            this.TaskName = a;
+            this.Date = b;
+            this.Status = c;
+        }
+        id += 1;
+        var obj = new construct(name, date, status);
+        console.log(obj);
+        var head = document.getElementById('cont');
+        div.innerHTML =
+            `<h3>${id}</h3><ol id="${id}"> <li class="${id}">Task Name:  ${obj.TaskName}</li><li class="${id}">Date:  ${obj.Date}</li><li class="${id}">status: ${obj.Status}</li> </ol><button onclick="Done(${id})">Done</button><button onclick="Remove(${id})">Remove</button>`
+        head.appendChild(div);
+
+
+
+
+        // var para = document.createElement('p');
+        // para.textContent ='Task Name: '+ name;
+        // div.appendChild(para);
+        // var para1 = document.createElement('p');
+        // para1.textContent = "task Date: "+ date;
+        // div.appendChild(para1);
+        // var para2 = document.createElement('p');
+        // para2.textContent = "Task Status: "+ date;
+        // div.appendChild(para2);
+        // var head = document.querySelector('body');
+        // head.appendChild(div);
+        document.getElementById('task').value = "";
+        document.getElementById('date').value = "";
+        document.getElementById('done').value = "false";
+}
+var btn2 = document.getElementById('toggle');
+btn2.addEventListener('click',Toggle);
+function Toggle(){
+    var tr = document.getElementById('true').textContent;
+    var fl = document.getElementById('false').textContent;
+    console.log(tr,fl);
+    if(tr=='True'){
+        document.getElementById('true').textContent="False";
+    }
+    else if( document.getElementById('true').textContent=='False'){
+        document.getElementById('false').textContent='True';
+    }
+}
+function Done(id){
+    var li = document.getElementsByClassName(id);
+    console.log(li);
+    for(var i=0 ; i<li.length ; i++){
+        var lin = li[i];
+        lin.setAttribute('class','strikeOut');
+    }
+  
+   
+}
+function Remove(id){
+    var r = document.getElementById(id);
+    console.log(r);
+    var parent = r.parentElement;
+    parent.remove();
+}
+
+</script>

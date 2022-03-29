@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS App</title>
+    <style>
+
+    </style>
+</head>
+<body>
+   <div class="outter">
+       <div class="inner1">
+        <textarea id="msg" maxlength="100" placeholder="Your Text Here"  rows="4"></textarea>
+       </div>
+       <div class="inner2">
+           <h3>Character Remaining: <span class="charcount">0</span><span>/100</span></h3>
+       </div>
+     
+   </div> 
+</body>
+</html>
+<script>
+    var text = document.querySelector("#msg");
+    let charcount = document.querySelector(".charcount");
+    text.addEventListener("keyup",function(){
+        let textlength = text.value.length;
+        charcount.textContent = textlength;
+    })
+</script>

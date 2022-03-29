@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype & Inheritance</title>
+</head>
+<body>
+    <h1>Understanding Creation Object In Prototype</h1>
+</body>
+</html>
+<script>
+    //1)Cretion of Object Using Object.Create.
+    //It creates Objects Using Existing Object in its Proto
+    //it is not visible But Can be accessible anywhere it can contain function also. 
+    var parents = {
+        father:'Abdul Majeed',
+        Mother : 'Sammena',
+        myDad(){
+            console.log('hello World');
+            console.log(this.father)
+        }
+    }
+    var son = Object.create(parents); //son inherits parents
+    son.name = 'Tauseef';
+    son.myDad();
+    //console.log(son)
+
+    var daughter = Object.create(parents);
+    daughter.name = 'Zeenat'
+    //Alternate of create Method == Object.setPrototype(targetTarget,object)
+   var shariq = {money:500};
+   var tauseef = {};
+   Object.setPrototypeOf(tauseef,shariq); // remember setPrototype.==Object.create(parentObj)
+   console.log(tauseef)
+   console.log(Object.getPrototypeOf(tauseef)) // remember getPrototype == __proto__. one evel back
+
+   //1 .awesome example on getPrototype & setPrototype
+   var ammar = {money:1000};
+   var akbarr = {money:2000}
+   Object.setPrototypeOf(akbarr,ammar)  //ammar is a proto of akbarr
+   Object.getPrototypeOf(akbarr).money = 2000;
+   console.log(ammar);  // money =2000;
+   
+   //Method to set Object as prototype in constructor function...!important.
+   function sons(n){
+     this.name = n ;
+   }
+
+
+  var paren = {
+      mother:'sameena',
+      father:'Abdul Majeed',
+  }
+   sons.prototype = paren; //makes proto of all factory created Objects !important.
+  var s = new sons('jhon');
+  console.log(s)
+  var daught = new sons('zeenat')
+  console.log(daught)
+
+  //Example====ihone13;
+  function iphone13(){
+      this.ram =  '12gb';
+      this.camera = '48px';
+      this.battery = '8000mah';
+  }
+  iphone13.prototype.faceId = function() { //__proto__ == Where value get stored.
+      console.log('has a 4k Camera')       // Prototype == How we set prototype.
+  }
+  iphone13.prototype.body = function(){
+      console.log('Has a mettalic body')
+  }
+
+  var iphone = new iphone13()
+  console.log(iphone)
+  iphone.faceId(); //These two functions are in proto so these are accessible.
+  iphone.body();
+
+   // console.log(daughter.__proto__.__proto__.__proto__)
+  //Everthing in js ends with Object And null.
+ // 
+  //2) creation of Object Using Prototype(with function).(It make use of Constructor Fuction);
+  function living(){
+      this.city = 'bhiv';
+      this.state = 'maha';
+  }
+  var liv = new living()
+  console.log(liv);
+  living.prototype.area = function(){
+      this.land = 'auliya';
+  }
+  liv.area();
+  console.log(liv)
+
+//hasOwnProperty!=prototype property. gives boolean.
+/* var a = {
+    name:'tauseef'
+}
+var b =  Object.create(a);
+b.age = 21;
+console.log(b);
+console.log(b.hasOwnProperty('age')) */
+
+//js Manipulaation in inbuilt Object using prototype Advantage.
+//I can insert my Own function into js object library.
+//every thing made in js is using object library / constructor Function. 
+//every data type has their own library name like 
+//1)String for string 
+//2)Boolean for Boolean 
+//3)Array for array,,...  Object is head of them.
+var arr = [1,2,3,4,5] //Simple Way of Creating an Array ;
+var arr1 = new Array (1,2,3,4,5) // way of creating array Using constructor function without square bracket.
+console.log(arr1);
+Array.prototype.myThing = 'insertion in Array' //permanent insertion of property into Array funcction can br access anywhere.
+console.log(arr.myThing)  //insertion in array.
+
+// Print Array Using Function 
+var arr = [1,2,3,4,5,6];
+Array.prototype.print = function(){ /*This is  Accessible Only for Arry  Bcoz we define it as in only Array function  if we will write it as but if we will declare as Object.prototype then it will be accessible for any one str,num,bolean etc.
+    */ 
+    console.log(this) //v.imp to point on parent Object
+}
+arr.print();  //now This can be used to Print Any Array it will point to itss parent object.
+arr1.print();
+
+var char = 1245;
+var string = 'Yusuf';
+var isTrue = false;
+Object.prototype.print = function(){
+    console.log(this);
+}
+char.print();
+string.print();
+isTrue.print();
+
+//Operaion on Array By Our Own Library.....
+var arr = [11,22,33,44,55];
+Array.prototype.हटाओ = function(){
+    this.pop()
+   
+}
+Array.prototype.जोड = function(num){
+    let index = this.length;
+    this.push(num);
+    let index = this.length
+    this[index] = num ;
+}
+arr.हटाओ();
+arr.print();
+arr.जोड(77);
+arr.print();
+arr.जोड(88);
+arr.print();
+
+
+
+//simple way to crate string,
+var str = 'rajat';
+//creating string using constructor function.
+var str1 = new String('raju');
+  console.log(str1);
+  String.prototype.hacked = 'string Hack'; //it will be accessible in every string bcoz now it is a part of constructor function string.
+  console.log(str.hacked); // string Hacked
+
+//One More Way To adding Key value pair into Existing object Using
+//Object.defineProperty(Objectname,'key',{value:'whatever',writable:False}) // byDefault it is true.
+var obj = {
+    name:'Tauseef'
+}
+//obj.age = 25;
+Object.defineProperty(obj,'age',{value:25,writable:false})//remember Particular key Value Freezes.
+obj.age = 28 // will not able to change age bcoz now it is not writable.
+console.log(obj)
+
+//best Example of inhertance;
+var amar = {money:1000};
+var akbar = Object.create(amar);
+var anthony = Object.create(akbar);
+console.log(anthony.money)  //1000 in proto proto chain.
+anthony.money = 2000;
+console.log(anthony.money) //2000 first it find in it own then goto proto.
+</script>

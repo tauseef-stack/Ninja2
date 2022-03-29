@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Play , Pause and Stop</title>
+    <link rel="stylesheet" href="musicStyle.css">
+</head>
+<body>
+    <div class="cont">
+        <audio id='audio'>
+            <source src='media/faded.mp3' type="audio/mpeg">
+          </audio> 
+          <button id="palypause" onclick="playPause()">play &#9658</button>
+          &nbsp;
+          &nbsp;
+          <button id='stop' onclick="stop()">stop &#9611</button>
+    </div>
+   <script src="musicControl.js"></script>
+
+
+</body>
+</html>

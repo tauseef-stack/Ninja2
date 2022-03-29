@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+     <title>GetElement&SetValues</title>
+    </head>
+    <body>
+       <div id="demo" class="class1" style="color:red;background-color: yellow">
+         Java Script
+    </div>
+    
+    <div>
+        <input type="text" id="myInput" />
+    </div>
+    <br/>
+    <button onclick="showInput()">Alert Button</button>
+    <button onclick="setInput()">Set Input</button>
+    <button onclick="changeInput()">Change Input</button>
+    <button onclick="changeOriginal()">Change to JavaScript</button>
+    </body>
+</html>
+
+<script>
+    function showInput(){
+      document.getElementById("demo").innerHTML="JavaScript"  
+    }
+    function setInput(){
+        document.getElementById("myInput").value="Masai School"
+    }
+    function changeInput(){
+        document.getElementById("demo").innerHTML=document.getElementById
+        ("myInput").value;
+    }
+function changeOriginal(){
+    document.getElementById("demo").innerHTML="Java Script"
+}
+</script>

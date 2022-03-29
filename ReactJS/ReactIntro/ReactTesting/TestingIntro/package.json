@@ -1,0 +1,15 @@
+{
+  "name": "jest_intro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Test.js",
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}

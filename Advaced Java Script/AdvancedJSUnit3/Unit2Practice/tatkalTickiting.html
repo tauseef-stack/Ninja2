@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Availability</title>
+</head>
+<body>
+    <h1>Chech for ticketing</h1>
+    <button onclick="check()">Check for Train</button>
+</body>
+</html>
+<script>
+    let BtoG = ['ariba', 'zeenat', 'yusuf', 'maryam', 'shariq', 'ariba', 'zeenat', 'yusuf', 'maryam', 'shariq'];
+let MtoG = ['ariba', 'zeenat', 'yusuf', 'maryam', 'shariq', 'ariba', 'zeenat', 'yusuf', 'maryam', 'shariq'];
+let PtoG = ['ariba', 'zeenat', 'yusuf', 'maryam', 'shariq', 'ariba', 'zeenat', 'yusuf', 'maryam', 'shariq'];
+
+async function check(){
+    run();
+    let promise = new Promise(function(resolve, reject){
+        setInterval(function(){
+            if(BtoG.length<5){
+                resolve('Train1 is available')
+                clearInterval(removal)
+            }
+          else  if(MtoG.length<5){
+                resolve('Train2 is available')
+                clearInterval(removal)
+            }
+            else  if(PtoG.length<5){
+                resolve('Train3 is available')
+                clearInterval(removal)
+            }
+        },1000);
+    });
+
+    let res = await promise;
+    console.log(res);
+    alert(res)
+  
+}
+    var removal; //very important 
+function run(){
+     removal = setInterval(function(){
+    let s1 = Math.round(Math.random()*1);
+    let s2 = Math.round(Math.random()*5);
+    let s3 = Math.round(Math.random()*15);
+
+    setTimeout(function(){
+        BtoG.pop()
+    },s1*1000)
+    setTimeout(function(){
+        MtoG.pop()
+    },s2*1000)
+    setTimeout(function(){
+        PtoG.pop()
+    },s3*1000)
+
+    console.log(BtoG,MtoG,PtoG);
+},2000)
+}
+</script>

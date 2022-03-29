@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Styles in JS</title>
+    </head>
+    <body>
+      <p id="para1">Hello MASAI</p> 
+      <p id="para2">Hello WORLD</p> 
+      <button onclick="red()">Change1 to Red</button>
+      <button onclick="blue()">Change2 to Blue</button>
+      <button onclick="green()">Change2 to Green</button>
+    </body>
+</html>
+
+<script>
+    function red(){
+        document.getElementById("para1").style.color="red"
+    }
+    function blue(){
+        document.getElementById("para2").style.color="blue"
+    }
+    function green(){
+        document.getElementById("para1").style.color="green"
+        document.getElementById("para2").style.color="green"
+    }
+</script>

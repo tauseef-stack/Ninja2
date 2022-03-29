@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Types</title>
+    <style>
+        .div{
+            font-size: 40px;
+            color:chartreuse;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        button{
+            color: white;
+            font-size: 40px;
+            border-radius: 20px;
+            background:-webkit-linear-gradient(45deg,red,black,red);
+        }
+    </style>
+</head>
+<body>
+    <div id="head" class="div"></div>
+    
+   <button onclick="obje()">OBJECT</button> 
+   <button onclick="array()">ARRAYS</button> 
+   <button onclick="fun()">FUNCTIONS</button> 
+   <button onclick="string()">STRING</button> 
+   <button onclick="number()">NUMBER</button> 
+   <button onclick="nul()">NULL</button> 
+   <button onclick="undefine()">UNDEFINED</button> 
+</body>
+</html>
+
+<script>
+
+    function array(){
+      var obj = document.getElementById('head')
+        obj.innerHTML= `<ul><li>It conatins value seprated by ','</li> 
+      <li>It is secondary data type</li>
+       <li>It stores memory location of data</li> 
+       <li>Reassignmrent Changes Original Array also</li> 
+       <li>It is dynamic in js</li></ul>`
+     
+
+    }
+
+    function obje(){
+      var obj = document.getElementById('head')
+        obj.innerHTML= `<ul><li>It's Js Element Contains key value pair</li> 
+      <li>"It is Abstract Data type"</li>
+       <li>It stores memory location of Data </li> 
+       <li>Reassignmeent points Same memory location</li> 
+       <li>Very usefull in backEnd Application</li></ul>`;
+    
+
+    }
+
+    function fun(){
+      var obj = document.getElementById('head')
+        obj.innerHTML= `<ul><li>It is treated as variable during it's hoisting time</li> 
+      <li>It is dynamic in js</li>
+       <li>varaibles inside functions has local scope</li> 
+       <li>After execution of one function memory goes into garbage</li> 
+       <li>can be called anywhere with any value of variable in</li></ul>`
+ 
+    }
+
+    function string(){
+      var obj = document.getElementById('head');
+        obj.innerHTML= `<ul><li>Primary data type</li> 
+      <li>stores in the form of string</li>
+       <li>store data not it's location</li> 
+       <li>Whole value can be re assign </li> 
+       <li>single component of string can't be reassign</li></ul>`
+    }
+
+    function number(){
+      var obj = document.getElementById('head')
+        obj.innerHTML= `<ul><li>Primary data type</li> 
+      <li>stores data in the form of numbers</li>
+       <li>.map property convert string into number</li> 
+       <li>basic building blocks of js</li> 
+       <li>can be reassign with any number</li></ul>`
+  
+
+    }
+
+    function nul(){
+      var obj = document.getElementById('head')
+        obj.innerHTML= `<ul><li>It's primary data type</li> 
+      <li>>Its behaves like empty string</li>
+       <li>it shows existance of variable but having null value</li> 
+       <li>can be reassign to some value</li> 
+       <li>Usefull to keep the record</li></ul>`
+    }
+
+    function undefine(){
+      var obj = document.getElementById('head')
+        obj.innerHTML= `<ul><li>It's primary data type</li> 
+      <li>keeps recods of variable</li>
+       <li>It shows variable is defined but not assign</li> 
+       <li>acts kind of alert</li> 
+       </ul>`
+     }
+</script>

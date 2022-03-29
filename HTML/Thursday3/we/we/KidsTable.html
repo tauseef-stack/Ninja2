@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Table</title>
+</head>
+<body>
+    <input type="number" class="number">
+    <input type="range" class="multi" value="1" min="1" max="10">
+    <h1><span class="takenumber">1</span>X<span class="takemulti">1</span>=<span class="result">1</span><h1>
+</body>
+</html>
+<script>
+    let num = document.querySelector('.number');
+    num.addEventListener('keydown',function(){
+        var num1 = (num.value);
+        document.querySelector(".takenumber").innerText = num1;
+        calculate();
+    })
+
+    var multi = document.querySelector('.multi');
+    multi.addEventListener('input',function(){
+        let num2 = Number(multi.value);
+        document.querySelector('.takemulti').innerText = num2;
+        calculate();
+    })
+      let calculate = () => {
+        let num3 =  Number(document.querySelector('.takenumber').innerText)*Number(document.querySelector('.takemulti').innerText);
+      console.log(num3)
+       document.querySelector('.result').innerHTML = num3;
+      }
+      
+
+</script>

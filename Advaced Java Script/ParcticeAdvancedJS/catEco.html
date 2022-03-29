@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cat eco</title>
+</head>
+<body>
+  <h1>Cat Eco</h1>  
+</body>
+</html>
+<script>
+    const cat = {
+        leg:4,
+        spikeTeeth:'true',
+        skin:'coverdWithHair',
+        food:'nonVeg'
+    }
+    const lion = Object.create(cat);
+    lion.size = 'big';
+    lion.hair = 'OnNeck'
+    console.log(lion)
+    const cheetah = Object.create(cat);
+    cheetah.run = 'fastest';
+    console.log(cheetah)
+</script>

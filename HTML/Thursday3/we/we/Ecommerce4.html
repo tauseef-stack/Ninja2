@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce4.html</title>
+    <style>
+        #big{
+            width: 95%;
+            margin: auto;
+            display: flex;
+        
+        }
+    #cont1{
+        width: 25%;
+        border: 2px solid black;
+    }
+    #cont2{
+        width: 75%;
+        border: 2px solid black;
+        display: flex;
+        flex-wrap: wrap;
+    
+    }
+    #cont2 > div{
+        width: 23%;
+        margin: auto;
+        
+         height: inherit;
+        
+    
+    }
+    div > p{
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 750;
+        text-align: center;
+        font-size: 20px;
+        color: rgb(231, 54, 54);
+    }
+    input,button{
+        margin: 2.5%;
+    }
+    img{
+        width: 100%;
+        height: 200px ;
+        text-align: center;
+    }
+    input{
+        padding: 20px;
+        background: black;
+        color: white;
+        width: 67%;
+        font-size: 20px;
+        font-family: Ariel,sans-serif;
+    }
+    button{
+        padding: 20px;
+        background: -webkit-linear-gradient(45deg,black,white,black);
+        color:darkred;
+        width: 80%;
+        font-size: 20px;
+        font-family: Ariel,sans-serif;
+        font-weight: 750;
+    }
+    #top{
+        background: -webkit-linear-gradient(45deg,grey,black,rgb(124, 120, 120));
+        color: white;
+        border-radius: 50px;
+        text-align: center;
+        
+    }
+
+    </style>
+</head>
+<body>  <div id="top">
+         <h1>E-Commerce Website Nike Product List</h1>
+       </div>
+        
+        <hr> 
+        <div id="big">
+            <div id="cont1">
+                <form id="form">
+                    <input type="text"  id="name" placeholder="Enter Product Name">
+                    <br>
+                    <input type="number"  id="price" placeholder="Enter Product Price">
+                    <br>
+                    <input type="text"  id="image" placeholder="Enter Product image">
+                    <br>
+                </form>
+                    <button onclick="AddProduct()">Add Products</button> 
+                    <br>
+                    <button onclick="ShowProduct()">Show Products</button>
+                    <br>
+                    <button onclick="ShowCartItem()">Show Cart Items</button>
+                    
+        
+             </div>
+             <div id="cont2">
+     
+             </div>
+        </div>
+       
+</body>
+</html>
+<script>
+    //localStorage.removeItem('myproduct1');
+    function AddProduct(){
+        var name = form.name.value;
+        var price = form.price.value;
+        var image = form.image.value;
+        var obj1 = {
+            name,
+            price,
+            image
+        }
+       // console.log(obj1)  //made Object
+       var arr;
+        arr = localStorage.getItem('myproduct1');
+       if(arr==null){
+         arr = [];
+       }
+       else{
+           arr = JSON.parse(arr) //JSON.parse(localStorage.getItem('myproduct1'))
+       }
+       arr.push(obj1)
+       localStorage.setItem('myproduct1',JSON.stringify(arr))
+       console.log(arr);
+       form.name.value = null;
+       form.price.value = null;
+       form.image.value = null;
+    }
+
+    function ShowProduct(){
+        let arr = JSON.parse(localStorage.getItem('myproduct1'))
+        arr.forEach(el => {
+            let div = document.createElement('div');
+            let name = document.createElement('p');
+            name.innerHTML = `Product Name: ${el.name}`;
+            let price = document.createElement('p');
+            price.innerHTML = `Product Price: ${el.price}`;
+            let img = document.createElement('img');
+            img.setAttribute('src',el.image)
+            let btn = document.createElement('button');
+            btn.onclick = function(){
+                AddToCart(el);
+            }
+            btn.textContent = 'Add To Cart'
+            div.append(img,name,price,btn)
+            let head = document.getElementById('cont2');
+            head.append(div);
+        });
+    }
+//localStorage.removeItem('mycart');
+function AddToCart(el){
+    
+    let arr3;
+      arr3 = localStorage.getItem('mycart');
+      if(arr3==null){
+          arr3 = [];
+      }
+      else{
+          arr3 = JSON.parse(arr3);//Json.parse(localStorage.getItem('location2'));
+        }
+      var exist = false;
+      for(var i=0 ; i<arr3.length ; i++){
+        if(arr3[i].name==el.name){
+            alert('You have Already Added This Item Into Cart ')
+             exist =true;
+             break;
+        }
+    }
+    if(!exist){
+      arr3.push(el)
+      localStorage.setItem('mycart',JSON.stringify(arr3)); //We are storing the data in different key as Fav; 
+  }
+}
+
+function ShowCartItem(){
+    window.location.href = "link.FinalEcom.html"; //If file is in same folder We need not to use"/" ok.
+
+}
+</script>

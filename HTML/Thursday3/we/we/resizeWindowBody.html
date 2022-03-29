@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    var body = document.querySelector('body');
+    function random(number){
+        return Math.floor(Math.random()*number)
+    }
+    function setRandomColor(){
+        var col = 'rgb('+random(255)+','+random(255)+','+random(255)+')';
+        body.style.background = col;
+    }
+    window.addEventListener('resize',setRandomColor)
+</script>

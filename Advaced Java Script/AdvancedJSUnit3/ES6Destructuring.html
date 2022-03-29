@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 Destructuring</title>
+</head>
+<body>
+   <h1>ES6</h1> 
+   <input type="text" placeholder="type here" class="search">
+   <button onclick="getData()">Search</button>
+   <div class="outter">
+       <div class="inner">
+
+       </div>
+
+   </div>
+</body>
+</html>
+<script>
+    let head = document.querySelector('.inner');
+   async function getData(){
+       let query = document.querySelector(".search").value;
+
+       let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${query}&key=AIzaSyC2xjplK1AZuCPzPJ7wb_RZC8wLtBWanCA&maxResults=10`) //&maxResults=15;
+       let {items} = await res.json(); //itemns = data.items
+       console.log(items);
+
+       let items1 = items.filter((el)=> {
+           return el.id.videoId!==undefined;
+       })
+
+       appendvideos(items1)
+   }
+
+  function appendvideos(videos){
+    head.innerHTML = null;
+      videos.forEach(({id:{videoId}})=> { // let {id:{videoId}} = el; inplace of el
+          // console.log(videoId) getting video id.
+         
+          let div = document.createElement('div');
+          div.innerHTML = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`; //from youtube share embed.copyy
+          head.append(div)
+      })
+      document.querySelector(".search").value = null;
+
+  }
+   
+
+
+</script>

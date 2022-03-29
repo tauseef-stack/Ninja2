@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 1. Object.create()
+var parents ={
+    father:'krishna',
+    mother:'priya'
+}
+
+var son = Object.create(parents)
+console.log(son);
+son.name='raj';
+
+
+var daughter =Object.create(parents)
+
+daughter.name='rashmi'
+console.log(daughter);
+
+//2. Constructor functions
+
+
+function son()
+{
+this.name='swanand';
+}
+
+var parent ={
+    father:'x',
+    mother:'y'
+}
+
+
+var s = new son();
+
+
+</script>

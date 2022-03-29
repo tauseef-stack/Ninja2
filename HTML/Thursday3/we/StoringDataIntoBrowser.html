@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storing And retriving Data from Browser storage</title>
+</head>
+<body>
+    <h1>Storing and retriving data from Browser Local Storage in the form of JSON HOlder</h1>
+</body>
+</html>
+<script>
+    var arr =[
+        {
+            name:"tauseef",
+            age:27,
+            course:"M.tech"
+
+        },
+        {
+            name:"Shariq",
+            age:24,
+            course:"D.pharm"
+
+        },
+        {
+            name:"zeenat",
+            age:20,
+            course:"B.Sc"
+
+        }
+    ]
+    //console.log(arr);
+    var jason = JSON.stringify(arr); //Makes Data into Jason Format !important
+    //console.log(jason);  //Only After conversion Data Into jason format I can send it to stroge or anywhere.
+    localStorage.setItem('myinfo',jason) //No Access to proto for json data in application/local storage.
+    var arr2 = localStorage.getItem('myinfo'); // this retrive data into Json format
+    
+    console.log(JSON.parse(arr2)) //it converts it into Array format Again.
+    localStorage.removeItem('myProduct','location');//Doesnt work in multiple format
+    localStorage.removeItem('myinfo');
+    console.log(JSON.parse(arr2))
+    localStorage.clear() //Erase all Data from local storage.
+</script>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccine shot</title>
+</head>
+<body>
+   <h1>Covid Vaccine shot Queue</h1> 
+   <input type="text" id="user" placeholder="enter your name">
+   <button onclick="register()">Register</button>
+</body>
+</html>
+<script>
+    let queue = ['yusuf','maryam','ariba','zeenat','shariq'];
+    function register() {
+        let user = document.querySelector("#user").value;
+        queue.push(user);
+        console.log(queue)
+        alert(`${user} your registration is successfull please wait for your turn`)
+        document.querySelector("#user").value = null;
+        let promise = new Promise(function(resolve, reject) {
+
+         setInterval(function () {
+    
+    if (queue[0] === user) {
+    
+        resolve(`${user} it's your turn`);
+        clearInterval(removal);
+    }
+    },1000)
+
+
+});
+    promise.then(function(res){ //After Completion of promise
+        alert(res)
+    })
+    .catch(function(err){
+        console.log(err)
+    })
+
+    let removal = setInterval(function(){
+    queue.shift();
+    console.log(queue)
+},3000);
+
+    }
+    
+
+</script>

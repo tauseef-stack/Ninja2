@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Sliding html</title>
+    <style>
+       #head{
+           width: 300px;
+           height: 450px;
+           margin: 100px 500px;
+           border: 2px solid black;
+           box-shadow: 0 0 10px;
+           position: relative;
+           overflow-x:hidden; 
+           border-radius: 10px;   
+        
+           
+       }
+       #head > img{
+           width: inherit;
+           height: inherit;
+           border-radius: 10px;   
+           position: absolute;
+       }
+       #head > img:nth-child(1){
+           z-index: 5;
+       }
+       #head > img:nth-child(2){
+           z-index: 4;
+       }
+       #head > img:nth-child(3){
+           z-index: 3;
+       }
+       #head > img:nth-child(4){
+           z-index: 2;
+       }
+       #head > img:nth-child(5){
+           z-index: 1;
+       }
+    </style>
+</head>
+<body>
+    <div id="head">
+        <img  id="first" src="https://vignette.wikia.nocookie.net/marvelmovies/images/8/8f/2012_Avengers_Poster.jpg/revision/latest?cb=20140224212535" alt="photo">
+        <img src="https://cdn.flickeringmyth.com/wp-content/uploads/2018/04/Avengers-Infinity-War-posters-56-1.jpg" alt="photo">
+        <img src="https://fanart.tv/fanart/movies/10195/movieposter/thor-5218a8a995085.jpg" alt="photo">
+        <img src="https://th.bing.com/th/id/OIP.P2FNbBVldP6xQdkKsV0aSgHaL2?pid=ImgDet&rs=1" alt="photo">
+        <img src="https://mypostercollection.com/wp-content/uploads/2018/08/Captain-America-Poster-2011-MyPosterCollection.com-1.jpg?x49793" alt="photo">
+     </div>
+</body>
+</html>
+<script>
+    var head = document.querySelectorAll('img')
+
+    let i=-1;
+
+    setInterval(function(){
+        if(i==4){
+            i=-1
+        }
+        i++
+        head[i].style.left = '-300px';
+         
+          
+    },5000)
+
+    setInterval(function(){
+        
+        head[0].style.left = '0px'
+        head[1].style.left = '0px'
+        head[2].style.left = '0px'
+        head[3].style.left = '0px'
+        head[4].style.left = '0px'
+          
+          
+    },25000)
+
+   
+
+</script>

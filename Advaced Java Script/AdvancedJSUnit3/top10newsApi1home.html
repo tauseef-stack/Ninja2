@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TopNewsApiHome</title>
+    <style>
+      body{
+        margin: 0;
+        padding:0;
+        background:lightgray;
+      }
+      .container{
+          position:relative;
+          top: 150px;
+          display:grid;
+          grid-template-columns: 49% 49%;
+          grid-gap:20px;
+          margin: 5% 5% 5% 5%;
+          padding:1%;   
+      }
+      .top10{
+        position:relative;
+          top: 100px;
+      }
+      img{
+          width:50%;
+          height:300px;
+          justify-content:center;
+      }
+      h1{
+        text-align:center;
+      }
+      .navoutter{
+       
+      }
+      .navinner{
+        width:100%;
+        margin: 0 0 0 0;
+        display:grid;
+        grid-template-columns: 15% 15% 15% 15% 15%;
+        grid-gap:5%;
+        padding:0.5%;
+        background-color:salmon;
+        position:fixed;
+        top:0;
+        z-index:5;
+
+      }
+      input,button{
+        outline:none;
+        border-radius: 50px;
+      }
+      .navinner a div{
+        text-align:center;
+        background:blueviolet;
+        border-radius:50px;
+        padding:0.5%;
+      } 
+      a{
+        text-decoration:none;
+        color:black;
+      }
+      .data{
+        position: relative;
+        top:150px;
+
+      }
+      .buttons{
+        position: relative;
+        top:150px;
+      }
+    </style>
+</head>
+<body>
+   <div class="navoutter">
+     <div class="navinner">
+       <a href="top10Sports.html">
+        <div>
+          <h3>Sports</h3>
+        </div>
+       </a>
+       <a href="top10Entertainment.html">
+        <div>
+          <h3>Entertainment</h3>
+        </div>
+       </a>
+       <a href="top10Technology.html">
+        <div>
+          <h3>Texhnology</h3>
+        </div>
+       </a>
+       <input type="text" class="tesla" placeholder="Search">
+       <button onclick="main()">Search</button>
+      </div>
+     </div>
+     <div>
+     
+   </div>
+   
+   <div class="data">
+
+  </div> 
+  <div class="buttons">
+
+  </div>
+</body>
+</html>
+<script>
+   
+   async function getData() {
+    var name = document.querySelector(".tesla").value;
+    console.log(name)
+try {
+    let response = await fetch(`https://newsapi.org/v2/everything?q=${name}&from=2021-05-26&sortBy=publishedAt&apiKey=1cf022a954484d1a907d95a894ef999c`);
+    let data = await response.json();
+    return data;
+
+}
+catch (e) {
+    console.log(e)
+}
+finally {
+    console.log('Promise settled')
+}
+
+}
+//Asunc functin always amke a promise.
+
+var data; //Global variable.
+var datadiv = document.querySelector('.data');
+async function main() {
+ data = await getData();//Bcoz of Async Function Await Bcoz it's promise
+console.log(data);
+showButtons(1);//important
+
+}
+//main()
+
+//Step 2 :Button Part
+
+function showButtons(index) {
+
+console.log(index)
+let buttonsdiv = document.querySelector('.buttons');
+
+buttonsdiv.innerHTML = null;
+
+let originalId = index;
+if (index <= 6) {
+    index = 6;
+ }
+else if (index > 20) { //for edge case.
+    index = 20;
+}
+
+for (let i = index-5; i <= index+4; i++){
+    let btn = document.createElement('button');
+    btn.innerText = `${i}`;
+    btn.setAttribute('id', `${i}`);
+    btn.onclick = showData;
+    buttonsdiv.append(btn);
+}
+
+let btn = document.getElementById(originalId);
+btn.style.background = 'green';
+}
+
+//Step 3 :showing data.
+function showData() {
+let id = Number(this.id);
+console.log(this.id);
+let num = id - 1;
+let pageData = data.articles[num];
+console.log(pageData);
+let datadiv = document.querySelector('.data');
+
+datadiv.innerHTML = null;
+//console.log(pageData);
+
+let div = document.createElement('div');
+        let para1 = document.createElement('h4');
+        para1.innerText = `${num + 1}) Date&Time: ${pageData.publishedAt}`;
+        let para4 = document.createElement('h3');
+        para4.innerText = `Title: ${pageData.title}`;
+        let para2 = document.createElement('p');
+        para2.innerText = `Description: ${pageData.description}`;
+        let para3 = document.createElement('h3');
+        para3.innerText = `Author: ${pageData.author}`;
+        let img = document.createElement('img');
+        img.setAttribute('src', pageData.urlToImage)
+        
+        
+
+        div.append(img, para1, para4, para2, para3)
+        datadiv.append(div);
+
+showButtons(id); //Since on each click event i also want change button name.
+}
+</script>

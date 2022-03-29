@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>styleUsingJS&loop.HTML</title>
+      <style>
+        .row {
+          padding: 10px;
+          font-size: 16px;
+          color: white
+        }
+      </style>
+    </head>
+    <body>
+        <div id="container">
+        </div>
+        <button onclick="createStudents()">Create</button> 
+    </body>
+</html>
+
+<script>
+    var students = ['Ajay','Akshay','Anusha','Chandrashekhara','Haren','Hasaan','Mahesh','Mousumi','Pavan','Rahul','Sumanta','Venkatesh','Vetrival','Vijayendra'];
+    
+    function createStudents(){
+        var cont = document.getElementById('container');
+
+        for(var i=0 ; i<students.length ; i++){
+            var code = 60+(i*5);
+            var bg = 'rgb('+code+','+code+','+code+')';
+
+            var ele = document.createElement('div');
+            ele.textContent=students[i]+'-'+code;
+            ele.setAttribute('class','row');
+            ele.style.backgroundColor=bg;
+            ele.style.fontSize = (16+i)+'px';
+            cont.appendChild(ele)
+
+        }
+    }
+</script>

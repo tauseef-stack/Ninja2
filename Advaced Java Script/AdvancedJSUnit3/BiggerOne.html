@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form Real (DataBase)</title>
+    <style>
+        #outter{
+            width:25%;
+            margin: 25px auto;
+            box-shadow:  0 0 3px black;
+            text-align: center;
+            padding:2%;
+        }
+        #next{
+            width:25%;
+            margin: auto;
+            box-shadow:  0 0 3px black;
+            text-align: center;
+            padding:2%;
+        }
+        input{
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center">Full Registration form</h1>
+    <div id="outter">
+        <h1>Registeration</h1>
+        <!--Form1 For sending & storing Data-->
+        <form onsubmit = "Register(event)" id="form">
+        <label>name</label>
+        <br>
+      <input type="text" id="name"/>
+      <br>
+      <label>email</label>
+      <br>
+      <input type="text" id="email"/>
+      <br>
+      <label>password</label>
+      <br>
+      <input type="password" id="password"/>
+      <br>
+      <label>username</label>
+      <br>
+      <input type="text" id="username"/>
+      <br>
+      <label>mobile</label>
+      <br>
+      <input type="number" id="mobile"/>
+      <br>
+      <label>description</label>
+      <br>
+      <input type="text" id="desc"/>
+      <br>
+      <button type="submit" id="btn">submit</button>
+        </form>
+    </div>
+
+      <!--Form2 For verfication & fetching myData-->
+    <div id="next">
+        <h1>Login Credentials</h1>
+        <form id="form2" onsubmit="login(event)">
+            <label>username</label>
+            <br>
+            <input type="text" id="username2">
+            <br>
+            <label>password</label>
+            <br>
+            <input type="text" id="password2">
+            <br>
+            <button type="submit" id="btn2">submit</button>
+        </form>
+    </div>
+    
+ 
+</body>
+</html>
+<script>
+    function Register(e){
+        e.preventDefault();
+
+        let formData = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value,
+            username: document.getElementById("username").value,
+            mobile: document.getElementById("mobile").value,
+            description: document.getElementById("desc").value,
+
+        }
+        
+        formData = JSON.stringify(formData) //converting into json.
+
+        console.log(formData); //Must be Able to see my input into form of json
+         fetch("https://masai-api-mocker.herokuapp.com/auth/register", {
+             method: 'POST', //Using fetch keyword but actually posting data and retriving message. 
+             body: formData, //we need to write whatever we want to send in json format.
+             //mode:'no-cors'   //additional information for your request. if error is coming.
+
+            
+             headers: {
+                 'content-Type':'application/json' //we will be treated on server as applicant.
+             },
+         }) //end of fetch request.
+         .then((res)=>{       //these are for converting promise message into readable format.after posting data.
+             return res.json()
+         }) .then ((res) => {
+             console.log(res)
+         }).catch((err) => {
+             console.log(err)
+         })
+    }
+
+
+    function  login(e){   //Once we send and store data into the database,now veryfying and getting token for my info.
+        e.preventDefault()
+        let formData = {
+            username:document.getElementById("username2").value,
+            password:document.getElementById("password2").value,
+        }
+        let body = JSON.stringify(formData) //converting into json.
+
+        console.log(formData);
+         fetch("https://masai-api-mocker.herokuapp.com/auth/login", {
+             method: "POST", //again we need to post it to server for verfication
+             body: body,    //body == json data ,,, formData == object;
+             //mode:'no-cors'   //additional information fr your request.
+
+            
+             headers: {
+                 'content-Type':'application/json'
+             },
+         })
+         .then((res)=>{ //bcoz we are recieving token and msg in terms of promise.
+             return res.json()
+         } ) .then ((res) => {
+             console.log(res)
+             console.log(res.token,formData.username)
+             //here we are getting response. token and username
+             getprofile(res,formData) //this is for getting the data.
+
+         }).catch((err) => {
+             console.log(err)
+         })
+
+         //2a38bea80307c12d8579232493c6c782  token nnneeewww
+    }
+   
+
+   function getprofile({token},{username}){
+      fetch(`https://masai-api-mocker.herokuapp.com/user/${username}`, {
+         //no need of posting bcoz we are getting our data and not also body format;  
+        headers:{
+              'Authorization' : `Bearer ${token}`,
+          },
+      })
+
+      .then((res)=>{  //these are for conversion of promise into json data format.
+             return res.json()
+         } ) .then ((res) => {
+             console.log(res) //getting data alredy in the form of object not jSOn.
+          
+
+         }).catch((err) => {
+             console.log(err)
+         })
+
+         
+   }
+</script>

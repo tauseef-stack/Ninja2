@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>SetAttribuite.HTML</title>
+    <style>
+        .change{
+            font-size: 35px;
+            color: red;
+            border: 2px solid black;
+        }
+        #change{
+            font-size: 35px;
+            background: blueviolet;
+            border: 2px solid red;
+        }
+    </style>
+    </head>
+    <body>
+       <div>First Div</div> 
+       <div>Second Div</div>
+       <p>First Para</p> 
+       <p>Second Para</p> 
+       <button onclick="changestyle()">DOM</button>
+    </body>
+</html>
+<script>
+  
+    function changestyle(){
+        var fd = document.querySelector('div')
+        var fp = document.querySelector('p')
+        fd.setAttribute('class','change')
+        fp.setAttribute('id','change')
+    }
+</script>

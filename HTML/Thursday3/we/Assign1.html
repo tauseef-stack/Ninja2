@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Dom Random Color</title>
+    </head>
+    <body>
+        <h1 id="heading">Change the buttons text color random value</h1>
+  <button id="btn">Click here to change my color</button> 
+  <button id="btn2">Click Me To Change My Color</button>
+    </body>
+</html>
+
+<script>
+    var btn = document.getElementById('btn')
+    var head = document.getElementById('heading');
+    function random(number){
+        return Math.floor(Math.random()*number)
+    }
+    function setRandomColor(){
+        var col = 'rgb('+random(255)+','+random(255)+','+random(255)+')';
+        
+        btn.style.color=col;
+        head.style.color=col;
+    }
+    btn.addEventListener('click',setRandomColor);
+
+    var arr = ['red','green','blue','aqua','cyan','blue','lime','blueviolet','lightgrey','salmon'];
+    var btn2 = document.getElementById('btn2')
+    var id = 0;
+    function click(){
+        btn2.style.color=arr[id];
+        id++;
+    }
+    btn2.addEventListener('click',click)
+</script>

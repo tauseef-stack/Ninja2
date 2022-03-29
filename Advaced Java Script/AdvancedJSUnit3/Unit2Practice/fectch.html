@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Functionality</title>
+</head>
+<body>
+    <h1>Fetch Functionality</h1>
+</body>
+</html>
+<script>
+    //Without Async function.
+     fetch('https://reqres.in/api/users/2')
+     .then((res)=> {
+         res.json().then((res)=> {
+              let{email} = res.data;
+              console.log(email)
+         });
+     })
+
+     async function data(){
+         let res = await fetch('https://reqres.in/api/users/2')
+         let data1 = await res.json();
+         console.log(data1)
+     }
+     data();
+</script>

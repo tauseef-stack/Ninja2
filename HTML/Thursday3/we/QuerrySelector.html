@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Querry Selector</title>
+    </head>
+    <body>
+       <div class="class1">First Div</div>
+       <div class="class2">Second Div</div>
+       <p class="class1">First para</p>
+       <p class="class2">Second para</p>
+       <button onclick="changeContent()">Change Dom</button>
+       <button onclick="changeAllContent()">Change All Dom</button>
+        <button onclick="changeByClass()">Change Dom By Class</button>   
+    </body>
+</html>
+
+<script>
+    function changeContent(){
+        var fd = document.querySelector('div');
+       
+        fd.style.color="red";
+        fd.innerHTML="MASAI"
+        var fp = document.querySelector("p")
+        fp.style.color="blue"
+        fp.innerHTML="SCHOOL"
+    }
+    function changeAllContent(){
+        var fd=document.querySelectorAll("div")
+        for(var i=0 ; i<fd.length ; i++){
+            console.log("Must have only Array of Div:",fd);
+            var nfd=fd[i];
+            nfd.style.color="red"
+            nfd.innerHTML="DIV"+(i+1);
+        }
+        var fp = document.querySelectorAll("p")
+           for(var j=0 ; j<fp.length ; j++){
+            var  nfp=fp[j];
+            nfp.style.color="blueviolet";
+            nfp.innerHTML="para"+(j+10)
+           }
+           var sfp=fp[1]
+           sfp.innerHTML="MASAI"
+    }
+    function changeByClass(){
+        var element1=document.querySelectorAll(".class1")
+        for(var i=0 ; i<element1.length ; i++){
+            var element=element1[i];
+            element.style.color="red";
+        }
+        var element2=document.querySelectorAll(".class2");
+        for(var j=0 ; j<element2.length ; j++){
+            var elemen=element2[j];
+            elemen.style.color="aqua"
+        }
+    } 
+</script>

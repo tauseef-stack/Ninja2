@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Data From Youtube</title>
+</head>
+<body>
+   <h1>Getting Data From Youtube</h1>
+   <div class='searchdiv'>
+    <input type="text" class="tesla" placeholder="Search">
+ </div>
+ <div class="container">
+    <button onclick="getData()">Search</button>
+ </div>  
+</body>
+</html>
+<script>
+     async function getData() {
+    var name = document.querySelector(".tesla").value;
+    console.log(name)
+try {
+    let response = await fetch(`https://api.serpstack.com/search? access_key=b4cfc39ac0d579408a8350a93f485d99&query=mcdonalds`);
+    let data = await response.json();
+    console.log(data);
+
+}
+catch (e) {
+    console.log(e)
+}
+finally {
+    console.log('Promise settled')
+}
+
+}
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <style>
+         
+           .class1{
+            font-size:30px
+}
+
+          .class2{
+            color:blue
+}
+
+          .class3{
+            background:red
+}
+          .class4{
+              border: 2px solid black;
+          }
+          .class5{
+              box-shadow: 0 5px 10px black;
+          }          
+       </style>
+    </head>
+    <body>
+        <div id="div" class="class1 class2">
+            DIV
+        </div>
+        
+        <button onclick="addClass()">Add Class</button> 
+    </body>
+</html>
+
+<script>
+    function addClass(){
+        var div = document.getElementById('div');
+        var cname = div.getAttribute('class'); //classess in the form of string ==>
+        console.log(cname)
+        cname+=' class3';  //space must be there before class name.
+        console.log(cname)
+        cname+=' class4';
+        console.log(cname);
+        cname+=' class5';
+        console.log(cname)
+        div.setAttribute('class',cname)
+    }
+</script>

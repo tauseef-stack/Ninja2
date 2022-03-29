@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top10Sports</title>
+    <style>
+         body{
+        margin: 0;
+        padding:0;
+        background:lightgray;
+      }
+      .container{
+          position:relative;
+          top: 50px;
+          display:grid;
+          grid-template-columns: 49% 49%;
+          grid-gap:20px;
+          margin: 5% 5% 5% 5%;
+          padding:1%;   
+      }
+      .top10{
+        position:relative;
+          top: 100px;
+      }
+      img{
+          width:30%;
+          height:150px;
+          justify-content:center;
+      }
+      h1{
+        text-align:center;
+      }
+      .navoutter{
+       
+      }
+      .navinner{
+        width:100%;
+        margin: 0 0 0 0;
+        display:grid;
+        grid-template-columns: 25% 25% 25%;
+        grid-gap:12%;
+        padding:0.5%;
+        background-color:salmon;
+        position:fixed;
+        top:0;
+        z-index:5;
+
+      }
+      .navinner a div{
+        text-align:center;
+        background:blueviolet;
+        border-radius:50%;
+        padding:1.5%;
+      } 
+      a{
+        text-decoration:none;
+        color:black;
+      }
+    </style>
+</head>
+<body>
+    <div class="navoutter">
+        <div class="navinner">
+          <a href="top10Sports.html">
+           <div>
+             <h3>Sports</h3>
+           </div>
+          </a>
+          <a href="topEntertainment.html">
+           <div>
+             <h3>Entertainment</h3>
+           </div>
+          </a>
+          <a href="top10Technology.html">
+           <div>
+             <h3>Texhnology</h3>
+           </div>
+          </a>
+          
+        </div>
+      </div>
+    <h1 class="top10">Top 10 Sports</h1>
+    <div class="container">
+      
+    </div>
+</body>
+</html>
+<script>
+  async function getData(){
+    try{
+        let response = await fetch("https://newsapi.org/v2/everything?q=Sports=2021-06-26&sortBy=popularity&apiKey=1cf022a954484d1a907d95a894ef999c");
+        let data = await response.json();
+        return data;
+    }
+    catch(e){
+        console.log(e)
+    }
+    finally{
+        console.log("Promise is settled")
+    }
+}
+var data;
+async function topnews() {
+    data = await getData();
+    data = data.articles;
+    console.log(data);
+    dom()
+}
+topnews()
+
+function dom() {
+    for (var i = 0; i < 10; i++){
+        let div = document.createElement('div');
+        let para1 = document.createElement('h4');
+        para1.innerText = `${i + 1}) Date&Time: ${data[i].publishedAt}`;
+        let para4 = document.createElement('h3');
+        para4.innerText = `Title: ${data[i].title}`;
+        let para2 = document.createElement('p');
+        para2.innerText = `Description: ${data[i].description}`;
+        let para3 = document.createElement('h3');
+        para3.innerText = `Author: ${data[i].author}`;
+        let img = document.createElement('img');
+        img.setAttribute('src', data[i].urlToImage)
+        
+        let head = document.querySelector('.container');
+
+        div.append(img, para1, para4, para2, para3)
+        head.append(div);
+
+    }
+   
+}
+</script>

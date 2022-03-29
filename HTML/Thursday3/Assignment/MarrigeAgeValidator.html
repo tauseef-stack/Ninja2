@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Marrige Validator</title>
+    </head>
+    <body>
+        <select name="Gender" id="mySelect">
+           <option value="male">Male</option>
+           <option value="female">Female</option>
+        </select>
+       <input type="text" id="Marriage" placeholder="Enter Your Year Of Birth">
+       <button onclick="marriageValidator()">Check Your Eligibility</button>
+    </body>
+</html>
+<script>
+  function marriageValidator(){
+    var yr = document.getElementById('Marriage').value;
+    var age = 2021-yr;
+    var gen = document.getElementById('mySelect').value;
+        if (age>21 && gen=='male'){
+          alert('You are Eligible for Marriage')
+        }
+        else if(age<21 && gen=='male'){
+          alert('You need to wait some time For a Marriage')
+        }
+        else if(age==21 && gen=='male'){
+          alert('You Are Eligible but Why in So Much hurry!')
+        }
+
+        if (age>18 && gen=='female'){
+          alert('You are Eligible for Marriage')
+        }
+        else if(age<18 && gen=='female'){
+          alert('You need to wait some time For a Marriage')
+        }
+        else if(age==18 && gen=='female'){
+          alert('You Are Eligible but Why in So Much hurry!')
+        }
+  }
+</script>

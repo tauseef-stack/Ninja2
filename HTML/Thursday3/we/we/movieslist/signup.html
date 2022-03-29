@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Signup page</title>
+    <style>
+        #signup{
+            width: 40%;
+            margin: auto;
+        }
+        input{
+            width: 80%;
+            margin: auto;
+            font-size: 25px;
+            background: black;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px black;
+            margin-bottom: 30px;
+            color: white;
+
+        }
+         button{
+             width: 87%;
+             margin: auto;
+            font-size: 25px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px black;
+            background: -webkit-linear-gradient(45deg,black,white,black);
+         }
+         h1{
+             text-align: center;
+             font-family: cursive;
+             font-weight: 400;
+             color:grey;
+             text-decoration: solid;
+         }
+
+    </style>
+</head>
+<body>
+     <h1>Welcome To Signup Page</h1>
+    <h1>Please Enter Following Details For Signup</h1>
+    <hr>
+    <div id="signup">
+        <form id="form">
+            <input type="text" id="name" placeholder="Enter Your Name">
+            <br>
+            <input type="number" id="number" placeholder="Enter Your Contact number">
+            <br>
+            <input type="text" id="email" placeholder="Enter Your Email Address">
+            <br>
+            <input type="password" id="password" placeholder="Enter Your password">
+            <br>
+            <button onclick="datacollect(event)">Enter For Signup</button>
+        </form> 
+       
+    </div>
+</body>
+</html>
+
+<script>
+    function datacollect(e){
+        
+         e.preventDefault()
+        var name = form.name.value;
+        var number = form.number.value;
+        var email = form.email.value;
+        var password = form.password.value;
+        if(form.name.value=="" || form.number.value=="" || form.email.value=="" || form.password.value==""){
+            alert('Please Fill The Empty Field');
+        }
+        var obj = {
+            name,
+            number,
+            email,
+            password
+        }
+        var arr;
+        arr = localStorage.getItem('moviedata') ;
+        if(arr==null){
+            arr = [];
+        }
+        else{
+            arr = JSON.parse(localStorage.getItem('moviedata'));
+        }
+        
+        arr.push(obj);
+        localStorage.setItem('moviedata',JSON.stringify(arr));
+        console.log(arr);
+        form.name.value= null;
+        form.number.value = null;
+        form.email.value = null;
+        form.password.value = null;
+    }
+</script>

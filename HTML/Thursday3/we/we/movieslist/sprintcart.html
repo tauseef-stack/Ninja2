@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sprint cart</title>
+    <style>
+          body{
+            background:grey
+        }
+       #navbar{
+            border: 1.5px solid black;
+            text-align: right;
+            height: 35px;
+            background: deeppink ;
+            margin-bottom: 50px;
+        
+        
+        }
+        a{
+            font-size: 30px;
+            padding: 15px;
+            margin: 20px;
+            text-decoration: none;
+            color: deeppink;
+            
+        }
+        #navbar > div{
+            float: right;
+            background-color: blueviolet;
+            margin: 0 20px;
+            border-radius: 50%;
+        }
+        #cont{
+         width: 95%;
+         margin: auto;
+         display: grid;
+         grid-gap: 3%;
+         grid-template-columns: 33% 33% 33%;
+
+     }
+     #cont> div{
+         margin: auto;
+        
+         text-align: center;
+     }
+     #cont> div> img{
+       width: 75%;
+       height: 350px;
+       border-radius: 10px;
+       box-shadow: 0 0 10px black;
+     }
+     button{
+         padding: 15px;
+         font-size: 15px;
+         background:-webkit-linear-gradient(45deg,black,white,black);
+         border-radius: 10px;
+         color: black;
+         margin-bottom: 15px;
+         margin-left: 15px;
+     }
+     h5{
+         color: blue;
+     }
+     p{
+         font-family: fantasy;
+         color: brown;
+     }
+     h3{
+         font-family: cursive;
+         color: rgb(243, 176, 30);
+     }
+     h1{
+         color : blueviolet;
+     }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+       
+        <div>
+          <a href="sprint4signup.html">Signup</a>
+      </div>
+      <div>
+          <a href="sprint4login.html">login</a>
+      </div>
+      <div>
+        <a href="sprint4menu.html">Menu</a>
+    </div>
+     </div>
+   <h1>Order Placed Cart Items</h1>
+   <div id="cont">
+
+   </div>
+</body>
+</html>
+<script>
+    var arr2 = JSON.parse(localStorage.getItem('foodlist'));
+  
+    
+        var cont = document.getElementById('cont');
+        arr2.forEach(el => {
+        var div = document.createElement('div');
+        var img = document.createElement('img');
+        img.setAttribute('src',el.image);
+        
+        var para1 = document.createElement('h3');
+        para1.innerHTML = `${el.descr}`;
+        var para2 = document.createElement('p');
+        para2.innerHTML =  `Price: ${el.price} Rs.`;
+       
+        var rating = document.createElement('h5');
+        rating.innerHTML = `Time: ${el.time} Min`
+        div.append(img,para1,para2,rating);
+      
+        cont.append(div);
+
+    });
+
+  setinterval(function() {
+      alert('Order is Accepted')
+  },0);
+  setinterval(function() {
+      alert('your Order Is Being Coocked')
+  },3000);
+  setinterval(function() {
+      alert('your Order Is ready')
+  },8000);
+  setinterval(function() {
+      alert('Order Delivered')
+  },12000);
+</script>

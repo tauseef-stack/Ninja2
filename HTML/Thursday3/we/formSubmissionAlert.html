@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Form Submission Alert</title>
+    </head>
+    <body>
+      <form id="signup">
+          <input type="Email" id="Email"/>
+          <input type="Password" id="Password">
+          <input type="submit" value="submit" id="sub">
+      </form>
+      <p id="error"></p> 
+    </body>
+</html>
+
+<script>
+    var mail = document.getElementById('Email');
+    var pass = document.getElementById('Password');
+    var sub = document.getElementById('sub');
+    var form = document.getElementById('signup');
+    var para = document.getElementById('error');
+
+    function validate(e){
+        if(mail.value=='' || pass.value==''){
+            e.preventDefault();
+            para.textContent='Enter Mail Or Password'
+        }
+    }
+    form.addEventListener('submit',validate)
+</script>

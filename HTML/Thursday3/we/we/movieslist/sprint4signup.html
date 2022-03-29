@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp page for Registeration</title>
+    <style>
+        #signup{
+            width: 25%;
+            margin: auto;
+            height: 350px;
+            text-align: center;
+            background: grey;
+            border-radius: 10px;
+           
+        }
+        input{
+            width: 80%;
+            margin-top: 7px;
+            font-size: 15px;
+            background: black;
+            padding: 15px;
+            border-radius: 10px;
+           
+            margin-bottom: 15px;
+            color: white;
+
+        }
+         button{
+             width: 90%;
+             margin: auto;
+            font-size: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px black;
+            background: -webkit-linear-gradient(45deg,black,white,black);
+         }
+         h1{
+             text-align: center;
+             font-family: cursive;
+             font-weight: 400;
+             color:grey;
+             text-decoration: solid;
+         }
+         #navbar{
+            border: 1.5px solid black;
+            text-align: right;
+            height: 35px;
+            background: deeppink ;
+        
+        
+        }
+        a{
+            font-size: 30px;
+            padding: 15px;
+            margin: 20px;
+            text-decoration: none;
+            color: deeppink;
+            
+        }
+        #navbar > div{
+            float: right;
+            background-color: blueviolet;
+            margin: 0 20px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+      
+        <div>
+          <a href="sprint4signup.html">Signup</a>
+      </div>
+      <div>
+          <a href="sprint4login.html">login</a>
+      </div>
+      <div>
+          <a href="sprint4menu.html">Menu</a>
+      </div>
+     
+     </div> 
+    <h1>Welcome To Signup Page</h1>
+    <h1>Please Enter Following Details For Signup</h1>
+    <hr>
+    <div id="signup">
+        <form id="form">
+            <input type="text" id="name" placeholder="Enter Your Name">
+            <br>
+            <input type="number" id="number" placeholder="Enter Your Contact number">
+            <br>
+            <input type="text" id="email" placeholder="Enter Your Email Address">
+            <br>
+            <input type="password" id="password" placeholder="Enter Your password">
+            <br>
+            <button onclick="datacollect(event)">Enter For Signup</button>
+        </form>  
+</body>
+</html>
+<script>
+    function datacollect(e){
+        
+        e.preventDefault()
+       var name = form.name.value;
+       var number = form.number.value;
+       var email = form.email.value;
+       var password = form.password.value;
+       if(form.name.value=="" || form.number.value=="" || form.email.value=="" || form.password.value==""){
+           alert('Please Fill The Empty Field');
+       }
+       else{
+        var obj = {
+           name,
+           number,
+           email,
+           password
+       }
+       var arr;
+       arr = localStorage.getItem('fooduser') ;
+       if(arr==null){
+           arr = [];
+       }
+       else{
+           arr = JSON.parse(localStorage.getItem('fooduser'));
+       }
+       
+       arr.push(obj);
+       localStorage.setItem('fooduser',JSON.stringify(arr));
+       console.log(arr);
+       form.name.value= null;
+       form.number.value = null;
+       form.email.value = null;
+       form.password.value = null;
+       alert('Registeration Successful')
+       }
+     
+   }
+
+</script>

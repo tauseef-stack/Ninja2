@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dbouncing</title>
+    <style>
+       .container{
+          width:200px;
+          height:206px;
+          border:1px solid black;
+          overflow: scroll;
+       }
+    </style>
+</head>
+<body>
+    <h1>Debouncing</h1>
+    <input type="text" id="search" oninput="throttlefunction(main,200)" placeholder="search box">
+                     <!--Throttle function will react in every 2 seconds after keyup or oninput-->
+    <div class="container">
+
+    </div>
+</body>
+</html>
+<script>
+    var head = document.querySelector('.container');
+
+    var timerid ;
+    async function searchMovies(){
+        let name = document.querySelector("#search").value;
+
+        if(name.length<=2){
+          return false; //only return also //we are return nothing means by default it is false;which means Directly come out of the function do not execute further blocks of code.
+
+        }
+        let res = await fetch(`http://www.omdbapi.com/?s=${name}&apikey=bcfcf9f7`);
+        let data = await res.json(); //incase of fetch we need to use await keyword 2 times.
+        return data;
+    }
+
+    function appendMovies(movies){
+          head.innerHTML = null;
+
+          movies.forEach(({Title}) => {
+
+            let p = document.createElement('p')
+        p.innerText =Title
+        head.append(p)
+
+          });
+      
+    }
+
+    async function main(){
+
+        console.log("fired");
+        let {Search} = await searchMovies(); //data(object)
+         console.log("from Again Async:",Search)
+         if(Search){
+            appendMovies(Search)
+         }
+       
+    }
+    
+
+    function throttlefunction(func, delay){ // This function is used for delaying function call //for main functoion
+        //if set time out is already there no need to do anything
+        console.log(timerid)
+        if(timerid){
+            return false;
+        }
+  
+    timerid = setTimeout(() => {
+           
+          func(); //main()  
+
+          timerid = undefined;
+        }, delay);
+    }
+
+   
+</script>

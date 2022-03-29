@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transformation</title>
+    <style>
+       #container{
+           width: 200px;
+           height: 300px;
+           margin: 100px auto;
+           box-shadow: 0 0 10px black;
+           position: relative;
+          overflow: hidden;
+       }
+       img{
+           width: inherit;
+           height: inherit;
+           transition: all 0.5s;
+       }
+       #para{
+           background: rgba(244,244,244,0.5);
+           text-align: center;
+           position: absolute;
+           bottom: -28%;
+           transform: all 0.5s;
+       }
+       #container:hover #para{
+           bottom: 0%;
+       }
+      #container:hover img{
+           transform: translateY(-28%);
+       }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img src="https://images.pexels.com/photos/7151632/pexels-photo-7151632.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="photo">
+        <div id="para">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, possimus!</p>
+        </div>
+    </div>
+</body>
+</html>

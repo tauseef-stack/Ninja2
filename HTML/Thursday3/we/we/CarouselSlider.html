@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+           margin: 0;
+           padding: 0;
+        }
+        html{
+            font-size: 10px;
+        }
+        .crouselcontainer{
+            margin-top: 300px;
+           text-align: center;
+           display: flex;
+           margin:  auto;
+           width: 500px;
+           height: 500px;
+           position: relative;
+           overflow: hidden;
+        }
+        
+        img{
+            width: 500px;
+            height: inherit;
+            transition-duration: all 2s;
+        }
+        .crouselcontainer:hover img{
+            transform: translateX(-500px);
+        }
+        
+        
+        button{
+            background: teal;
+            border-radius: 50%;
+            color: greenyellow;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+    
+            position: absolute;
+            
+            width: 20px;
+        
+            
+        }
+    
+        
+    </style>
+</head>
+<body>
+
+    <button id="previous"> < </button>
+   
+        
+      <div class="crouselcontainer">
+          <img src="https://d2j1wkp1bavyfs.cloudfront.net/image-assets/17478/A7fxXAsuYEohxYNl8YeH3FYkuDv.jpg?d=360x540&q=50" alt="photo">
+          <img src="https://th.bing.com/th/id/Rf048112695b3bf48c4bfb3c4255d933f?rik=9w2Tzhpfilm8dQ&riu=http%3a%2f%2f4.bp.blogspot.com%2f-JSKCnfihxl0%2fT8kZSgaNRgI%2fAAAAAAAABpQ%2fwidey89A5XI%2fs1600%2fd2.jpg&ehk=3uiUBDbkP%2b5AYHyymboQ2Qp%2bcufqhZk88XxIa3Ju8Y0%3d&risl=&pid=ImgRaw" alt="photo">
+          <img src="https://vignette.wikia.nocookie.net/marvelmovies/images/8/8f/2012_Avengers_Poster.jpg/revision/latest?cb=20140224212535" alt="photo">
+          <img src="https://cdn.flickeringmyth.com/wp-content/uploads/2018/04/Avengers-Infinity-War-posters-56-1.jpg" alt="photo">
+          <img src="https://fanart.tv/fanart/movies/10195/movieposter/thor-5218a8a995085.jpg" alt="photo">
+      </div>
+       
+
+    <button id="next"> > </button>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- saved from url=(0087)file:///C:/Users/USER/OneDrive/Desktop/ninjas2/HTML/Thursday3/we/MousePlay_Assign4.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+      <title>Mouse_Play</title>
+      <style>
+        #container{
+        width:350px;
+        height: 200px;
+        background: skyblue;
+        border-radius: 10px;
+        text-align: right;
+      
+      }
+      #sub{
+        font-size: 40px;
+        background-color: brown;
+        color: white;
+        margin-top: 147px;
+      }
+      </style>
+      
+    </head>
+    <body>
+       <div id="container">
+      <input type="submit" value="submit" id="sub" style="background: brown;">
+       </div>
+    
+
+
+<script>
+  var div = document.getElementById('container');
+  function changeColor(){
+    var btn = document.getElementById('sub');
+    btn.style.background='lime'
+  }
+  div.addEventListener('mouseover',changeColor)
+  function remove(){
+    var btn = document.getElementById('sub');
+    btn.style.background='brown'
+  }
+  div.addEventListener('mouseout',remove)
+ 
+</script></body></html>

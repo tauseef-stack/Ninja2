@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Home Page</title>
+    <style>
+        .maincontainer div{
+            width:30%;
+            text-align:center;
+            margin:auto;
+            box-shadow: 0 0 3px black;
+            padding:2%;
+        }
+    </style>
+</head>
+<body>
+    <h1 style='text-align:center'>Google Home Page</h1>
+    <div class='maincontainer'>
+        <div class="imgdiv">
+            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="google">
+         </div>
+         <div class='searchdiv'>
+            <input type="text" class="tesla" placeholder="Search">
+         </div>
+         <div class="container">
+            <button onclick="main()">Search</button>
+         </div> 
+         <div class="data">
+
+        </div> 
+        <div class="buttons">
+      
+        </div>
+    </div>
+  
+    
+      
+   
+</body>
+</html>
+<script>
+     async function getData() {
+    var name = document.querySelector(".tesla").value;
+    console.log(name)
+try {
+    let response = await fetch(`https://newsapi.org/v2/everything?q=${name}&from=2021-05-29&sortBy=publishedAt&apiKey=1cf022a954484d1a907d95a894ef999c`);
+    let data = await response.json();
+    return data;
+
+}
+catch (e) {
+    console.log(e)
+}
+finally {
+    console.log('Promise settled')
+}
+
+}
+//Asunc functin always amke a promise.
+
+var data; //Global variable.
+var datadiv = document.querySelector('.data');
+async function main() {
+ data = await getData();//Bcoz of Async Function Await Bcoz it's promise
+console.log(data);
+showButtons(1);//important
+
+}
+//main()
+
+//Step 2 :Button Part
+
+function showButtons(index) {
+
+console.log(index)
+let buttonsdiv = document.querySelector('.buttons');
+
+buttonsdiv.innerHTML = null;
+
+let originalId = index;
+if (index <= 6) {
+    index = 6;
+ }
+else if (index > 20) { //for edge case.
+    index = 20;
+}
+
+for (let i = index-5; i <= index+4; i++){
+    let btn = document.createElement('button');
+    btn.innerText = `${i}`;
+    btn.setAttribute('id', `${i}`);
+    btn.onclick = showData;
+    buttonsdiv.append(btn);
+}
+
+let btn = document.getElementById(originalId);
+btn.style.background = 'green';
+}
+
+//Step 3 :showing data.
+function showData() {
+let id = Number(this.id);
+console.log(this.id);
+let num = id - 1;
+let pageData = data.articles[num];
+console.log(pageData);
+let datadiv = document.querySelector('.data');
+
+datadiv.innerHTML = null;
+//console.log(pageData);
+
+let div = document.createElement('div');
+    div.style.width = '90%';
+        let para1 = document.createElement('h4');
+        para1.innerText = `${num + 1}) Date&Time: ${pageData.publishedAt}`;
+        let para4 = document.createElement('h3');
+        para4.innerText = `Title: ${pageData.title}`;
+        let para2 = document.createElement('p');
+        para2.innerText = `Description: ${pageData.description}`;
+        let para3 = document.createElement('h3');
+        para3.innerText = `Author: ${pageData.author}`;
+        let img = document.createElement('img');
+        img.setAttribute('src', pageData.urlToImage)
+        img.style.width = '90%';
+        
+        
+
+        div.append(img, para1, para4, para2, para3)
+        datadiv.append(div);
+
+showButtons(id); //Since on each click event i also want change button name.
+}
+</script>

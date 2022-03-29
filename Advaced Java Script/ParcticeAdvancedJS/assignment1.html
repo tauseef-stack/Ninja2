@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="num"></div>
+    <button onclick="change()" id="btn">Change Color With Number</button>
+</body>
+</html>
+
+<script>
+    function change(){
+        var div = document.getElementById('num');
+        var i = Math.floor(Math.random()*7);
+        div.innerHTML=i;
+        div.style.fontSize='400px'
+        div.style.fontWeight='700'
+        if(i==0){
+            div.style.color='lime'
+        }
+        if(i==1){
+            div.style.color='red';
+        }
+        if(i==2){
+            div.style.color='blue';
+        }
+        if(i==3){
+            div.style.color='purple';
+        }
+        if(i==4){
+            div.style.color='blueviolet';
+        }
+        if(i==5){
+            div.style.color='aqua';
+        }
+        if(i==6){
+            div.style.color='green';
+        }
+    }
+</script>

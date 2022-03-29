@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementation of powerfull Pagination</title>
+</head>
+<body>
+    <h1>Pagination From Front End</h1>
+    <div class="minCont">
+        <div id="data">
+           
+        </div>
+        <div id="button">
+    
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    let data; //available universally
+  async  function getData() {
+         try{
+             let res = await fetch("https://jsonplaceholder.typicode.com/comments");
+              data = await res.json();
+              console.log(data);
+         }catch(err){
+             console.log(err)
+         }
+         finally{
+             console.log("Promise is settled")
+         }
+         showButtons(1);
+    }
+    function showButtons(id) {
+        let bCont = document.getElementById('button');
+        bCont.innerText = null;
+        let realId = id;
+        if(id<=6){ //initial condn
+            id=6;
+        }
+        else if(id>=50){ //end Condition ==>
+            id=46;
+        }
+        for(var i=id-5; i<=id+4 ; i++){
+            let btn = document.createElement("button");
+            btn.innerText = `${i}`;
+            btn.onclick = showData;
+            btn.setAttribute("id",i);
+            bCont.append(btn);
+        }
+        document.getElementById(realId).style.backgroundColor = "blueviolet";
+    }
+
+    function showData(){
+       let id = Number(event.target.id);
+       let num = id-1;
+       let pageData = data.slice(num*10,num*10+10);
+       console.log(pageData)
+       let dataCont = document.getElementById('data');
+       dataCont.innerText = null;
+
+       pageData.forEach(el=>{
+           let para = document.createElement('p');
+           para.innerText = `${el.id}) ${el.name}`
+           dataCont.append(para);
+       });
+       showButtons(id);
+    }
+    getData();
+</script>

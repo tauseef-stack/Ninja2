@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Display zigZag model using flex</title>
+      <style>
+          .cont1{
+              width: 60%;
+              margin: auto;
+              display: flex;
+        
+          }
+          .cont1 > div{
+              width: 15%;
+              height: 150px;
+              margin: 20px;
+           background: rgb(125, 230, 230);
+         }
+         .expand{
+             flex-grow: 1;
+         }
+      </style>
+    </head>
+    <body>
+       <div class="cont1">
+          <div></div>
+          <div class="expand"></div>
+          <div></div>
+       </div> 
+
+       <div class="cont1">
+        <div class="expand"></div>
+        <div></div>
+        <div></div>
+     </div> 
+
+     <div class="cont1">
+        <div></div>
+        <div></div>
+        <div class="expand"></div>
+     </div> 
+    </body>
+</html>

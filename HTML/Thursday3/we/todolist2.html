@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Todo List in vanilla JS</title>
+    <style>
+        .done{
+            text-decoration: line-through;
+            color:blueviolet;
+        }
+    </style>
+</head>
+<body>
+   <div class="mainContainer">
+       <div class="inputCont">
+           <input id="inputBox" type="text" placeholder="Enter Your Todo"></input>
+           <button id="Addtodo">Add Todo</button>
+       </div>
+       <div class="taskContainer">
+
+       </div>
+   </div>
+</body>
+</html>
+<script>
+    let id = 0;
+    let btn = document.getElementById('Addtodo');
+    btn.addEventListener('click',getmyTodo);
+
+    function getmyTodo() {
+        id++;
+        let div = document.createElement('div');
+        let myTodo = document.getElementById('inputBox').value;
+         div.innerHTML = `<p id=${id}>${myTodo}</p><button onclick="Done(${id})">Done</button><button onclick="remove(${id})">Remove</button>`;
+          let cont = document.querySelector('.taskContainer');
+          cont.appendChild(div);
+          document.getElementById('inputBox').value = "";
+    }
+
+    function Done(id){
+      let para = document.getElementById(id);
+      para.setAttribute('class','done');
+
+    }
+
+    function remove(id) {
+        let para = document.getElementById(id);
+        let parent = para.parentElement;
+        parent.remove();
+    }
+</script>

@@ -1,0 +1,18 @@
+.bigDiv {
+   display:grid;
+   grid-template-columns: 7% 50% 20% 20%;
+   padding:20px;
+}
+  .image  {
+    margin-top:15px;
+    width: 50px;
+    height: 40px
+  }
+  .image1  {
+    width: 90px;
+    height: 90px
+  }
+  .btn{
+    padding:20px;
+    width: 170px;
+  }

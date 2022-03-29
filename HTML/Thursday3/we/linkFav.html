@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Favourate</title>
+     <style>
+          img{
+            width: 15%;
+            padding: 2%;
+            box-shadow: 0 0 10px black;
+        }
+        #head{
+            display: flex;
+            flex-direction: column;
+        }
+        head > div{
+            border: 2px solid black;
+            border: 10px;
+        }
+        p{
+            font-size: 100%;
+            font-weight: 800;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+     </style>
+</head>
+<body>
+   <h1> link page from Travel Form</h1>
+   <div id="head">
+
+   </div>
+</body>
+</html>
+<script>
+    let fav = JSON.parse(localStorage.getItem('location2')); //we need to loop through Data,
+    
+    fav.forEach(el => {
+        var div = document.createElement('div');
+        div.style.border = '2px solid black';
+        div.style.borderRadius = '10px'
+        var loc = document.createElement('p');
+        loc.innerHTML = `Location: ${el.name}`;
+        var rat = document.createElement('p');
+        rat.innerHTML = `Rating: ${el.rating}`;
+        var img = document.createElement('img');
+        img.setAttribute('src',el.image); //img.src = el.image
+            div.append(img,loc,rat);
+        var body = document.querySelector('#head');
+        head.append(div);
+    });
+    
+</script>
